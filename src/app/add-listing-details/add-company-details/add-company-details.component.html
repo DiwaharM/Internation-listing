@@ -1,0 +1,57 @@
+<br>
+<div class="container">
+    <div class="jumbotron" style="width:100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="/action_page.php">
+                        <div class="form-group" style="width: 250px;">
+                            <input type="file" class="form-control-file border" name="file">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-md-6" >
+                    <div class="jumbotron " style="width: 100%; background: rgb(201, 201, 201);">
+                        <div class="c-name" style="padding: 10px;">
+                            <input type="text" class="form-control" placeholder="CompanyName" 
+                                style="width: 400px;">
+                        </div>
+                        <div class="address" style="padding: 10px;">
+                            <input type="text" class="form-control" placeholder="Address" 
+                                style="width: 400px;">
+                        </div>
+                        <div class="site" style="padding: 10px;">
+                                <input type="text" class="form-control" placeholder="Website" 
+                                style="width: 400px;">
+                            </div>
+                        <div class="numb"  style="padding: 10px;">
+                                <input type="text" class="form-control" placeholder="ContactNo:"
+                             style="width: 400px;">
+                            </div>
+
+                            <div  *ngIf="other === false">
+                                <select class="browser-default custom-select mb-3" placeholder="select" >
+                                  <option *ngFor='let data of categories' multiple>
+                                    {{data}}
+                                  </option>
+                                </select>
+                              </div>
+                              <input type="checkbox" (click)='getChecked()'>
+                              <div style="padding: 10px;" *ngIf="other === true">
+                              <input type="text" placeholder="enter category"  class="form-control" style="width: 400px;">
+                            </div>
+                                  <div class="btnnn" style="padding-left: 100px; padding-top: 10px; ">
+                                  <button type="submit" class="btn btn-secondary" style="width: 200px;">Submit</button>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

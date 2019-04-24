@@ -1,0 +1,10 @@
+#parent {
+    display: table;
+    width: 100%;
+    margin:100px 0px; padding:50px;
+ }
+ #form_login {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+ }

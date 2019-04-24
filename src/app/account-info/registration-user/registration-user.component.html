@@ -1,0 +1,20 @@
+<div id="parent">
+  <form id="form_login" [formGroup] = 'registrationUserForm'>
+    <div>
+      <label>Name: </label><input matInput type="text" formControlName = 'userName'>
+    </div>
+    <div>
+      <label>Mobile.no</label><input type="tel" formControlName = 'mobileNumber'>
+    </div>
+    <div>
+      <label>EmailID</label><input type="email" formControlName = 'emailId'>
+    </div>
+    <div>
+      <label>Date Of Birth</label><input type="date" formControlName = 'dateOfBirth'>
+    </div>
+    <div>
+      <button>Submit</button>
+      <button>Cancel</button>
+    </div>
+  </form>
+</div>
