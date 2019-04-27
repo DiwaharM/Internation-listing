@@ -2,7 +2,7 @@
     <form [formGroup]="customerDetailsForm" (ngSubmit)=" addSingleCustomer(customerDetailsForm)">
       <div fxLayout="row wrap" fxLayout.lt-sm="column">
         <div fxFlex="100">
-          <label class="pageBoxLg-label">Subscribe</label>
+          <label class="pageBoxLg-label"><b>For More Details</b></label>
         </div>
         
         <div fxFlex="50" class="p-2">
@@ -10,7 +10,7 @@
           <div *ngIf="!data">
             <mat-form-field class="full-width">
               <input matInput formControlName="mobileNumber"
-               placeholder="Mobile Number" maxlength="10" minlength="10"
+               placeholder="Mobile Number"  minlength="10"
                required>
                <mat-error *ngIf="customerDetailsForm.controls['mobileNumber'].errors?.required"
             >
@@ -53,12 +53,14 @@
         
   
         
-        
+        <div fxFlex="100" class="mt-1">
+          <p style="color: red">Note: Not for Marketing Purpose</p>
+        </div>
         
         <div fxFlex="100" class="mt-1">
             <button mat-raised-button mat-button color="accent" type="button" (click)="cancel()">Cancel</button>
           <span fxFlex></span>
-          <button mat-raised-button type="submit" color="primary">Save</button>
+          <button mat-raised-button type="submit" color="primary">Subscribe</button>
         </div>
       </div>
     </form>

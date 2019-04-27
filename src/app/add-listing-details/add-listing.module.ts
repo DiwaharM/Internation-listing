@@ -30,6 +30,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { AddCompanyDetailsComponent } from './add-company-details/add-company-details.component';
+import { BusinessUserListingComponent } from './business-user-listing/business-user-listing.component';
 
 
 
@@ -37,7 +38,7 @@ import { AddCompanyDetailsComponent } from './add-company-details/add-company-de
 
 
 @NgModule({
-  declarations: [AddCompanyDetailsComponent],
+  declarations: [AddCompanyDetailsComponent, BusinessUserListingComponent],
   imports: [
     CommonModule,
     AddListingRoutingModule,

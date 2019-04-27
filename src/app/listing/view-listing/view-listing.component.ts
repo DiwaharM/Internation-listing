@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getTreeControlMissingError } from '@angular/cdk/tree';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-view-listing',
@@ -8,7 +9,7 @@ import { getTreeControlMissingError } from '@angular/cdk/tree';
 })
 export class ViewListingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   arrayValue = [{companyName: ' Chennai Furniture ', categories: 'listing', country: 'america', rating: '4/10'},
   {companyName: 'Mumbai Garment', categories: 'mobile', country: 'china', rating: '6/10'},
   {companyName: 'Hyundai', categories: 'social', country: 'america', rating: '3/10'},
@@ -18,5 +19,7 @@ export class ViewListingComponent implements OnInit {
   {companyName: 'Ramraj', categories: 'software', country: 'india', rating: '7/10'}];
   ngOnInit() {
   }
-
+  details() {
+this.router.navigate(['listing/viewlistingdetail']);
+  }
 }

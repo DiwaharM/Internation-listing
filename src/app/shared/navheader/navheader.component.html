@@ -1,12 +1,17 @@
 
 <nav class="navbar navbar-expand-lg navbar-light "
  style="background-color: rgb(101, 103, 104); height: 60px;">
+ <div class="logo-img">
+    <a class="navbar-brand"  routerLink="home/welcome">
+      <img src="../../../assets/images/IL.png" class="logo" [routerLink]="['/home/home-page']">
+    </a>
+  </div>
 <div class="collapse navbar-collapse">
   
   <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+     <!--  <li class="nav-item">
           <a class="nav-link navText" [routerLink]="['/home/home-page']" ><h6>Home</h6></a> 
-         </li>
+         </li> -->
     <li class="nav-item"><div (click)="getSubscrbe()">
      <a class="nav-link navText" ><h6>Subscribe</h6></a></div> 
     </li>

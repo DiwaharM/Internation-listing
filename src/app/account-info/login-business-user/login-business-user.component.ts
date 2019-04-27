@@ -19,7 +19,7 @@ export class LoginBusinessUserComponent implements OnInit {
       password: ['']
     });
   }
-  goToCompanyDetails() {
+  onSubmit() {
     this.router.navigate(['add-listing/addcompanydetail']);
   }
 
