@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationUserComponent } from '../account-info/registration-user/registration-user.component';
 import { RegistrationBusinessUserComponent } from './registration-business-user/registration-business-user.component';
 import { LoginBusinessUserComponent } from './login-business-user/login-business-user.component';
-import { SubscribeUserComponent } from './subscribe-user/subscribe-user.component';
+
 
 const routes: Routes = [
   {
@@ -18,10 +18,6 @@ const routes: Routes = [
   {
     path: 'login-business',
     component: LoginBusinessUserComponent
-  },
-  {
-    path: 'subscribe-user',
-    component: SubscribeUserComponent
   }
 ];
 

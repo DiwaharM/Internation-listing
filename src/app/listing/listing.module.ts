@@ -8,6 +8,7 @@ import {
   MatListModule,
   MatTooltipModule,
   MatOptionModule,
+  MatAutocompleteModule,
   MatSelectModule,
   MatMenuModule,
   MatSnackBarModule,
@@ -26,7 +27,7 @@ import {
   MatChipsModule,
   MatInputModule,
   MatStepperModule,
-  MatDatepickerModule,
+  MatDatepickerModule, 
   MatNativeDateModule
 } from '@angular/material';
 import { ViewListingComponent } from './view-listing/view-listing.component';
@@ -48,6 +49,7 @@ import { ViewListingComponent } from './view-listing/view-listing.component';
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule,
+    MatAutocompleteModule,
     MatMenuModule,
     MatSnackBarModule,
     MatGridListModule,

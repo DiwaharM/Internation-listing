@@ -20,30 +20,39 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatExpansionModule,
-  MatPaginatorModule,
   MatRippleModule,
   MatDialogModule,
   MatChipsModule,
   MatInputModule,
+  MatFormFieldModule,
   MatStepperModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatTabsModule,
+  MatSliderModule
 } from '@angular/material';
-
 import { RegistrationUserComponent } from './registration-user/registration-user.component';
 import { RegistrationBusinessUserComponent } from './registration-business-user/registration-business-user.component';
 import { LoginBusinessUserComponent } from './login-business-user/login-business-user.component';
-import { SubscribeUserComponent } from './subscribe-user/subscribe-user.component';
+
 
 @NgModule({
-  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent, SubscribeUserComponent],
+  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatSortModule,
+    MatTabsModule,
+    MatSliderModule,
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule,
@@ -67,6 +76,7 @@ import { SubscribeUserComponent } from './subscribe-user/subscribe-user.componen
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [AcountService]
+  providers: [AcountService],
+  entryComponents: []
 })
 export class AccountModule { }

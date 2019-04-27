@@ -9,13 +9,13 @@ import { getTreeControlMissingError } from '@angular/cdk/tree';
 export class ViewListingComponent implements OnInit {
 
   constructor() { }
-  arrayValue = [{companyName: 'google', categories: 'listing', country: 'america', rating: '4/10'},
-  {companyName: 'nokia', categories: 'mobile', country: 'china', rating: '6/10'},
-  {companyName: 'facebook', categories: 'social', country: 'america', rating: '3/10'},
-  {companyName: 'samsung', categories: 'tv', country: 'korea', rating: '6/10'},
-  {companyName: 'intel', categories: 'microprocessor', country: 'england', rating: '6/10'},
-  {companyName: 'rinteger', categories: 'MEANS tag', country: 'india', rating: '9/10'},
-  {companyName: 'tcs', categories: 'software', country: 'india', rating: '7/10'}];
+  arrayValue = [{companyName: ' Chennai Furniture ', categories: 'listing', country: 'america', rating: '4/10'},
+  {companyName: 'Mumbai Garment', categories: 'mobile', country: 'china', rating: '6/10'},
+  {companyName: 'Hyundai', categories: 'social', country: 'america', rating: '3/10'},
+  {companyName: 'Tcs Software Solution', categories: 'tv', country: 'korea', rating: '6/10'},
+  {companyName: 'Intel', categories: 'microprocessor', country: 'england', rating: '6/10'},
+  {companyName: 'Rinteger', categories: 'MEANS tag', country: 'india', rating: '9/10'},
+  {companyName: 'Ramraj', categories: 'software', country: 'india', rating: '7/10'}];
   ngOnInit() {
   }
 
