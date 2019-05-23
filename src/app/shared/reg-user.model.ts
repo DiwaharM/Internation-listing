@@ -1,6 +1,5 @@
 export class RegistrationUser {
     userName: string;
-    mobileNumber: number;
+    mobileNumber: string;
     emailId: string;
-    dateOfBirth: Date;
 }

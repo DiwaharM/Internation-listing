@@ -1,9 +1,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light "
  style="background-color: rgb(101, 103, 104); height: 60px;">
- <div class="logo-img">
+ <div class="logo-img" *ngFor = 'let header of headers'>
     <a class="navbar-brand"  routerLink="home/welcome">
-      <img src="../../../assets/images/IL.png" class="logo" [routerLink]="['/home/home-page']">
+      <img [src]="header.logoImageName" class="logo" [routerLink]="['/home/home-page']">
     </a>
   </div>
 <div class="collapse navbar-collapse">

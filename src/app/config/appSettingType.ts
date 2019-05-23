@@ -1,0 +1,3 @@
+interface AppSettingType {
+    serviceUrl: string;
+}

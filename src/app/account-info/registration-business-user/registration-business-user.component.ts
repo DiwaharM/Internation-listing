@@ -19,6 +19,9 @@ export class RegistrationBusinessUserComponent implements OnInit {
 
 
   ngOnInit() {
+   this.createForm();
+  }
+  createForm() {
     this.firstFormGroup = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -34,7 +37,5 @@ export class RegistrationBusinessUserComponent implements OnInit {
     });
   }
 }
-  /* goToPayment() {
-    this.router.navigate(['payment/payment-package']);
-  } */
+
 

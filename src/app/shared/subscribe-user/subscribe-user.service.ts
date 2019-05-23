@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Observable } from 'rxjs';
 import { SubscribeUserComponent } from './subscribe-user.component';
+import { RegistrationUser } from '../reg-user.model';
 
 @Injectable({
   providedIn: 'root'

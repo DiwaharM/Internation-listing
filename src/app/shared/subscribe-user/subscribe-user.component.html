@@ -1,5 +1,5 @@
 <div class="container topAlignContainer">
-    <form [formGroup]="customerDetailsForm" (ngSubmit)=" addSingleCustomer(customerDetailsForm)">
+    <form [formGroup]="customerDetailsForm" (ngSubmit)="addSingleCustomer(customerDetailsForm)">
       <div fxLayout="row wrap" fxLayout.lt-sm="column">
         <div fxFlex="100">
           <label class="pageBoxLg-label"><b>For More Details</b></label>
@@ -36,9 +36,9 @@
           </div>
           <div *ngIf="!data">
               <mat-form-field class="full-width">
-                <input matInput formControlName="customerName" 
+                <input matInput formControlName="userName" 
                   placeholder="Customer Name" required>
-                <mat-error *ngIf="customerDetailsForm.controls['customerName'].errors?.required">
+                <mat-error *ngIf="customerDetailsForm.controls['userName'].errors?.required">
                   Enter Customer Name
                   <strong>required</strong>
                 </mat-error>

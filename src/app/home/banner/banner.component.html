@@ -3,8 +3,10 @@
 <form >
 <div >
   <div class="row">
-      <div class="col-md-12">
-          <img  src="../../../assets/images/Image.jpg" alt="custom_html_banner1" style="width:100%">
+      <div class="col-md-12" *ngFor = 'let banner of banners; let i = index'>
+        <div *ngIf="slideIndex === i">
+          <img  [src]="banner.bannerImage" alt="custom_html_banner1" style="width:100%">
+        </div>
       </div>
     <div class="Absolute-Center is-Responsive">
      
