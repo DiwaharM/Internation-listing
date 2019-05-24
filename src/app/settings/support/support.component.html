@@ -1,0 +1,15 @@
+<div class="container" *ngFor="let data of supportModel">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="support">Support</h1>
+      <br>
+      <h5 style="font-size: 15px; font-weight:  200;"> <span class="maIls">Email: </span> <strong
+          class="supportId">{{data.emailId}}</strong> <br><br>
+        <h6 class="cAll">Call  <img src="../../../assets/images/Icons/telephone.png" class="teleicon">  WhatsApp:  <img
+            src="../../../assets/images/Icons/whatsapp.png" class="whatsAppicon">  +{{data.whatsappNumber}}
+          ({{data.openTimings}})</h6>
+      </h5>
+    </div>
+  </div>
+</div>
+<br>

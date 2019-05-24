@@ -1,0 +1,26 @@
+.fAq{
+    /*     text-align: center;
+        border-bottom-style: solid;
+        border-bottom-width: thin;
+        color: darkred; */
+        font-weight: 250;
+        font-size: 30px;
+        border-bottom: 1px solid darkred;
+        padding: 15px;
+        text-align: center;
+        padding-right: 50px;
+        color: darkred;
+        font-family: open;
+    }
+    .aboUt{
+        color: darkred;
+        padding: 0px;
+        font-size: 17.5px;
+        font-family: open;
+    }
+    .liNes{
+        color: rgb(87, 85, 85);
+    }
+    .hSix{
+        color: rgb(41, 40, 40);
+    }

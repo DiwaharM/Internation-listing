@@ -1,0 +1,87 @@
+.placeholder {
+    text-align: center;
+  }
+  
+  .button {
+    background-color: darkred;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 400px;
+    box-shadow: 5 2px 85px 0 #ffffff63, 5 12px 22px 0 rgba(0, 0, 0, .19);
+  
+  }
+  
+  .buu {
+    padding-left: 0px;
+  }
+  
+  .contai {
+    margin: 80px;
+  }
+  
+  .can-para {
+    color: rgb(105, 105, 105);
+    font-size: 14px;
+  
+    padding-left: 40px;
+  }
+  
+  .color {
+    color: rgb(83, 83, 83);
+  }
+  
+  .para {
+    font-size: 16px;
+    color: rgb(77, 76, 76);
+    color: rgb(105, 105, 105);
+    font-family: open;
+    margin-top: 30px;
+  
+  
+  
+  
+  }
+  
+  .blue {
+    color: darkred;
+    font-size: 30px;
+    font-family: open;
+    font-weight: 600;
+    font-weight: 250;
+    font-size: 30px;
+    border-bottom: 1px solid darkred;
+    
+    padding: 15px;
+    text-align: center;
+    padding-right: 50px;
+    color: darkred;
+    font-family: open;
+  
+  }
+  
+  .coNtact {
+  
+    width: 520px;
+    height: 450px;
+  
+    height: 500px;
+  
+  
+  }
+  .color{
+      font-size: 20px;
+      color: darkred;
+      font-family: open;
+      font-weight: 500;
+  }
+  .imaGes{
+      width: 33px;
+      padding: 5px;
+  }

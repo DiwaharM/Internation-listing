@@ -1,0 +1,14 @@
+
+<br>
+<div class="container" > 
+
+<div class="spAse">
+
+<h1 class="fAq">FAQ</h1>
+<div *ngFor="let data of faqModel">
+  <h5 class="aboUt">{{data.faqHeading}}</h5>
+  <div *ngFor="let val of data.faqDetails">
+      <h6 class="hSix">{{val.faqQuestion}}</h6> 
+      <p  class="liNes">{{val.faqAnswers}}</p> </div>
+</div>
+</div>

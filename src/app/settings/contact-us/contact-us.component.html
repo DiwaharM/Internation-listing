@@ -1,0 +1,58 @@
+<div class="contai">
+    <div class="row">
+      <div class="col-md-4" *ngFor ="let data of contactUsModel">
+        <div class="coNtact">
+        <h1 class="blue">Contact Inform</h1>
+        <h3 class="color">
+          <img src="../../../assets/images/icons(png)/headphones.png" class="imaGes"
+           > call us <p class="can-para">+{{data.phoneNumber}}</p>
+        </h3>
+        <h3 class="color"><img src="../../../assets/images/icons(png)/envelope.png" class="imaGes"
+            > Email Us<p  class="can-para">{{data.emailId}}</p>
+        </h3>
+        <h3 class="color"><img src="../../../assets/images/icons(png)/facebook-placeholder-for-locate-places-on-maps.png" class="imaGes"
+            >
+          Location <p  class="can-para">{{data.address}}</p>
+        </h3>
+      </div>
+      </div>
+  
+      <div class="col-md-8" style="padding-left: 110px;">
+        <div class="container">
+          <h1 class="blue">Do You Have Any Questions</h1>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="name">
+                <input type="text" class="form-control" placeholder="Name" id="usr" name="Email"
+                  style="width:350px; height: 50px ;">
+              </div>
+  <br>
+              <div class="name" >
+                <input type="text" class="form-control" placeholder="Subject:" id="usr" name="Email"
+                  style="width:350px; height: 50px ;">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="name" >
+                <input type="text" class="form-control" placeholder="Email:" id="usr" name="Email"
+                  style="width:350px; height: 50px ;">
+              </div>
+              <br>
+              <div class="name">
+                <input type="text" class="form-control" placeholder="Experince:" id="usr" name="Email"
+                  style="width:350px; height: 50px ;">
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="width: 734px;">
+              <label for="comment"></label>
+              <textarea class="form-control" placeholder="Message:"  rows="5" id="comment"></textarea>
+            </div>
+  <div class="buu">
+            <input type="button" class="button" value="Submit">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

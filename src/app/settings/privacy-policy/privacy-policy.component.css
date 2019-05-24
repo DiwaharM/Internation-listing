@@ -1,0 +1,42 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0 !important;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+
+.support{
+  font-weight: 250;
+  font-size: 30px;
+  border-bottom: 1px solid darkred;
+  padding: 15px;
+  text-align: center;
+  padding-right: 50px;
+  color: darkred;
+  font-family: open;
+}
+.img-fluid{
+  width: 18px;
+
+}
+.hsiX{
+  font-weight: 530;
+  color: darkred;
+}
+.priVacy{
+  padding: 5px;
+ 
+}
+.stYle{
+  text-align: center; 
+  font-weight: 400;
+  
+}

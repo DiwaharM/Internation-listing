@@ -1,0 +1,11 @@
+.support{
+    font-weight: 250;
+    font-size: 30px;
+    border-bottom: 1px solid rgb(155, 155, 155);
+    padding: 15px;
+    padding-right: 50px;
+}
+.img-fluid{
+    width: 18px;
+  
+}

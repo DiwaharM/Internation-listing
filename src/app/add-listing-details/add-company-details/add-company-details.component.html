@@ -4,7 +4,8 @@
             <div class="row">
               <div class="col-md-6">
                   <div class="col-md-3">
-                        <input type="file"  (change)="handleFileInput($event.target.files)" multiple name="file">
+                    <strong>Prime Image</strong>
+                        <input type="file"  (change)="handleFileInput($event.target.files)"  name="file">
                   </div>
                  
                         <div class="col-md-8 " *ngFor="let url of urls">
@@ -42,13 +43,24 @@
                   </div>
                   <div class="col-md-9">
                         <mat-form-field>
-                                <mat-select placeholder="Select the Category" formControlName="category">
+                                <mat-select placeholder="Select the Category" (selectionChange)="changed($event)"
+                                 formControlName="category">
                                   <mat-option *ngFor="let data of Category" [value]="data">
                                     {{data}}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
                   </div>
+                  <div class="col-md-9">
+                      <mat-form-field>
+                              <mat-select placeholder="Select the subCategory"
+                               formControlName="subCategory">
+                                <mat-option *ngFor="let data of subCategory" [value]="data">
+                                  {{data}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                </div>
                   <div class="col-md-6">
                         <button  class="btn btn-dark" >Submit</button>
                   </div>

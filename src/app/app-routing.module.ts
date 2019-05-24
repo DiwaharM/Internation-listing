@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: './listing/listing.module#ListingModule'
   },
   {
+    path: 'setting',
+    loadChildren: './settings/settings.module#SettingsModule'
+  },
+  {
     path: '',
     redirectTo: 'home/home-page',
     pathMatch: 'full'
