@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BusinessUserModel } from '../registration-business-user/business-user.model';
+import { AcountService } from '../acount.service';
 @Component({
   selector: 'app-login-business-user',
   templateUrl: './login-business-user.component.html',
@@ -8,7 +10,9 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginBusinessUserComponent implements OnInit {
   LogInForm: FormGroup;
-  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
+  loginValue: BusinessUserModel;
+  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
+              private acountService: AcountService) { }
 
   ngOnInit() {
     this.createForm();
@@ -19,8 +23,17 @@ export class LoginBusinessUserComponent implements OnInit {
       password: ['']
     });
   }
-  onSubmit() {
-    this.router.navigate(['add-listing/addcompanydetail']);
+  onSubmit(LogInForm: FormGroup) {
+    this.loginValue = new BusinessUserModel();
+    this.loginValue.emailId = LogInForm.controls.emailId.value;
+    this.loginValue.password = LogInForm.controls.password.value;
+    this.acountService.businessLogin(this.loginValue).subscribe(data => {
+      sessionStorage.setItem('businessLogIn', 'true');
+      sessionStorage.setItem('userID', data[0]._id);
+      this.router.navigate(['/home/home-page']);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

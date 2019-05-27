@@ -3,6 +3,7 @@ import { SubscribeUserService } from '../subscribe-user/subscribe-user.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharedService } from '../shared.service';
 import { Header } from '../navheader/header.model';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-navheader',
   templateUrl: './navheader.component.html',
@@ -10,8 +11,9 @@ import { Header } from '../navheader/header.model';
 })
 export class NavheaderComponent implements OnInit {
   headers: Header;
-
-  constructor(private subScribeUserService: SubscribeUserService, private sharedService: SharedService) { }
+  dropShow = false;
+  constructor(private subScribeUserService: SubscribeUserService, public sharedService: SharedService,
+              private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getHeader();
@@ -24,12 +26,20 @@ export class NavheaderComponent implements OnInit {
         }
       });
   }
+
+  dropDownShow() {
+    this.dropShow = !this.dropShow;
+  }
  getHeader() {
    this.sharedService.getHeader().subscribe(data => {
      this.headers = data;
     /*  console.log(data); */
    }, error => {
      console.log(error);
-   })
+   });
+ }
+ logOut() {
+   sessionStorage.removeItem('businessLogIn');
+   this.router.navigate(['/home/home-page']);
  }
 }

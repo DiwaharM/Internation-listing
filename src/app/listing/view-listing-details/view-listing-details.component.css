@@ -1,8 +1,7 @@
 .mySlides {
     width: 100%; 
     height: 50%;
-    min-width: 100%;
-    max-width: 100%;
+
     padding: 40px;
 }
 
@@ -67,7 +66,8 @@
     width: 710px;
   }
   .mat-big{
-    width: 735px;
+    width: 100%;
+    height: auto;
   
   }
   .img-fluidsss {
@@ -148,7 +148,8 @@
     background-color: #fff;
     border-radius: 0px;
     margin-bottom: 10px;
-    padding: 10px;
+    margin-top: 15px;
+/*     padding: 10px; */
   }
   .checked {
     color: orange;
@@ -157,3 +158,41 @@
       height: 50px ;
       width: 50px;
   } 
+  
+.top-left {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text-block {
+  position: absolute;
+  top: 430px;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  left: 290px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  transform: translate(-50%, -50%);
+}
+.mySlides {
+  opacity: 0.7;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.vl {
+  border-left: 1px solid gray;
+  height: 300px;
+}

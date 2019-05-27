@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { getTreeControlMissingError } from '@angular/cdk/tree';
+
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ListingService } from '../listing.service';
 
 @Component({
   selector: 'app-view-listing',
@@ -8,8 +9,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./view-listing.component.css']
 })
 export class ViewListingComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  id: string;
+  listingModel: any;
+  constructor(private router: Router, private route: ActivatedRoute,
+              private listingService: ListingService) {
+      this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+    });
+  }
   arrayValue = [{companyName: ' Chennai Furniture ', categories: 'listing', country: 'america', rating: '4/10'},
   {companyName: 'Mumbai Garment', categories: 'mobile', country: 'china', rating: '6/10'},
   {companyName: 'Hyundai', categories: 'social', country: 'america', rating: '3/10'},
@@ -18,8 +25,18 @@ export class ViewListingComponent implements OnInit {
   {companyName: 'Rinteger', categories: 'MEANS tag', country: 'india', rating: '9/10'},
   {companyName: 'Ramraj', categories: 'software', country: 'india', rating: '7/10'}];
   ngOnInit() {
+    this.getLisitingById();
   }
-  details() {
-this.router.navigate(['listing/viewlistingdetail']);
+  details(data) {
+    /* console.log(data._id); */
+this.router.navigate(['listing/viewlistingdetail/', data._id]);
   }
+getLisitingById() {
+  this.listingService.getListing(this.id).subscribe(data => {
+   /*  console.log(data); */
+   this.listingModel = data;
+  }, error => {
+    console.log(error);
+  });
+}
 }

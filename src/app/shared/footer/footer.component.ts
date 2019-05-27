@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SubscribeUserService } from '../subscribe-user/subscribe-user.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private subScribeUserService: SubscribeUserService) { }
 
   ngOnInit() {
+  }
+  getSubscrbe() {
+    this.subScribeUserService.openCustomer()
+      .subscribe(res => {
+        if (res) {
+        console.log(res);
+        }
+      });
   }
 
 }

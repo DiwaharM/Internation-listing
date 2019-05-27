@@ -4,15 +4,15 @@
      
         <div >
           
-            <div class="row gridRow">
+            <div class="row gridRow" *ngFor = "let data of listingModel">
                 <div class="col-md-4">
-                    <img class="mySlides" src="../../../assets/images/tcs.jpg" alt="custom_html_banner1" style="width:120px">
+                    <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1" style="width:120px">
                 </div>
                 <div class="col-md-4">
               
                   <div class="row">
                       <div class=" vcenter form-group">
-                   <h4> Tcs Software Solution </h4>
+                   <h4> {{data.companyName}} </h4>
                    <span class="fa fa-star checked"></span>
                    <span class="fa fa-star checked"></span>
                    <span class="fa fa-star checked"></span>
@@ -23,112 +23,13 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-success" (click)="details()">Full Details</button>
+                    <button class="btn btn-success" (click)="details(data)">Full Details</button>
                 </div>
            
               </div>
 
           
-          
-          <div class="row gridRow">
-
-            <div class="col-md-4">
-                <img class="mySlides" src="../../../assets/images/md.JPG" alt="custom_html_banner1" style="width:100px">
-            </div>
-            <div class="col-md-4">
-          
-              <div class="row">
-                  <div class=" vcenter form-group">
-               <h4> MD Life Style</h4>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star checked"></span>
-               <span class="fa fa-star"></span>
-               <span class="fa fa-star"></span>
-               <h6>Furnicture, Kitchen & Dining</h6>
-            </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <button class="btn btn-success">Full Details</button>
-            </div>
-       
-          </div>
-
-          <div class="row gridRow">
-              <div class="col-md-4">
-                  <img class="mySlides" src="../../../assets/images/ramraj.jpg" alt="custom_html_banner1" style="width:120px">
-              </div>
-              <div class="col-md-4">
-            
-                <div class="row">
-                    <div class=" vcenter form-group">
-                 <h4> Ramraj Cotton</h4>
-                 <span class="fa fa-star checked"></span>
-                 <span class="fa fa-star checked"></span>
-                 <span class="fa fa-star checked"></span>
-                 <span class="fa fa-star checked"></span>
-                 <span class="fa fa-star"></span>
-                 <h6>Innerwear And Loungewear, Textiles</h6>
-              </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                  <button class="btn btn-success">Full Details</button>
-              </div>
-         
-            </div>
-            <div class="row gridRow">
-                <div class="col-md-4">
-                    <img class="mySlides" src="../../../assets/images/Hyundai-Zentrale-Wien-02.jpg" alt="custom_html_banner1" style="width:120px">
-                </div>
-                <div class="col-md-4">
-              
-                  <div class="row">
-                      <div class=" vcenter form-group">
-                   <h4> Hyundai</h4>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star "></span>
-                   <span class="fa fa-star"></span>
-                   <h6>Car, Bike</h6>
-                </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-success">Full Details</button>
-                </div>
-           
-              </div>
-
-
-             
-
-                <div class="row gridRow">
-                    <div class="col-md-4">
-                        <img class="mySlides" src="../../../assets/images/Logo Rinteger.jpg" alt="custom_html_banner1" style="width:120px">
-                    </div>
-                    <div class="col-md-4">
-                  
-                      <div class="row">
-                          <div class=" vcenter form-group">
-                       <h4> Rinteger </h4>
-                       <span class="fa fa-star checked"></span>
-                       <span class="fa fa-star checked"></span>
-                       <span class="fa fa-star checked"></span>
-                       <span class="fa fa-star checked"></span>
-                       <span class="fa fa-star"></span>
-                       <h6>shooting, editing</h6>
-                    </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-success">Full Details</button>
-                    </div>
-               
-                  </div>
-
+   
 
           
         </div>

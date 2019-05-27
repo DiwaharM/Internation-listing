@@ -8,11 +8,11 @@ import { ViewListingDetailsComponent } from './view-listing-details/view-listing
 
 const routes: Routes = [
    {
-       path: 'viewlisting',
+       path: 'viewlisting/:id',
        component: ViewListingComponent
    },
    {
-     path: 'viewlistingdetail',
+     path: 'viewlistingdetail/:id',
      component: ViewListingDetailsComponent
    }
 ];

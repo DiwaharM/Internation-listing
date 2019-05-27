@@ -13,6 +13,7 @@ export class AddCompanyDetailsComponent implements OnInit {
   categories = ['textile', 'car', 'software'];
   companyDetail: BusinessUserModel;
   firstValue: any;
+  mob: string;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
               private snackBar: MatSnackBar, private addListService: AddListingService) { }
   other: boolean = false;
@@ -33,12 +34,12 @@ export class AddCompanyDetailsComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.getAllCategory();
+    this.getMobileNumber();
 }
 
 createForm() {
   this.firstFormGroup = this.fb.group({
     companyName: ['', Validators.required],
-    lastName: ['', Validators.required],
     country: [''],
     emailId: [''],
     mobileNumber: [''],
@@ -47,6 +48,9 @@ createForm() {
     subCategory: [''],
     agree: ['']
   });
+}
+getMobileNumber() {
+  this.mob = sessionStorage.getItem('mobileNumber');
 }
   getChecked() {
     this.other = ! this.other;
@@ -72,14 +76,20 @@ createForm() {
     });
     this.router.navigate(['/listing/viewlistingdetail']); */
     this.companyDetail = new BusinessUserModel();
+    this.companyDetail.mobileNumber = this.mob;
     this.companyDetail.listingCompanyName = this.firstFormGroup.controls.companyName.value;
     this.companyDetail.listingCountry = this.firstFormGroup.controls.country.value;
     this.companyDetail.listingEmailId = this.firstFormGroup.controls.emailId.value;
     this.companyDetail.listingMobileNumber = this.firstFormGroup.controls.mobileNumber.value;
     this.companyDetail.weblink = this.firstFormGroup.controls.websitelink.value;
-    this.companyDetail.category = this.firstFormGroup.controls.category.value;
-    this.companyDetail.subCategory = this.firstFormGroup.controls.subCategory.value;
-
+    this.companyDetail.category = this.firstFormGroup.controls.category.value._id;
+    this.companyDetail.subCategory = this.firstFormGroup.controls.subCategory.value._id;
+    this.addListService.SaveCompanyList(this.companyDetail).subscribe(data => {
+      /* console.log(data); */
+      this.addLogo(data._id);
+    }, error => {
+      console.log(error);
+    });
   }
   getAllCategory() {
     this.addListService.getCategory().subscribe(data => {
@@ -93,8 +103,22 @@ createForm() {
     this.firstValue = new BusinessUserModel();
     this.firstValue.category = e.value;
     this.addListService.getSubCategory(this.firstValue).subscribe(data => {
-      /* console.log(data); */
-      this.subCategory = data;
+      console.log(data);
+      this.subCategory = data[0].mainCategory;
+    }, error => {
+      console.log(error);
+    });
+  }
+  addLogo(id) {
+    const formData: any = new FormData();
+    this.fileLength = this.fileToUpload.length;
+    for (let i = 0; i <= this.fileLength; i++) {
+      formData.append('uploads[]', this.fileToUpload[i]);
+    }
+    this.addListService.uploadlogo(formData, id).subscribe(data => {
+     /* console.log(data); */
+     sessionStorage.setItem('businessLogIn', 'true');
+     this.router.navigate(['/home/home-page']);
     }, error => {
       console.log(error);
     });

@@ -37,7 +37,7 @@ banners: Banner[];
   getBanner() {
     this.homeService.getBanner().subscribe(data => {
       this.banners = data;
-      console.log(data);
+      /* console.log(data); */
     }, error => {
       console.log(error);
     });

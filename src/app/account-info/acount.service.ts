@@ -14,4 +14,34 @@ export class AcountService {
     const url: string = this.serviceUrl + accUrl;
     return this.http.post<BusinessUserModel>(url, data);
   }
+  businessLogin(data): Observable<any> {
+    const accUrl = 'businesslogin';
+    const url: string = this.serviceUrl + accUrl;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
+  getProfil(id): Observable<any> {
+    const accUrl = 'getselectedbusinessuser/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.get<BusinessUserModel>(url);
+  }
+  uploadCompanyImages(data, id): Observable<any> {
+    const accUrl = 'uploadcompanyimage/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
+  getPackage(id): Observable<any> {
+    const accUrl = 'getselectedpackage/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.get<BusinessUserModel>(url);
+  }
+  updateProfil(data, id): Observable<any> {
+    const accUrl = 'updateprofile/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
+  updateProfilLogo(data, id): Observable<any> {
+    const accUrl = 'createlogoimage/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.put<BusinessUserModel>(url, data);
+  }
 }

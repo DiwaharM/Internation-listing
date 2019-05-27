@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationUserComponent } from '../account-info/registration-user/registration-user.component';
 import { RegistrationBusinessUserComponent } from './registration-business-user/registration-business-user.component';
 import { LoginBusinessUserComponent } from './login-business-user/login-business-user.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CompanyImagesComponent } from './company-images/company-images.component';
+import { PackageDetailComponent } from './package-detail/package-detail.component';
 
 
 const routes: Routes = [
@@ -18,6 +22,22 @@ const routes: Routes = [
   {
     path: 'login-business',
     component: LoginBusinessUserComponent
+  },
+  {
+    path: '',
+    component: AccountDetailsComponent,
+    children: [ {
+      path: 'profile',
+      component: ProfileComponent
+    },
+  {
+    path: 'companyimage',
+    component: CompanyImagesComponent
+  },
+{
+  path: 'packageDetail',
+  component: PackageDetailComponent
+}]
   }
 ];
 

@@ -22,4 +22,7 @@ export class SharedService {
     const url: string = this.serviceUrl + sharedUrl;
     return this.http.post<Header>(url, data);
   }
+  getLogin() {
+    return sessionStorage.getItem('businessLogIn');
+  }
 }

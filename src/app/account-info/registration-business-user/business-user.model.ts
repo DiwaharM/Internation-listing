@@ -1,4 +1,6 @@
+import { PackDetailModel } from './package-detail.model';
 export class BusinessUserModel {
+    _id: string;
     firstName: string;
     lastName: string;
     companyName: string;
@@ -13,7 +15,7 @@ export class BusinessUserModel {
     weblink: string;
     category: string;
     subCategory: string;
-    packageDetails: string;
+    packageDetails: [PackDetailModel];
     logImageName: string;
     companyImageName: string;
 }

@@ -5,3 +5,11 @@ h6 {
     width: 120px;
     height: 60px;
 }
+.textMenu {
+    color: #ffff !important;
+  }
+  .active {
+    color: green;
+    font-weight: 800;
+  }
+  

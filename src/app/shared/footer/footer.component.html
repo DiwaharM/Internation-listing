@@ -35,19 +35,45 @@
                       <!-- Grid column -->
 
                       <!-- Grid column -->
-                     <!--  <div class="col-md-3 mb-md-0 mb-3">
+                      <div class="col-md-3 mb-md-0 mb-3">
 
-                          <h5 class="text-uppercase">Information </h5>
+                          <h5 class="text-uppercase">Business </h5>
 
                           <ul class="list-unstyled">
-                              <li><a >Order</a></li>
-                              <li><a >Delivery</a></li>
-                              <li><a >Call us</a></li>
+                              <li><a [routerLink]="['/account/reg-business']">Add your Business</a></li>
+                              <li><a [routerLink]="['/account/login-business']">Business user login</a></li>
+                              
                           </ul>
 
 
-                      </div> -->
+                      </div>
                       <!-- Grid column -->
+                      <div class="col-md-3 mb-md-0 mb-3">
+
+                            <h5 class="text-uppercase">Quick Link </h5>
+  
+                            <ul class="list-unstyled">
+                                <li><a (click)="getSubscrbe()">Subscribe</a></li>
+                                <!-- <li><a [routerLink]="['/account/login-business']">Business user login</a></li> -->
+                                
+                            </ul>
+  
+  
+                        </div>
+
+
+                        <div class="col-md-3 mb-md-0 mb-3">
+
+                                <h5 class="text-uppercase">Mobile & Social </h5>
+      
+                                <ul class="list-unstyled">
+                                    <li><a >Subscribe</a></li>
+                                    <!-- <li><a [routerLink]="['/account/login-business']">Business user login</a></li> -->
+                                    
+                                </ul>
+      
+      
+                            </div>
 
                   </div>
                   <!-- Grid row -->

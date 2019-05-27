@@ -7,6 +7,7 @@ import { BusinessUserModel } from '../registration-business-user/business-user.m
 import { MustMatch } from './must-match.validator';
 import { PasswordValidation } from './password.validator';
 import { AcountService } from '../acount.service';
+import { PackDetailModel } from './package-detail.model';
 @Component({
   selector: 'app-registration-business-user',
   templateUrl: './registration-business-user.component.html',
@@ -53,7 +54,9 @@ export class RegistrationBusinessUserComponent implements OnInit {
 } */
 
   selectValue(e) {
-    this.SelectedValue = e.value;
+    this.SelectedValue = new PackDetailModel();
+    this.SelectedValue.duration = e.value;
+    this.SelectedValue.amount = '2000';
   }
   submit() {
     this.regModel = new BusinessUserModel();

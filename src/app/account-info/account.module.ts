@@ -37,10 +37,14 @@ import {
 import { RegistrationUserComponent } from './registration-user/registration-user.component';
 import { RegistrationBusinessUserComponent } from './registration-business-user/registration-business-user.component';
 import { LoginBusinessUserComponent } from './login-business-user/login-business-user.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CompanyImagesComponent } from './company-images/company-images.component';
+import { PackageDetailComponent } from './package-detail/package-detail.component';
 
 
 @NgModule({
-  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent],
+  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent, AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
