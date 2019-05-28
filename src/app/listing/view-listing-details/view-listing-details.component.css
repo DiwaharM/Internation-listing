@@ -196,3 +196,13 @@
   border-left: 1px solid gray;
   height: 300px;
 }
+.name-date {
+  text-align: right;
+  color: brown;
+}
+.title {
+  color: sienna;
+}
+.desc {
+  color: steelblue;
+}

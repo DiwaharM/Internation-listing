@@ -1,3 +1,4 @@
+
 <div class="container-fluid" *ngFor="let data of listingModel">
   <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1">
   <div class="text-block">
@@ -32,34 +33,40 @@
     </ul>
   </div>
 </div>
+<br><br>
 <div class="row">
-  
+  <div class="col-md-7">
+      <label>All Reviews</label>
+      <hr>
+      <div class="col-md-12" *ngFor="let data of reviewModel">
+        <div class="name-date">
+          {{data.userName}}, {{data.date}}
+        </div>
+        <div class="title">
+          <b>{{data.reviewTitle}}</b>
+        </div>
+        <div class="desc">
+          {{data.reviewDescription}}
+        </div>
+        <hr>
+      </div>
+  </div>
+  <div class="col-md-5">
+    <h4>Post a review</h4>
+    <br>
+    <input type="text" placeholder="Title" #title style="width: 100%; background-color:  rgb(235, 235, 228);">
+    <br><br>
+    <textarea name="" id="" cols="100" placeholder="Review" #desc rows="10" style="background-color:  rgb(235, 235, 228)"></textarea>
+    <button class="btn btn-success" (click)="postReview(title.value, desc.value)">Post</button>
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-md-12">
+    
+    
+  </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <br>
-      <br>
-      <br>
-     
-      <ul>
-        <li>
-          <p></p>
-        </li>
-        <li>
-          <p> {{data.mobileNumber}}</p>
-        </li>
-        <li>
-          <p> {{data.country}}</p>
-        </li>
-        <a href=""> {{data.weblink}}</a>
-      </ul>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <h6>Tcs, software company</h6>
-    </div>
-  </div>
+ 
 </div>

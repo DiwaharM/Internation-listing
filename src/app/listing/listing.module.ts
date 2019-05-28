@@ -27,16 +27,11 @@ import {
   MatChipsModule,
   MatInputModule,
   MatStepperModule,
-  MatDatepickerModule, 
+  MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { ViewListingDetailsComponent } from './view-listing-details/view-listing-details.component';
-
-
-
-
-
 
 @NgModule({
   declarations: [ViewListingComponent, ViewListingDetailsComponent],

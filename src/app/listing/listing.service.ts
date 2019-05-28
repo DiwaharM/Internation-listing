@@ -19,4 +19,24 @@ export class ListingService {
     const url: string = this.serviceUrl + sharedUrl + id;
     return this.http.get<any>(url);
   }
+  getBusinessUserName(id): Observable<any> {
+    const sharedUrl = 'getbusinessusername/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
+  getSubscriberUserName(id): Observable<any> {
+    const sharedUrl = 'getsubscriberusername/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
+  createReview(data): Observable<any> {
+    const sharedUrl = 'createreview';
+    const url: string = this.serviceUrl + sharedUrl;
+    return this.http.post<any>(url, data);
+  }
+  getSelectedReviews(id): Observable<any> {
+    const sharedUrl = 'getselectedreviews/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
 }
