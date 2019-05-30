@@ -1,26 +1,31 @@
-.highwa{
-    height: 380px;
-    width: 400px;
-   
-  }
-  .registerCard{
-    
-    padding-left: 80px;
-    padding-top: 30px;
-    
-  }
-  .registerButton{
-    background: rgb(180, 190, 194);
-    width: 200px;
-    color: rgb(255, 255, 255);
-   
-  }
-  .regis-btn{
-    padding-top: 15px;
-  }
-  .mat-form-field {
-    display: block !important;
-  }
-  .bottom {
-    padding-bottom: 70px;
-  }
+.highwa {
+  height: 380px;
+  width: 400px;
+
+}
+
+.registerCard {
+
+  padding-left: 80px;
+  padding-top: 30px;
+
+}
+
+.registerButton {
+  background: rgb(180, 190, 194);
+  width: 200px;
+  color: rgb(255, 255, 255);
+
+}
+
+.regis-btn {
+  padding-top: 15px;
+}
+
+.mat-form-field {
+  display: block !important;
+}
+
+.bottom {
+  padding-bottom: 70px;
+}

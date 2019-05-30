@@ -13,9 +13,10 @@ export class SubscribeUserService {
 
   openCustomer(data?: any): Observable<boolean> {
     this.dialogRef = this.dialog.open(SubscribeUserComponent,
-       { disableClose: true, backdropClass: 'light-backdrop',
-         data: data
-    });
+      {
+        disableClose: true, backdropClass: 'light-backdrop',
+        data: data
+      });
     return this.dialogRef.afterClosed();
   }
   closeCustomer() {

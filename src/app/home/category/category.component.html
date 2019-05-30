@@ -1,11 +1,15 @@
-<h1 class="our-h1"><h3>Category</h3></h1>
- <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-3 " *ngFor="let category of categoryModel" > 
-       <a (click)="getCategory(category)"> <div class="categoryCover">     
+<h1 class="our-h1">
+  <h3>Category</h3>
+</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-3 " *ngFor="let category of categoryModel">
+      <a (click)="getCategory(category)">
+        <div class="categoryCover">
           <img [src]="category.categoryImageName" class="categoryImage " style="width: 100px; height: 100px;">
         </div>
-          <p class="categoryName">{{category.categoryName}}</p></a>
-      </div>
+        <p class="categoryName">{{category.categoryName}}</p>
+      </a>
     </div>
   </div>
+</div>

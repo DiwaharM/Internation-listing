@@ -19,17 +19,17 @@ export class CompanyImagesComponent implements OnInit {
   fileLength: any;
   userId: string;
   headerModel: BusinessUserImage;
-/*   assetListingService: any; */
+  /*   assetListingService: any; */
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-    public dialog: MatDialog, private accountService: AcountService) { }
+              public dialog: MatDialog, private accountService: AcountService) { }
 
   ngOnInit() {
     this.getUserId();
     this.getProjile();
   }
   handleFileInput(images: any) {
-  /*   this.imageError = false; */
+    /*   this.imageError = false; */
     this.fileToUpload = images;
     this.urls = [];
     const files = images;
@@ -64,7 +64,7 @@ export class CompanyImagesComponent implements OnInit {
   getProjile() {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
-      console.log( this.headerModel);
+      console.log(this.headerModel);
     }, error => {
       console.log(error);
     });

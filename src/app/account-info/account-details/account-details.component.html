@@ -1,14 +1,11 @@
 <div class="row">
   <div class="col-md-12">
     <nav mat-tab-nav-bar>
-        <a mat-tab-link
-         *ngFor="let acc of profiledetails"
-           [routerLink]="acc.link"
-           routerLinkActive #rla="routerLinkActive"
-           [active]="rla.isActive">
-           {{acc.name}}
-        </a>
-      </nav>
+      <a mat-tab-link *ngFor="let acc of profiledetails" [routerLink]="acc.link" routerLinkActive
+        #rla="routerLinkActive" [active]="rla.isActive">
+        {{acc.name}}
+      </a>
+    </nav>
   </div>
   <div class="col-md-12">
     <div class="container">

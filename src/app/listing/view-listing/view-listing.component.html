@@ -1,40 +1,40 @@
 <form>
-    <div class="pageBoxLg">
-      <div class="container-fluid">
-     
-        <div >
-          
-            <div class="row gridRow" *ngFor = "let data of listingModel">
-                <div class="col-md-4">
-                    <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1" style="width:120px">
-                </div>
-                <div class="col-md-4">
-              
-                  <div class="row">
-                      <div class=" vcenter form-group">
-                   <h4> {{data.companyName}} </h4>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star checked"></span>
-                   <span class="fa fa-star"></span>
-                   <h6>Tcs, software company</h6>
-                </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-success" (click)="details(data)">Full Details</button>
-                </div>
-           
+  <div class="pageBoxLg">
+    <div class="container-fluid">
+
+      <div>
+
+        <div class="row gridRow" *ngFor="let data of listingModel">
+          <div class="col-md-4">
+            <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1" style="width:120px">
+          </div>
+          <div class="col-md-4">
+
+            <div class="row">
+              <div class=" vcenter form-group">
+                <h4> {{data.companyName}} </h4>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <h6>Tcs, software company</h6>
               </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-success" (click)="details(data)">Full Details</button>
+          </div>
 
-          
-   
-
-          
         </div>
+
+
+
+
+
       </div>
-      <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[50, 100, 150]" [showFirstLastButtons]="true"
-      [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>
     </div>
-  </form>
+    <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[50, 100, 150]" [showFirstLastButtons]="true"
+      [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>
+  </div>
+</form>

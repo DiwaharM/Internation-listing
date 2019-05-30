@@ -28,7 +28,7 @@ export class SubscribeUserComponent implements OnInit {
     this.customerDetailsForm = this.fb.group({
       mobileNumber: [''],
       emailId: [''],
-      userName: ['']
+      firstName: ['']
     });
   }
   cancel() {
@@ -36,15 +36,15 @@ export class SubscribeUserComponent implements OnInit {
   }
   addSingleCustomer(customerDetailsForm: FormGroup) {
     this.subValue = new RegistrationUser();
-    this.subValue.userName = customerDetailsForm.controls.userName.value;
+    this.subValue.firstName = customerDetailsForm.controls.firstName.value;
     this.subValue.mobileNumber = customerDetailsForm.controls.mobileNumber.value;
     this.subValue.emailId = customerDetailsForm.controls.emailId.value;
     this.sharedService.customerSubscribe(this.subValue).subscribe(data => {
-     if (data === true) {
-      this.snackBar.open('Already subscribed', 'OK', { duration: 1000, panelClass: ['blue-snackbar'] });
-     } else {
-      this.snackBar.open('subscribtion successfull', 'OK', { duration: 1000, panelClass: ['blue-snackbar'] });
-     }
+      sessionStorage.removeItem('userID');
+      sessionStorage.removeItem('businessLogIn');
+      sessionStorage.setItem('subID', data[0]._id);
+      sessionStorage.setItem('subscribe', 'true');
+      this.dialogRef.close();
     }, error => {
       console.log(error);
     });

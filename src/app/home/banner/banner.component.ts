@@ -8,9 +8,9 @@ import { HomeService } from '../home.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-banners: Banner[];
+  banners: Banner[];
   slideIndex = 0;
-  bannerModel:Banner[];
+  bannerModel: Banner[];
   constructor(private router: Router, private homeService: HomeService) { }
 
   ngOnInit() {

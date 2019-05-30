@@ -13,7 +13,7 @@ mat-form-field {
 }
 
 
-.support{
+.support {
   font-weight: 250;
   font-size: 30px;
   border-bottom: 1px solid darkred;
@@ -23,20 +23,24 @@ mat-form-field {
   color: darkred;
   font-family: open;
 }
-.img-fluid{
+
+.img-fluid {
   width: 18px;
 
 }
-.hsiX{
+
+.hsiX {
   font-weight: 530;
   color: darkred;
 }
-.priVacy{
+
+.priVacy {
   padding: 5px;
- 
+
 }
-.stYle{
-  text-align: center; 
+
+.stYle {
+  text-align: center;
   font-weight: 400;
-  
+
 }

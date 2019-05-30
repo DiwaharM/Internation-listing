@@ -15,16 +15,16 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.getAllCategory();
   }
-getAllCategory() {
-  this.homeService.getCategory().subscribe(data => {
-    /* console.log(data); */
-    this.categoryModel = data;
-  }, error => {
-    console.log(error);
-  });
-}
-getCategory(data) {
-  this.router.navigate(['listing/viewlisting/', data._id]);
-}
+  getAllCategory() {
+    this.homeService.getCategory().subscribe(data => {
+      /* console.log(data); */
+      this.categoryModel = data;
+    }, error => {
+      console.log(error);
+    });
+  }
+  getCategory(data) {
+    this.router.navigate(['listing/viewlisting/', data._id]);
+  }
 
 }

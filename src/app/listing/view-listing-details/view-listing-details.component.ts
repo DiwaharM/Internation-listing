@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ListingService } from '../listing.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Review } from './review.model';
+import { BusinessUserModel } from '../../account-info/registration-business-user/business-user.model';
+import { CustomerLog } from '../../account-info/registration-business-user/cutomerlog.model';
 
 @Component({
   selector: 'app-view-listing-details',
@@ -17,23 +19,36 @@ export class ViewListingDetailsComponent implements OnInit {
   userName: any;
   listModel: any;
   reviewModel: any;
+  similarID: any;
+  company: any;
+  userID: string;
+  customerID: any;
+  customerDetail: BusinessUserModel;
+  temp1: CustomerLog;
+  temp2: BusinessUserModel;
+  counting: any;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private listingService: ListingService, private fb: FormBuilder) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
     });
-   }
+  }
 
   ngOnInit() {
-    this.getUserName();
+    /*    this.getUserName(); */
     this.getSelectedListing();
-    this.getAllReview();
+    /*  this.getAllReview(); */
   }
   getSelectedListing() {
     this.listingService.getSelectedListing(this.id).subscribe(data => {
-    /*   console.log(data); */
-    this.listingModel = data;
+      this.similarID = data[0].category;
+      this.listingModel = data;
+      this.getSimilarCompany(this.similarID);
+      this.getAllReview();
+      this.getUserName();
+      this.getCustomerLog();
+      /*  console.log(this.listingModel); */
     }, err => {
       console.log(err);
     });
@@ -46,8 +61,8 @@ export class ViewListingDetailsComponent implements OnInit {
     this.listModel.listingName = this.listingModel[0].companyName;
     this.listModel.listingID = this.listingModel[0]._id;
     this.listingService.createReview(this.listModel).subscribe(data => {
-     /*  console.log(data); */
-     this.getAllReview();
+      /*  console.log(data); */
+      this.getAllReview();
     }, err => {
       console.log(err);
     });
@@ -63,8 +78,8 @@ export class ViewListingDetailsComponent implements OnInit {
     } else {
       this.usingID = sessionStorage.getItem('subID');
       this.listingService.getSubscriberUserName(this.usingID).subscribe(data => {
-        this.userName = data.userName;
-       /*  console.log('subscriber', data); */
+        this.userName = data.firstName;
+        /*  console.log('subscriber', data); */
       });
     }
   }
@@ -72,9 +87,58 @@ export class ViewListingDetailsComponent implements OnInit {
     this.listingService.getSelectedReviews(this.id).subscribe(data => {
       this.reviewModel = data;
       /* console.log(this.listingModel); */
-    /*   console.log(data); */
+      /*   console.log(data); */
     }, err => {
       console.log(err);
     });
+  }
+  getSimilarCompany(id) {
+    this.listingService.getSimilarCompany(id).subscribe(data => {
+      this.company = data;
+    }, error => {
+      console.log(error);
+    });
+  }
+  getSelectedCompany(data) {
+    this.router.navigate(['listing/viewlistingdetail/', data._id]);
+    this.id = data._id;
+    this.getSelectedListing();
+  }
+  getCustomerLog() {
+    if (sessionStorage.getItem('businessLogIn')) {
+      this.userID = sessionStorage.getItem('userID');
+    } else {
+      this.userID = sessionStorage.getItem('subID');
+    }
+    if (this.userID === this.listingModel[0]._id) {
+      console.log('exist');
+      this.getVisitorCounting();
+    } else {
+      this.customerID = new CustomerLog();
+      this.customerID.customerID = this.userID;
+      this.customerID.date = new Date().toISOString().slice(0, 10);
+      this.customerDetail = new BusinessUserModel();
+      this.customerDetail.customerLogs = this.customerID;
+      this.listingService.getCustomerViewCount(this.customerDetail, this.id).subscribe(data => {
+        /* console.log(data); */
+        this.getVisitorCounting();
+      }, error => {
+        console.log(error);
+      });
+    }
+  }
+  getVisitorCounting() {
+    this.temp1 = new CustomerLog();
+    this.temp1.date = new Date().toISOString().slice(0, 10);
+    this.listingService.getVistiorCount(this.temp1, this.listingModel[0]._id).subscribe(data => {
+      this.counting = data;
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
+  getFullDetail() {
+    /* console.log(this.listingModel[0]._id); */
+    this.router.navigate(['listing/visitorsreport/', this.listingModel[0]._id]);
   }
 }

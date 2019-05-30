@@ -12,6 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class NavheaderComponent implements OnInit {
   headers: Header;
   dropShow = false;
+  busUserID: string;
   constructor(private subScribeUserService: SubscribeUserService, public sharedService: SharedService,
               private router: Router, private route: ActivatedRoute) { }
 
@@ -22,7 +23,7 @@ export class NavheaderComponent implements OnInit {
     this.subScribeUserService.openCustomer()
       .subscribe(res => {
         if (res) {
-        console.log(res);
+          console.log(res);
         }
       });
   }
@@ -30,16 +31,17 @@ export class NavheaderComponent implements OnInit {
   dropDownShow() {
     this.dropShow = !this.dropShow;
   }
- getHeader() {
-   this.sharedService.getHeader().subscribe(data => {
-     this.headers = data;
-    /*  console.log(data); */
-   }, error => {
-     console.log(error);
-   });
- }
- logOut() {
-   sessionStorage.removeItem('businessLogIn');
-   this.router.navigate(['/home/home-page']);
- }
+  getHeader() {
+    this.busUserID = sessionStorage.getItem('userID');
+    this.sharedService.getHeader().subscribe(data => {
+      this.headers = data;
+      /*  console.log(data); */
+    }, error => {
+      console.log(error);
+    });
+  }
+  logOut() {
+    sessionStorage.removeItem('businessLogIn');
+    this.router.navigate(['/home/home-page']);
+  }
 }

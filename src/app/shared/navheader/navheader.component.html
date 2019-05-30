@@ -1,47 +1,52 @@
-
-<nav class="navbar navbar-expand-lg navbar-light "
- style="background-color: rgb(101, 103, 104); height: 60px;">
- <div class="logo-img" *ngFor = 'let header of headers'>
-    <a class="navbar-brand" [routerLink]="['/home/home-page']" >
-      <img [src]="header.logoImageName" class="logo" >
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(101, 103, 104); height: 60px;">
+  <div class="logo-img" *ngFor='let header of headers'>
+    <a class="navbar-brand" [routerLink]="['/home/home-page']">
+      <img [src]="header.logoImageName" class="logo">
     </a>
   </div>
-<div class="collapse navbar-collapse">
-  
-  <ul class="navbar-nav ml-auto">
-     <!--  <li class="nav-item">
+  <div class="collapse navbar-collapse">
+
+    <ul class="navbar-nav ml-auto">
+      <!--  <li class="nav-item">
           <a class="nav-link navText" [routerLink]="['/home/home-page']" ><h6>Home</h6></a> 
          </li> -->
-    <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'"><div (click)="getSubscrbe()" >
-     <a class="nav-link navText" ><h6>Subscribe</h6></a></div> 
-    </li>
-  <!--   <li class="nav-item">
+      <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
+        <div (click)="getSubscrbe()">
+          <a class="nav-link navText">
+            <h6>Subscribe</h6>
+          </a></div>
+      </li>
+      <!--   <li class="nav-item">
       <a class="nav-link navText" ><h6>Login</h6></a>
     </li> -->
-    <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
-      <a class="nav-link navText" [routerLink]="['/account/reg-business']"><h6>Add a Business</h6></a>
-    </li>
-    <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
-      <a class="nav-link navText"  [routerLink]="['/account/login-business']"><h6>MyAccount</h6></a>
-    </li>
+      <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
+        <a class="nav-link navText" [routerLink]="['/account/reg-business']">
+          <h6>Add a Business</h6>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
+        <a class="nav-link navText" [routerLink]="['/account/login-business']">
+          <h6>MyAccount</h6>
+        </a>
+      </li>
 
 
-    <li class="nav-item dropdown" *ngIf="this.sharedService?.getLogin() === 'true'">
-      <a class="nav-link dropdown-toggle textMenu" id="navbarDropdown" role="button"
-       data-toggle="dropdown"
-        aria-haspopup="true"  (click)="dropDownShow()"  aria-expanded="false">
-        MyAccount
-      </a>
-      <div  class="dropdown-menu " [ngClass]="{show: dropShow}" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" [routerLink]="['/account/profile']">Profile</a>
-        <a class="dropdown-item" [routerLink]="['/account/login-business']">Listing Details</a>
-        <a class="dropdown-item" (click)="logOut()">LogOut</a>
-      </div>
-    </li>
-   
-  
+      <li class="nav-item dropdown" *ngIf="this.sharedService?.getLogin() === 'true'">
+        <a class="nav-link dropdown-toggle textMenu" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" (click)="dropDownShow()" aria-expanded="false">
+          MyAccount
+        </a>
+        <div class="dropdown-menu " [ngClass]="{show: dropShow}" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/account/profile']">Profile</a>
+          <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', busUserID]">Listing Details</a>
+          <a class="dropdown-item" [routerLink]="['/account/changepasswrod']">Change Password</a>
+          <a class="dropdown-item" (click)="logOut()">LogOut</a>
+        </div>
+      </li>
 
-  </ul>
-</div>
- 
+
+
+    </ul>
+  </div>
+
 </nav>

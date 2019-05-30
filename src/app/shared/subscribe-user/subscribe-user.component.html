@@ -1,67 +1,62 @@
 <div class="container topAlignContainer">
-    <form [formGroup]="customerDetailsForm" (ngSubmit)="addSingleCustomer(customerDetailsForm)">
-      <div fxLayout="row wrap" fxLayout.lt-sm="column">
-        <div fxFlex="100">
-          <label class="pageBoxLg-label"><b>For More Details</b></label>
-        </div>
-        
-        <div fxFlex="50" class="p-2">
-            
-          <div *ngIf="!data">
-            <mat-form-field class="full-width">
-              <input matInput formControlName="mobileNumber"
-               placeholder="Mobile Number"  minlength="10"
-               required>
-               <mat-error *ngIf="customerDetailsForm.controls['mobileNumber'].errors?.required"
-            >
-            Enter Mobile Number
-            <strong>required</strong>
+  <form [formGroup]="customerDetailsForm" (ngSubmit)="addSingleCustomer(customerDetailsForm)">
+    <div fxLayout="row wrap" fxLayout.lt-sm="column">
+      <div fxFlex="100">
+        <label class="pageBoxLg-label"><b>For More Details</b></label>
+      </div>
+
+      <div fxFlex="50" class="p-2">
+
+        <div *ngIf="!data">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="mobileNumber" placeholder="Mobile Number" minlength="10" required>
+            <mat-error *ngIf="customerDetailsForm.controls['mobileNumber'].errors?.required">
+              Enter Mobile Number
+              <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="!customerDetailsForm.controls['mobileNumber'].errors?.required"
-            >
-            Enter Valid Mobile Number
-            <strong>required</strong>
+            <mat-error *ngIf="!customerDetailsForm.controls['mobileNumber'].errors?.required">
+              Enter Valid Mobile Number
+              <strong>required</strong>
             </mat-error>
-            </mat-form-field>
-          </div>
-          <div *ngIf="!data">
-            <mat-form-field class="full-width">
-              <input matInput  formControlName="emailId"
-                placeholder="Email-ID" required>
-              <mat-error *ngIf="customerDetailsForm.controls['emailId'].errors?.required">
-                Enter Enter Email-ID
-                <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div *ngIf="!data">
-              <mat-form-field class="full-width">
-                <input matInput formControlName="userName" 
-                  placeholder="Customer Name" required>
-                <mat-error *ngIf="customerDetailsForm.controls['userName'].errors?.required">
-                  Enter Customer Name
-                  <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
+          </mat-form-field>
         </div>
-        
-       
-       
-       
-        
-        
-  
-        
-        <div fxFlex="100" class="mt-1">
-          <p style="color: red">Note: Not for Marketing Purpose</p>
+        <div *ngIf="!data">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="emailId" placeholder="Email-ID" required>
+            <mat-error *ngIf="customerDetailsForm.controls['emailId'].errors?.required">
+              Enter Enter Email-ID
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        
-        <div fxFlex="100" class="mt-1">
-            <button mat-raised-button mat-button color="accent" type="button" class="registerButton" (click)="cancel()">Cancel</button>
-          <span fxFlex></span>
-          <button mat-raised-button type="submit" color="primary" class="registerButton">Subscribe</button>
+        <div *ngIf="!data">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="firstName" placeholder="Customer Name" required>
+            <mat-error *ngIf="customerDetailsForm.controls['firstName'].errors?.required">
+              Enter Customer Name
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
       </div>
-    </form>
-  </div>
+
+
+
+
+
+
+
+
+      <div fxFlex="100" class="mt-1">
+        <p style="color: red">Note: Not for Marketing Purpose</p>
+      </div>
+
+      <div fxFlex="100" class="mt-1">
+        <button mat-raised-button mat-button color="accent" type="button" class="registerButton"
+          (click)="cancel()">Cancel</button>
+        <span fxFlex></span>
+        <button mat-raised-button type="submit" color="primary" class="registerButton">Subscribe</button>
+      </div>
+    </div>
+  </form>
+</div>

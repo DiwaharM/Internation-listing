@@ -1,15 +1,17 @@
 h6 {
-    color: white
+  color: white
 }
-.logo{
-    width: 120px;
-    height: 60px;
+
+.logo {
+  width: 120px;
+  height: 60px;
 }
+
 .textMenu {
-    color: #ffff !important;
-  }
-  .active {
-    color: green;
-    font-weight: 800;
-  }
-  
+  color: #ffff !important;
+}
+
+.active {
+  color: green;
+  font-weight: 800;
+}

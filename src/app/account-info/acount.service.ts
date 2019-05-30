@@ -44,4 +44,9 @@ export class AcountService {
     const url: string = this.serviceUrl + accUrl + id;
     return this.http.put<BusinessUserModel>(url, data);
   }
+  changePassword(pass, id): Observable<any> {
+    const accUrl = 'changepassword/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.post<BusinessUserModel>(url, pass);
+  }
 }

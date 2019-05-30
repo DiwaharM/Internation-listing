@@ -6,5 +6,5 @@ export class Category {
     categoryDescription: string;
     categoryImageName: string;
     keyWord: [KeyWord];
-    mainCategory:[MainCategory];
+    mainCategory: [MainCategory];
 }

@@ -1,42 +1,41 @@
-
 <div class="row">
   <!-- <div *ngIf="loginUser">Please Login</div> -->
-    <div class="col-md-12 mt-5 py-5 border">
-     <!--  <h4 class="pb-4">Edit profile Details</h4> -->
-      <form >
-        <div class="form-row"  *ngFor="let data of packageModel"> 
-            <div class="col-md-4  col-6">
-                <div class="form-group">
-                  <label class="divLable">Duration</label>
-                </div>
-              </div>
-              <div class="col-md-8  col-6">
-                <div class="form-group">
-                  : <label class="itemLable">{{data.duration}}</label>
-                </div>
-              </div>
-              <div class="col-md-4  col-6">
-                  <div class="form-group">
-                    <label class="divLable">Amount</label>
-                  </div>
-                </div>
-                <div class="col-md-8  col-6">
-                  <div class="form-group">
-                    : <label class="itemLable">{{data.amount}}</label>
-                  </div>
-                </div>
-
-        </div>
-      
-        <div class="form-row">
-  
-          
-          <div class="col-md-6">
-         <!--    <p class="float-right">
-              <button mat-raised-button color="primary" type="submit">Update</button>
-            </p> -->
+  <div class="col-md-12 mt-5 py-5 border">
+    <!--  <h4 class="pb-4">Edit profile Details</h4> -->
+    <form>
+      <div class="form-row" *ngFor="let data of packageModel">
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Duration</label>
           </div>
         </div>
-      </form>
-    </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.duration}}</label>
+          </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Amount</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.amount}}</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+
+        <div class="col-md-6">
+          <!--    <p class="float-right">
+              <button mat-raised-button color="primary" type="submit">Update</button>
+            </p> -->
+        </div>
+      </div>
+    </form>
   </div>
+</div>

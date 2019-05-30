@@ -8,12 +8,17 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { CompanyImagesComponent } from './company-images/company-images.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 
 const routes: Routes = [
   {
     path: 'reg-user',
     component: RegistrationUserComponent
+  },
+  {
+    path: 'changepasswrod',
+    component: PasswordChangeComponent
   },
   {
     path: 'reg-business',
@@ -26,18 +31,18 @@ const routes: Routes = [
   {
     path: '',
     component: AccountDetailsComponent,
-    children: [ {
+    children: [{
       path: 'profile',
       component: ProfileComponent
     },
-  {
-    path: 'companyimage',
-    component: CompanyImagesComponent
-  },
-{
-  path: 'packageDetail',
-  component: PackageDetailComponent
-}]
+    {
+      path: 'companyimage',
+      component: CompanyImagesComponent
+    },
+    {
+      path: 'packageDetail',
+      component: PackageDetailComponent
+    }]
   }
 ];
 

@@ -32,9 +32,10 @@ import {
 } from '@angular/material';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { ViewListingDetailsComponent } from './view-listing-details/view-listing-details.component';
+import { VisitorsReportComponent } from './visitors-report/visitors-report.component';
 
 @NgModule({
-  declarations: [ViewListingComponent, ViewListingDetailsComponent],
+  declarations: [ViewListingComponent, ViewListingDetailsComponent, VisitorsReportComponent],
   imports: [
     CommonModule,
     ListingRoutingModule,

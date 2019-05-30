@@ -1,189 +1,194 @@
-
 <div class="row">
   <!-- <div *ngIf="loginUser">Please Login</div> -->
-    <div class="col-md-12 mt-5 py-5 border">
-     <!--  <h4 class="pb-4">Edit profile Details</h4> -->
-     <div class="row">
-     <div class="form-group col-md-2" *ngIf="showImage === false">
-        <label > Current Logo</label>
+  <div class="col-md-12 mt-5 py-5 border">
+    <!--  <h4 class="pb-4">Edit profile Details</h4> -->
+    <div class="row">
+      <div class="form-group col-md-2" *ngIf="showImage === false">
+        <label> Current Logo</label>
         <div class="form-group col-md-12">
           <img *ngFor="let url of headerModel" [src]="url.logImageName" style="width: 100px; height: 100px;" />
           <!-- *ngFor="let url of headerModel" -->
         </div>
       </div>
       <div class="col-md-2" *ngIf="showImage === false">
-        <button  mat-raised-button color="primary" (click)="imageShow()">Edit</button>
+        <button mat-raised-button color="primary" (click)="imageShow()">Edit</button>
       </div>
-      <div class="col-md-6"   *ngIf="showImage === true">
-          <div class="col-md-3">
-            <strong>Prime Image</strong>
-                <input type="file"  (change)="handleFileInput1($event.target.files)"  name="file">
-          </div>
-         
-                <div class="col-md-8 " *ngFor="let url of urls">
-                  <mat-card>
-                    <img class="img-fluid" [src]="url" />
-                  </mat-card>
-                </div>
-                <div >
-                  <button  mat-raised-button color="primary" (click)="updateLogo(headerModel)">Update</button>
-                  <button mat-raised-button color="accent" (click)="cancelImage()">Cancel</button>
-                </div>
-               <br>
-               <br>     
+      <div class="col-md-6" *ngIf="showImage === true">
+        <div class="col-md-3">
+          <strong>Prime Image</strong>
+          <input type="file" (change)="handleFileInput1($event.target.files)" name="file">
+        </div>
+
+        <div class="col-md-8 " *ngFor="let url of urls">
+          <mat-card>
+            <img class="img-fluid" [src]="url" />
+          </mat-card>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="updateLogo(headerModel)">Update</button>
+          <button mat-raised-button color="accent" (click)="cancelImage()">Cancel</button>
+        </div>
+        <br>
+        <br>
+      </div>
     </div>
-    </div>
-<div *ngIf="editshow === false">   
-    <div class="form-row"  *ngFor="let data of profileModel"> 
-       <div class="col-md-12">
+    <div *ngIf="editshow === false">
+      <div class="form-row" *ngFor="let data of profileModel">
+        <div class="col-md-12">
           <button mat-raised-button color="accent" (click)="getShowEdit()" align="left">Edit</button>
-       </div>
+        </div>
         <div class="col-md-4  col-6">
-         
-            <div class="form-group">
-              <label class="divLable">First Name</label>
-            </div>
+
+          <div class="form-group">
+            <label class="divLable">First Name</label>
           </div>
-          <div class="col-md-8  col-6">
-            <div class="form-group">
-              : <label class="itemLable">{{data.firstName}}</label>
-            </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.firstName}}</label>
           </div>
-          <div class="col-md-4  col-6">
-              <div class="form-group">
-                <label class="divLable">Last Name</label>
-              </div>
-            </div>
-            <div class="col-md-8  col-6">
-              <div class="form-group">
-                : <label class="itemLable">{{data.lastName}}</label>
-              </div>
-            </div>
-            <div class="col-md-4  col-6">
-                <div class="form-group">
-                  <label class="divLable">Company Name</label>
-                </div>
-              </div>
-              <div class="col-md-8  col-6">
-                <div class="form-group">
-                  : <label class="itemLable">{{data.companyName}}</label>
-                </div>
-              </div>
-              <div class="col-md-4  col-6">
-                  <div class="form-group">
-                    <label class="divLable">Country</label>
-                  </div>
-                </div>
-                <div class="col-md-8  col-6">
-                  <div class="form-group">
-                    : <label class="itemLable">{{data.country}}</label>
-                  </div>
-                </div>
-                <div class="col-md-4  col-6">
-                    <div class="form-group">
-                      <label class="divLable">E-Mail ID</label>
-                    </div>
-                  </div>
-                  <div class="col-md-8  col-6">
-                    <div class="form-group">
-                      : <label class="itemLable">{{data.emailId}}</label>
-                    </div>
-                  </div>
-                  <div class="col-md-4  col-6">
-                      <div class="form-group">
-                        <label class="divLable">Mobile Number</label>
-                      </div>
-                    </div>
-                    <div class="col-md-8  col-6">
-                      <div class="form-group">
-                        : <label class="itemLable">{{data.mobileNumber}}</label>
-                      </div>
-                    </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Last Name</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.lastName}}</label>
+          </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Company Name</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.companyName}}</label>
+          </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Country</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.country}}</label>
+          </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">E-Mail ID</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.emailId}}</label>
+          </div>
+        </div>
+        <div class="col-md-4  col-6">
+          <div class="form-group">
+            <label class="divLable">Mobile Number</label>
+          </div>
+        </div>
+        <div class="col-md-8  col-6">
+          <div class="form-group">
+            : <label class="itemLable">{{data.mobileNumber}}</label>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
 
 
-      <form [formGroup]="profileForm" novalidate (ngSubmit)="!profileForm.invalid && onSubmit(profileForm, profileValue)" *ngIf = "editshow ===true">
-        <div class="form-row">
+    <form [formGroup]="profileForm" novalidate (ngSubmit)="!profileForm.invalid && onSubmit(profileForm, profileValue)"
+      *ngIf="editshow ===true">
+      <div class="form-row">
 
-           
 
 
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="First Name" maxlength="20" [ngModel]="profileValue.firstName" formControlName="firstName" required>
-              
-                  <mat-error *ngIf="profileForm.controls['firstName'].errors?.required">
-                    firstName is
-                    <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-          </div>
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Last Name" maxlength="20"  [ngModel]="profileValue.lastName" formControlName="lastName" required>
-                 
-                  <mat-error *ngIf="profileForm.controls['lastName'].errors?.required">
-                    lastName is
-                    <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-          </div>
+
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="First Name" maxlength="20" [ngModel]="profileValue.firstName"
+              formControlName="firstName" required>
+
+            <mat-error *ngIf="profileForm.controls['firstName'].errors?.required">
+              firstName is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Company Name"  formControlName="companyName"  [ngModel]="this.profileValue.companyName" [required]="false">
-                  
-                </mat-form-field>
-          </div>
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Country" maxlength="10" formControlName="country"  [ngModel]="this.profileValue.country" required>
-               
-                  <mat-error *ngIf="profileForm.controls['country'].errors?.required">
-                   Country is
-                    <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-          </div>
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" maxlength="20" [ngModel]="profileValue.lastName"
+              formControlName="lastName" required>
+
+            <mat-error *ngIf="profileForm.controls['lastName'].errors?.required">
+              lastName is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="E=Mail ID"  [ngModel]="profileValue.emailId"  formControlName="emailId" required>
-                 
-                  <mat-error *ngIf="profileForm.controls['emailId'].errors?.required">
-                    EailId
-                    <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-          </div>
-     <!--    </div> -->
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Company Name" formControlName="companyName"
+              [ngModel]="this.profileValue.companyName" [required]="false">
+
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Country" maxlength="10" formControlName="country"
+              [ngModel]="this.profileValue.country" required>
+
+            <mat-error *ngIf="profileForm.controls['country'].errors?.required">
+              Country is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="E=Mail ID" [ngModel]="profileValue.emailId" formControlName="emailId" required>
+
+            <mat-error *ngIf="profileForm.controls['emailId'].errors?.required">
+              EailId
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!--    </div> -->
         <!-- <div class="form-row"> -->
-          
-          <div class="form-group col-md-6">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="mobileNumber"  [ngModel]="profileValue.mobileNumber" maxlength="10" formControlName="mobileNumber" required>
-                 
-                  <mat-error *ngIf="profileForm.controls['mobileNumber'].errors?.required">
-                    Mobile Number is
-                    <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-          </div>
+
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="mobileNumber" [ngModel]="profileValue.mobileNumber" maxlength="10"
+              formControlName="mobileNumber" required>
+
+            <mat-error *ngIf="profileForm.controls['mobileNumber'].errors?.required">
+              Mobile Number is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="form-row">
-  
-          
-          <div class="col-md-6">
-            <p class="float-right">
-              <button mat-raised-button color="primary" type="submit">Update</button>
-              <button mat-raised-button color="accent" (click)="cancel()" type="submit">Cancel</button>
-            </p>
-          </div>
+      </div>
+      <div class="form-row">
+
+
+        <div class="col-md-6">
+          <p class="float-right">
+            <button mat-raised-button color="primary" type="submit">Update</button>
+            <button mat-raised-button color="accent" (click)="cancel()" type="submit">Cancel</button>
+          </p>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>

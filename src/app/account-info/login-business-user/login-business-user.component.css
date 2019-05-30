@@ -1,28 +1,31 @@
-.login-card{
-    width: 480px;
-      padding-left: 40px;
-      box-shadow: 0 1px 58px 0 #00000033, 0 1px 2px 0 rgba(0, 0, 0, .19);
-      margin-bottom: 50px;
-      background: rgb(255, 255, 255);
-      height: 350px;
-    }
-    .registerCard{
+.login-card {
+  width: 480px;
+  padding-left: 40px;
+  box-shadow: 0 1px 58px 0 #00000033, 0 1px 2px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 50px;
+  background: rgb(255, 255, 255);
+  height: 350px;
+}
 
-        padding-left: 90px;
-        padding-top: 60px;
-    }
-    .login{
-        padding-left: 4px;
-        padding-top: 20px;
-    }
-    .raised{
-        width: 200px;
-        background: rgb(122, 122, 122);
-        color: black;
-    }
-    
-    .registerButton{
-       /*  box-shadow: 0 1px 28px 0 #00000063, 0 1px 2px 0 rgba(0, 0, 0, .19);
+.registerCard {
+
+  padding-left: 90px;
+  padding-top: 60px;
+}
+
+.login {
+  padding-left: 4px;
+  padding-top: 20px;
+}
+
+.raised {
+  width: 200px;
+  background: rgb(122, 122, 122);
+  color: black;
+}
+
+.registerButton {
+  /*  box-shadow: 0 1px 28px 0 #00000063, 0 1px 2px 0 rgba(0, 0, 0, .19);
         background-color: rgb(156, 155, 155);
         background: rgb(180, 190, 194);
         margin-bottom: 10px;
@@ -36,8 +39,7 @@
         background: rgb(180, 190, 194);
         width: 200px;
         */
-        background: rgb(180, 190, 194);
-        width: 200px;
-        color: rgb(255, 255, 255);
-    }
-    
+  background: rgb(180, 190, 194);
+  width: 200px;
+  color: rgb(255, 255, 255);
+}

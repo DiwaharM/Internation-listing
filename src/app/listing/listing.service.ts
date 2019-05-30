@@ -39,4 +39,40 @@ export class ListingService {
     const url: string = this.serviceUrl + sharedUrl + id;
     return this.http.get<any>(url);
   }
+  getSimilarCompany(id): Observable<any> {
+    const sharedUrl = 'getsimilarcomany/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
+  getCustomerViewCount(data, id): Observable<any> {
+    const sharedUrl = 'addviewcounting/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.post<any>(url, data);
+  }
+  getVistiorCount(data, id): Observable<any> {
+    const sharedUrl = 'visitorcountforeveryday/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.post<any>(url, data);
+  }
+  getSelectedReport(id): Observable<any> {
+    const sharedUrl = 'selectedreport/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
+  getSelectedCurrentReport(data, id): Observable<any> {
+    const sharedUrl = 'selectedcurrentreport/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.post<any>(url, data);
+  }
+
+  getSubscriberSelectedReport(id): Observable<any> {
+    const sharedUrl = 'subscriberselectedreport/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.get<any>(url);
+  }
+  getSubscriberSelectedCurrentReport(data, id): Observable<any> {
+    const sharedUrl = 'subscriberselectedcurrentreport/';
+    const url: string = this.serviceUrl + sharedUrl + id;
+    return this.http.post<any>(url, data);
+  }
 }

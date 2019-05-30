@@ -41,10 +41,12 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { CompanyImagesComponent } from './company-images/company-images.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 
 @NgModule({
-  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent, AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent],
+  declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent,
+                 AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent, PasswordChangeComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

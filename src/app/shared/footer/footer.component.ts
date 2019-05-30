@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
     this.subScribeUserService.openCustomer()
       .subscribe(res => {
         if (res) {
-        console.log(res);
+          console.log(res);
         }
       });
   }

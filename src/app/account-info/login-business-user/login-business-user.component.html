@@ -1,48 +1,52 @@
-<form [formGroup]="LogInForm" (ngSubmit)="!LogInForm.invalid && onSubmit(LogInForm)"
- novalidate style="padding-top:40px">
+<form [formGroup]="LogInForm" (ngSubmit)="!LogInForm.invalid && onSubmit(LogInForm)" novalidate
+  style="padding-top:40px">
   <div class="row">
     <div class="col-md-4">
 
     </div>
     <div class="login-card">
-    <div class="col-md-4" style="padding-top:60px" style="">
-      <h5 class="cartHeader">Login</h5>
-      <div class="row registerSetup">
-        <div class="col-md-12">
-          <mat-form-field>
-       
-            <input matInput placeholder="Email-ID" 
-             formControlName="emailId" required>
-            <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
+      <div class="col-md-4" style="padding-top:60px">
+        <h5 class="cartHeader">Login</h5>
+        <div class="row registerSetup">
+          <div class="alert alert-danger" *ngIf="loginFailed">
+            Please Enter Valid Details
+          </div>
+          <div class="col-md-12">
 
-            </button>
-            <mat-error *ngIf="LogInForm.controls['emailId'].errors?.required">
+            <mat-form-field>
+
+              <input matInput placeholder="Email-ID" formControlName="emailId" required>
+              <button mat-button matSuffix mat-icon-button aria-label="Mobile Number">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+
+              </button>
+              <mat-error *ngIf="LogInForm.controls['emailId'].errors?.required">
                 Email ID is
                 <strong>required</strong>
               </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-md-12">
-          <mat-form-field>
-     
-            <input matInput placeholder="Password" formControlName="password" required>
-            <button mat-button matSuffix mat-icon-button aria-label="Password">
-              <i class="fa fa-unlock" aria-hidden="true"></i>
-            </button>
-            <mat-error *ngIf="LogInForm.controls['password'].errors?.required">
-              Password is
-              <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-md-12">
-          <div class="login">
-          <button class="registerButton" mat-stroked-button  type="submit">Login</button>
-        </div>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12">
+            <mat-form-field>
+
+              <input matInput placeholder="Password" formControlName="password" required>
+              <button mat-button matSuffix mat-icon-button aria-label="Password">
+                <i class="fa fa-unlock" aria-hidden="true"></i>
+              </button>
+              <mat-error *ngIf="LogInForm.controls['password'].errors?.required">
+                Password is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12">
+            <div class="login">
+              <button class="registerButton" mat-stroked-button type="submit">Login</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     <div class="col-md-4">
 

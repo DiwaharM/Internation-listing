@@ -4,6 +4,8 @@ import { Banner } from './banner/banner.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category } from './category/category.model';
+import { Promotion } from './promotion/promotion.model';
+import { Ads } from './ads/ads.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,9 +18,19 @@ export class HomeService {
     const url: string = this.serviceUrl + sharedUrl;
     return this.http.get<Banner>(url);
   }
-  getCategory(): Observable<any>  {
+  getCategory(): Observable<any> {
     const listUrl = 'getallcategory';
     const url: string = this.serviceUrl + listUrl;
     return this.http.get<Category>(url);
+  }
+  getPromotion(): Observable<any> {
+    const listUrl = 'getpromotion';
+    const url: string = this.serviceUrl + listUrl;
+    return this.http.get<Promotion>(url);
+  }
+  getAds(): Observable<any> {
+    const listUrl = 'getads';
+    const url: string = this.serviceUrl + listUrl;
+    return this.http.get<Ads>(url);
   }
 }

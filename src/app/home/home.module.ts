@@ -33,13 +33,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { BannerComponent } from './banner/banner.component';
 import { AdsComponent } from './ads/ads.component';
 import { CategoryComponent } from './category/category.component';
+import { PromotionComponent } from './promotion/promotion.component';
 
 
 
 
 
 @NgModule({
-  declarations: [HomePageComponent, BannerComponent, AdsComponent, CategoryComponent],
+  declarations: [HomePageComponent, BannerComponent, AdsComponent, CategoryComponent, PromotionComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

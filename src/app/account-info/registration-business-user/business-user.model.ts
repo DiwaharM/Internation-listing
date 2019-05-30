@@ -1,4 +1,5 @@
 import { PackDetailModel } from './package-detail.model';
+import { CustomerLog } from './cutomerlog.model';
 export class BusinessUserModel {
     _id: string;
     firstName: string;
@@ -13,9 +14,12 @@ export class BusinessUserModel {
     listingEmailId: string;
     listingMobileNumber: string;
     weblink: string;
+    categoryName: string;
+    subCategoryName: string;
     category: string;
     subCategory: string;
     packageDetails: [PackDetailModel];
     logImageName: string;
     companyImageName: string;
+    customerLogs: [CustomerLog];
 }

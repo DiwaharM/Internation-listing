@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="pageBoxLg">
+    <div class="row">
+      <!--   <div class="col-md-2">
+        <mat-form-field>
+          <mat-select
+          (selectionChange)="ChangesCustomer($event)">
+            <mat-option *ngFor="let data of customer;let i = index " [value]="data">
+              {{data}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    <div class="col-md-2" *ngIf="this.showBusiness === true">
+        <mat-form-field>
+          <mat-select
+          (selectionChange)="ChangesBusiness($event)">
+            <mat-option *ngFor="let data of selectBusinessUser;let i = index " [value]="data">
+              {{data}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2" *ngIf="this.showPublic === true">
+          <mat-form-field>
+            <mat-select
+            (selectionChange)="ChangesPublic($event)">
+              <mat-option *ngFor="let data of selectPublicUser;let i = index " [value]="data">
+                {{data}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" (click)="getSelectedReport()" id="option1" autocomplete="off"> Public
+          Viewers
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" (click)="geSubscriberSelectedReport()" id="option2" autocomplete="off">
+          Business Viewers
+        </label>
+      </div>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Email-ID</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let data of reportModel">
+        <tr *ngFor="let val of data.joinedtable">
+          <td scope="row">{{data.date}}</td>
+          <td>{{val.firstName}}</td>
+          <td>{{val.mobileNumber}}</td>
+          <td>{{val.emailId}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

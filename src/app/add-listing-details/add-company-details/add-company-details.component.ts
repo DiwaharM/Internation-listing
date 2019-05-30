@@ -14,9 +14,10 @@ export class AddCompanyDetailsComponent implements OnInit {
   companyDetail: BusinessUserModel;
   firstValue: any;
   mob: string;
+  usingID: string;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
               private snackBar: MatSnackBar, private addListService: AddListingService) { }
-  other: boolean = false;
+  other = false;
   firstFormGroup: FormGroup;
   Category;
 
@@ -34,26 +35,26 @@ export class AddCompanyDetailsComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.getAllCategory();
-    this.getMobileNumber();
-}
+    this.getUsingID();
+  }
 
-createForm() {
-  this.firstFormGroup = this.fb.group({
-    companyName: ['', Validators.required],
-    country: [''],
-    emailId: [''],
-    mobileNumber: [''],
-    websitelink: [''],
-    category: [''],
-    subCategory: [''],
-    agree: ['']
-  });
-}
-getMobileNumber() {
-  this.mob = sessionStorage.getItem('mobileNumber');
-}
+  createForm() {
+    this.firstFormGroup = this.fb.group({
+      companyName: ['', Validators.required],
+      country: [''],
+      emailId: [''],
+      mobileNumber: [''],
+      websitelink: [''],
+      category: [''],
+      subCategory: [''],
+      agree: ['']
+    });
+  }
+  getUsingID() {
+    this.usingID = sessionStorage.getItem('usingID');
+  }
   getChecked() {
-    this.other = ! this.other;
+    this.other = !this.other;
   }
   handleFileInput(images: any) {
     this.fileToUpload = images;
@@ -70,13 +71,12 @@ getMobileNumber() {
     }
   }
   onSubmit() {
- /*    this.message = 'Company Details Added Successfully';
-    this.snackBar.open(this.message, this.action, {
-      duration: 3000,
-    });
-    this.router.navigate(['/listing/viewlistingdetail']); */
+    /*    this.message = 'Company Details Added Successfully';
+       this.snackBar.open(this.message, this.action, {
+         duration: 3000,
+       });
+       this.router.navigate(['/listing/viewlistingdetail']); */
     this.companyDetail = new BusinessUserModel();
-    this.companyDetail.mobileNumber = this.mob;
     this.companyDetail.listingCompanyName = this.firstFormGroup.controls.companyName.value;
     this.companyDetail.listingCountry = this.firstFormGroup.controls.country.value;
     this.companyDetail.listingEmailId = this.firstFormGroup.controls.emailId.value;
@@ -84,7 +84,9 @@ getMobileNumber() {
     this.companyDetail.weblink = this.firstFormGroup.controls.websitelink.value;
     this.companyDetail.category = this.firstFormGroup.controls.category.value._id;
     this.companyDetail.subCategory = this.firstFormGroup.controls.subCategory.value._id;
-    this.addListService.SaveCompanyList(this.companyDetail).subscribe(data => {
+    this.companyDetail.categoryName = this.firstFormGroup.controls.category.value.categoryName;
+    this.companyDetail.subCategoryName = this.firstFormGroup.controls.subCategory.value.mainCategoryName;
+    this.addListService.SaveCompanyList(this.companyDetail, this.usingID).subscribe(data => {
       /* console.log(data); */
       this.addLogo(data._id);
     }, error => {
@@ -94,7 +96,7 @@ getMobileNumber() {
   getAllCategory() {
     this.addListService.getCategory().subscribe(data => {
       this.Category = data;
-     /*  console.log(data); */
+      /*  console.log(data); */
     }, error => {
       console.log(error);
     });
@@ -116,9 +118,13 @@ getMobileNumber() {
       formData.append('uploads[]', this.fileToUpload[i]);
     }
     this.addListService.uploadlogo(formData, id).subscribe(data => {
-     /* console.log(data); */
-     sessionStorage.setItem('businessLogIn', 'true');
-     this.router.navigate(['/home/home-page']);
+      /* console.log(data); */
+      this.router.navigate(['/home/home-page']);
+      sessionStorage.removeItem('subID');
+      sessionStorage.removeItem('subscribe');
+      sessionStorage.setItem('businessLogIn', 'true');
+      sessionStorage.setItem('userID', data._id);
+
     }, error => {
       console.log(error);
     });

@@ -1,5 +1,5 @@
 export class RegistrationUser {
-    userName: string;
+    firstName: string;
     mobileNumber: string;
     emailId: string;
 }

@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
       this.profileModel = data;
       this.profileValue = data[0];
       this.headerModel = data;
-     /*  console.log( this.profileValue); */
+      /*  console.log( this.profileValue); */
     }, error => {
       console.log(error);
     });

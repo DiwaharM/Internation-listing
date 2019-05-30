@@ -3,18 +3,22 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewListingComponent } from './view-listing/view-listing.component';
 import { ViewListingDetailsComponent } from './view-listing-details/view-listing-details.component';
-
+import { VisitorsReportComponent } from './visitors-report/visitors-report.component';
 
 
 const routes: Routes = [
-   {
-       path: 'viewlisting/:id',
-       component: ViewListingComponent
-   },
-   {
-     path: 'viewlistingdetail/:id',
-     component: ViewListingDetailsComponent
-   }
+  {
+    path: 'viewlisting/:id',
+    component: ViewListingComponent
+  },
+  {
+    path: 'viewlistingdetail/:id',
+    component: ViewListingDetailsComponent
+  },
+  {
+    path: 'visitorsreport/:id',
+    component: VisitorsReportComponent
+  }
 ];
 
 @NgModule({

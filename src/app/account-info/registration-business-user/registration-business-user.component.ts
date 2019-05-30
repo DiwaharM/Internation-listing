@@ -26,7 +26,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
 
 
   ngOnInit() {
-   this.createForm();
+    this.createForm();
   }
   createForm() {
     this.firstFormGroup = this.fb.group({
@@ -39,19 +39,18 @@ export class RegistrationBusinessUserComponent implements OnInit {
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, {
-      /* validator: PasswordValidation.MatchPassword */
-      validator: MustMatch('password', 'confirmPassword')
-    });
+        /* validator: PasswordValidation.MatchPassword */
+        validator: MustMatch('password', 'confirmPassword')
+      });
     this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required]
     });
   }
-/*   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
-  let pass = group.controls.password.value;
-  let confirmPass = group.controls.confirmPassword.value;
-
-  return pass === confirmPass ? null : { notSame: true }
-} */
+  /*   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+    let pass = group.controls.password.value;
+    let confirmPass = group.controls.confirmPassword.value;
+    return pass === confirmPass ? null : { notSame: true }
+  } */
 
   selectValue(e) {
     this.SelectedValue = new PackDetailModel();
@@ -70,7 +69,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.packageDetails = this.SelectedValue;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
-      sessionStorage.setItem('mobileNumber', this.firstFormGroup.controls.mobileNumber.value);
+      sessionStorage.setItem('usingID', data._id);
       this.router.navigate(['add-listing/addcompanydetail']);
     }, error => {
       console.log(error);

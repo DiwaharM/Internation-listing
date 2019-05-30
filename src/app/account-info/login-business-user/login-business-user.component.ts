@@ -11,6 +11,7 @@ import { AcountService } from '../acount.service';
 export class LoginBusinessUserComponent implements OnInit {
   LogInForm: FormGroup;
   loginValue: BusinessUserModel;
+  loginFailed = false;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
               private acountService: AcountService) { }
 
@@ -28,9 +29,15 @@ export class LoginBusinessUserComponent implements OnInit {
     this.loginValue.emailId = LogInForm.controls.emailId.value;
     this.loginValue.password = LogInForm.controls.password.value;
     this.acountService.businessLogin(this.loginValue).subscribe(data => {
-      sessionStorage.setItem('businessLogIn', 'true');
-      sessionStorage.setItem('userID', data[0]._id);
-      this.router.navigate(['/home/home-page']);
+      if (data.length === 0) {
+        this.loginFailed = true;
+      } else {
+        sessionStorage.removeItem('subID');
+        sessionStorage.removeItem('subscribe');
+        sessionStorage.setItem('businessLogIn', 'true');
+        sessionStorage.setItem('userID', data[0]._id);
+        this.router.navigate(['/home/home-page']);
+      }
     }, error => {
       console.log(error);
     });
