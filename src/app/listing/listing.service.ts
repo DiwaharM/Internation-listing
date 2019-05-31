@@ -75,4 +75,9 @@ export class ListingService {
     const url: string = this.serviceUrl + sharedUrl + id;
     return this.http.post<any>(url, data);
   }
+  getSearch(data): Observable<any> {
+    const sharedUrl = 'search/';
+    const url: string = this.serviceUrl + sharedUrl + data ;
+    return this.http.get<any>(url);
+  }
 }

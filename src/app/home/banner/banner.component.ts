@@ -17,7 +17,7 @@ export class BannerComponent implements OnInit {
     this.getBanner();
   }
   submit(value) {
-    this.router.navigate(['listing/viewlisting'], { queryParams: { order: 'popular' } });
+    this.router.navigate(['listing/viewsearchlisting'], { queryParams: { order: value } });
   }
   minusSlides(n) {
     const min = --n;
