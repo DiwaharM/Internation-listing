@@ -16,8 +16,8 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
     this.getBanner();
   }
-  submit() {
-    this.router.navigate(['listing/viewlisting']);
+  submit(value) {
+    this.router.navigate(['listing/viewlisting'], { queryParams: { order: 'popular' } });
   }
   minusSlides(n) {
     const min = --n;
