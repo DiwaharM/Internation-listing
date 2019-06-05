@@ -27,6 +27,7 @@ export class ViewListingDetailsComponent implements OnInit {
   temp1: CustomerLog;
   temp2: BusinessUserModel;
   counting: any;
+  showcounting = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private listingService: ListingService, private fb: FormBuilder) {
@@ -38,6 +39,7 @@ export class ViewListingDetailsComponent implements OnInit {
   ngOnInit() {
     /*    this.getUserName(); */
     this.getSelectedListing();
+    this.getUserDetail();
     /*  this.getAllReview(); */
   }
   getSelectedListing() {
@@ -52,6 +54,13 @@ export class ViewListingDetailsComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+  getUserDetail() {
+    if (sessionStorage.getItem('businessLogIn')) {
+      this.showcounting = true;
+    } else {
+      this.showcounting = false;
+    }
   }
   postReview(title, description) {
     this.listModel = new Review();
