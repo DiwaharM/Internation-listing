@@ -34,13 +34,19 @@ import { BannerComponent } from './banner/banner.component';
 import { AdsComponent } from './ads/ads.component';
 import { CategoryComponent } from './category/category.component';
 import { PromotionComponent } from './promotion/promotion.component';
-
-
-
+import { CarouselItemDirective } from '../home/carousel-item/carousel-item.directive';
+import { CarouselItemComponent } from './carousel-item/carousel-item.component';
 
 
 @NgModule({
-  declarations: [HomePageComponent, BannerComponent, AdsComponent, CategoryComponent, PromotionComponent],
+  declarations: [
+    HomePageComponent,
+    BannerComponent,
+    AdsComponent,
+    CategoryComponent,
+    PromotionComponent,
+    CarouselItemDirective,
+    CarouselItemComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

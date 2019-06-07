@@ -1,17 +1,13 @@
-<div class="promotion-One">
-  <div class="container-fluid">
-    <div class="nameCoverag">
-      <h3 class="promotionNam">The Best Furniture Range</h3>
-    </div>
-    <div class="row gridImg">
-      <div class="col-md-3 col-3 names" *ngFor="let data of adsModel">
-        <div class="promoImg">
-          <div class="card">
-            <img [src]="data.adsImageName" class="img-responsive">
-          </div>
-        </div>
 
+  <div class="container-fluid gridTop">
+    <div class="row gridImg">
+      <div class="col-md-6 col-sm-6 col-xsm-6 col-6 names" *ngFor="let data of adsModel" >
+        <div class="container-fluid">
+            <img [src]="data.adsImageName" class="img-ads">
+          </div>
       </div>
+      <div class="col-md-6 col-sm-6 col-xsm-6 col-6 ">
+          <h1  class="addContent">Everythig You Need to Know About Content Advertising</h1>
+    </div>
     </div>
   </div>
-</div>

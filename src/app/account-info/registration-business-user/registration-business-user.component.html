@@ -4,7 +4,8 @@
  <mat-horizontal-stepper linear #stepper>
    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
      <form [formGroup]="firstFormGroup">
-       <ng-template matStepLabel>Fill the Basic Details</ng-template>
+       <ng-template matStepLabel><b style="color: rgb(0, 41, 0);">Fill the Basic Details</b></ng-template>
+       <mat-card class="card">
        <div class="row">
          <div class="col-md-6">
            <mat-form-field>
@@ -54,14 +55,20 @@
           <input   type="checkbox" formControlName="confirmPassword" >Agree
     </div> -->
        </div>
+       </mat-card>
+
+
+
        <div>
-         <button class="btn btn-dark" matStepperNext>Next</button>
+         <button class="btn btn-success" matStepperNext><b>Click Me</b></button>
        </div>
+
+
      </form>
    </mat-step>
    <mat-step [stepControl]="secondFormGroup">
      <form [formGroup]="secondFormGroup">
-       <ng-template matStepLabel>Select Payment Details</ng-template>
+       <ng-template matStepLabel><i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i>Select Payment Details</ng-template>
 
        <mat-radio-group aria-label="Select an option" (change)="selectValue($event)">
          <div class="row">

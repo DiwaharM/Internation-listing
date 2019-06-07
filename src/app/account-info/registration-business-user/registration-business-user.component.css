@@ -29,3 +29,12 @@
 .bottom {
   padding-bottom: 70px;
 }
+
+.btn-success{
+  width: 100%;
+}
+
+.card{
+margin-bottom: 30px;
+border:  1px solid green;
+}

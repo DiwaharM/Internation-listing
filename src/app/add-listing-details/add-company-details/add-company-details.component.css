@@ -29,3 +29,8 @@
 .bottom {
   padding-bottom: 70px;
 }
+
+.card{
+  border-style: inset solid red;
+  margin-top: 30px;
+}

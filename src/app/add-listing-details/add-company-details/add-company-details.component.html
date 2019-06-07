@@ -8,6 +8,8 @@
           <input type="file" (change)="handleFileInput($event.target.files)" name="file">
         </div>
 
+
+
         <div class="col-md-8 " *ngFor="let url of urls">
           <mat-card>
             <img class="img-fluid" [src]="url" />
@@ -15,7 +17,8 @@
         </div>
 
       </div>
-      <div class="col-md-6">
+      <mat-card class="card">
+      <div class="col-md-6" style="max-width: 100%">
         <div class="col-md-9">
           <mat-form-field>
             <input matInput placeholder="Company Name" formControlName="companyName" required>
@@ -61,14 +64,14 @@
           </mat-form-field>
         </div>
         <div class="col-md-6">
-          <button class="btn btn-dark">Submit</button>
+          <button class="btn btn-success">Submit</button>
         </div>
         <div class="col-md-6" style="color:red">
           <input formControlName="agree" type="checkbox">Agree - Admin have rights to delete the unwanted content
 
         </div>
       </div>
-
+    </mat-card>
       <!--   <div class="col-md-12">
            
             <input   type="checkbox" formControlName="confirmPassword" >Agree

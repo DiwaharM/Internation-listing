@@ -1,15 +1,16 @@
 <h1 class="our-h1">
-  <h3>Category</h3>
+  <h3 class=catTopic>Featured businesses</h3>
 </h1>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-3 " *ngFor="let category of categoryModel">
-      <a (click)="getCategory(category)">
-        <div class="categoryCover">
-          <img [src]="category.categoryImageName" class="categoryImage " style="width: 100px; height: 100px;">
-        </div>
-        <p class="categoryName">{{category.categoryName}}</p>
-      </a>
-    </div>
+    <app-carousel-item>
+      <div appCarouselItem class="col-md-3 col-lg-3 col-xl-3 col-3 gridCoverss" *ngFor="let category of categoryModel">
+        <a (click)="getCategory(category)">
+          <img [src]="category.categoryImageName" class="catImgs">
+          <p class="categoryName">{{category.categoryName}}</p>
+          <p style="text-align: center; color: gray;">Himayat Nagar, Hyderabad</p>
+        </a>
+      </div>
+    </app-carousel-item>
   </div>
 </div>

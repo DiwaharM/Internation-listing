@@ -1,30 +1,41 @@
-<br>
-<br>
 <form>
-  <div>
-    <div class="row">
-      <div class="col-md-12" *ngFor='let banner of banners; let i = index'>
-        <div *ngIf="slideIndex === i">
-          <img [src]="banner.bannerImage" alt="custom_html_banner1" style="width:100%">
-        </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-xl-12 col-12 " *ngFor='let banner of banners; let i = index'>
+      <img [src]="banner.bannerImage" alt="custom_html_banner1" [ngStyle]='bannerStyle'>
+      <div *ngFor='let logo of logoClass'>
+
       </div>
-      <div class="Absolute-Center is-Responsive">
-
-
-        <div class="input-group centered">
-
-          <input type="search" class="form-control" #search placeholder="Search" aria-describedby="basic-addon2">
-
-          <div class="input-group-append">
-            <button class="btn btn-info" type="button" (click)="submit(search.value)">Search</button>
-          </div>
-        </div>
+      <h1 class="name">#1 INDIAN WEBSITE FOR LISTING LOCAL BUSINESS</h1>
+      <div class="input-group cenTered">
+        <form class="search">
+          <input type="search" class="form-control" #search name="" placeholder="Search">
+          <button type="button" class="btn btn-info" (click)="submit(search.value)">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
       </div>
+
     </div>
   </div>
 </form>
 
-<br>
-<br>
-<br>
-<br>
+
+<div class="homeCategoriesBlock" style="width: 1350px;">
+  <div class="container">
+    <div class="row">
+      <ul class="list-unstyled" *ngFor="let data of icons">
+        <li>
+          <img [src]='data.iconList' class="img-responsive">
+          <p [ngStyle]='oneStyle'>{{data.name1}}</p>
+        </li>
+        <p [ngStyle]='twoStyle'> {{data.name2}}</p>
+        <p [ngStyle]='threeStyle'> {{data.name3}}</p>
+        <p [ngStyle]='threeStyle'>{{data.name4}}</p>
+        <p [ngStyle]='threeStyle'> {{data.name5}}</p>
+        <p [ngStyle]='threeStyle'> {{data.name6}}</p>
+        <p [ngStyle]='threeStyle'> {{data.name7}}</p>
+        <p [ngStyle]='threeStyle'> {{data.name8}}</p>
+      </ul>
+    </div>
+  </div>
+</div>
