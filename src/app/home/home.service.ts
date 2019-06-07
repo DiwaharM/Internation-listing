@@ -23,8 +23,8 @@ export class HomeService {
     const url: string = this.serviceUrl + listUrl;
     return this.http.get<Category>(url);
   }
-  getPromotion(): Observable<any> {
-    const listUrl = 'getpromotion';
+  getLisingWithGradeWise(): Observable<any> {
+    const listUrl = 'getalllistinggradewise';
     const url: string = this.serviceUrl + listUrl;
     return this.http.get<Promotion>(url);
   }

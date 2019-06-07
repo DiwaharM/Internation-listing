@@ -1,18 +1,18 @@
 <div class="promotion-One">
   <div class="container-fluid">
     <div class="nameCoverag">
-      <h3 class="promotionNam">{{promotionsModel[0]?.promotionTitle}}</h3>
+      <h3 class="promotionNam">{{Best}}</h3>
     </div>
     <div class="row gridImg">
-      <div class="col-md-3 col-3 names" *ngFor="let data of promotionsModel[0]?.joinedtable">
-        <div class="promoImg">
+      <!-- <div class="col-md-3 col-3 names" *ngFor="let data of promotionsModel[0]?.joinedtable"> -->
+        <div class="promoImg" *ngFor="let data of promotionsModel">
           <div class="card">
             <img [src]="data.logImageName" class="img-responsive">
           </div>
         </div>
         <h5 class="companyName"> {{data.companyName}}</h5>
         <h6 class="country"> {{data.country}} </h6>
-      </div>
+   <!--    </div> -->
     </div>
   </div>
 </div>
