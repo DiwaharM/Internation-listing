@@ -49,4 +49,9 @@ export class AcountService {
     const url: string = this.serviceUrl + accUrl + id;
     return this.http.post<BusinessUserModel>(url, pass);
   }
+  getAllPaymentPackage(): Observable<any> {
+    const accUrl = 'getallpaymentpackage';
+    const url: string = this.serviceUrl + accUrl ;
+    return this.http.get<BusinessUserModel>(url);
+  }
 }

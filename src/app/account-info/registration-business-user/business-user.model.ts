@@ -22,4 +22,5 @@ export class BusinessUserModel {
     logImageName: string;
     companyImageName: string;
     customerLogs: [CustomerLog];
+    checkID: string;
 }

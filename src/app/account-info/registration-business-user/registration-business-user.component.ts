@@ -14,6 +14,19 @@ import { PackDetailModel } from './package-detail.model';
   styleUrls: ['./registration-business-user.component.css']
 })
 export class RegistrationBusinessUserComponent implements OnInit {
+  public buttonStyle =
+  {
+    margin: '8px',
+    width: '50%',
+    border: '1px solid rgb(3, 70, 15)',
+    'border-radius': '1px',
+    'background-color': 'rgba(1, 85, 5, 0.349)',
+    color: 'rgb(3, 70, 15)',
+    'font-family': 'Expert san',
+    'font-size': '20px',
+'text-transform': 'uppercase',
+'letter-spacing': '0.8px'
+  };
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -21,12 +34,14 @@ export class RegistrationBusinessUserComponent implements OnInit {
   action;
   SelectedValue: any;
   regModel: any;
+  paymentModel: any;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
               public dialog: MatDialog, private accountService: AcountService) { }
 
 
   ngOnInit() {
     this.createForm();
+    this.getPaymentPackage();
   }
   createForm() {
     this.firstFormGroup = this.fb.group({
@@ -53,9 +68,8 @@ export class RegistrationBusinessUserComponent implements OnInit {
   } */
 
   selectValue(e) {
-    this.SelectedValue = new PackDetailModel();
-    this.SelectedValue.duration = e.value;
-    this.SelectedValue.amount = '2000';
+    this.SelectedValue = e.value;
+    console.log(this.SelectedValue);
   }
   submit() {
     this.regModel = new BusinessUserModel();
@@ -66,11 +80,19 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.emailId = this.firstFormGroup.controls.emailId.value;
     this.regModel.mobileNumber = this.firstFormGroup.controls.mobileNumber.value;
     this.regModel.password = this.firstFormGroup.controls.password.value;
-    this.regModel.packageDetails = this.SelectedValue;
+    this.regModel.checkID = this.SelectedValue._id;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
       sessionStorage.setItem('usingID', data._id);
       this.router.navigate(['add-listing/addcompanydetail']);
+    }, error => {
+      console.log(error);
+    });
+  }
+  getPaymentPackage() {
+    this.accountService.getAllPaymentPackage().subscribe(data => {
+      this.paymentModel = data;
+      console.log(data);
     }, error => {
       console.log(error);
     });
