@@ -19,14 +19,30 @@ export class CompanyImagesComponent implements OnInit {
   fileLength: any;
   userId: string;
   headerModel: BusinessUserImage;
+  profileForm: FormGroup;
+  editshow = false;
+  showImage = false;
+  profileValue: any;
   /*   assetListingService: any; */
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
               public dialog: MatDialog, private accountService: AcountService) { }
 
   ngOnInit() {
+    this.createForm();
     this.getUserId();
     this.getProjile();
+  }
+  createForm() {
+    this.profileForm = this.fb.group({
+      listingCompany: ['', Validators.required],
+      listingCountry: ['', Validators.required],
+      categoryName: [''],
+      subCategoryName: [''],
+      weblink: [''],
+      listingEmailid: [''],
+      listingMobileNumber: ['']
+    });
   }
   handleFileInput(images: any) {
     /*   this.imageError = false; */
@@ -53,6 +69,7 @@ export class CompanyImagesComponent implements OnInit {
       formData.append('uploads[]', this.fileToUpload[i]);
     }
     this.accountService.uploadCompanyImages(formData, this.userId).subscribe(data => {
+      this.getProjile();
     }, error => {
       console.log(error);
     });
@@ -61,10 +78,17 @@ export class CompanyImagesComponent implements OnInit {
   redirect() {
     throw new Error('Method not implemented.');
   }
+  getShowEdit() {
+    this.editshow = true;
+  }
+  cancel() {
+    this.editshow = false;
+  }
   getProjile() {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
-      console.log(this.headerModel);
+      this.profileValue = data[0];
+      /* console.log(this.headerModel); */
     }, error => {
       console.log(error);
     });

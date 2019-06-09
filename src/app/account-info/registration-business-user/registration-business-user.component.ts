@@ -24,8 +24,8 @@ export class RegistrationBusinessUserComponent implements OnInit {
       color: 'rgb(3, 70, 15)',
       'font-family': 'Expert san',
       'font-size': '20px',
-'text-transform': 'uppercase',
-'letter-spacing': '0.8px'
+      'text-transform': 'uppercase',
+      'letter-spacing': '0.8px'
     };
   isLinear = false;
   firstFormGroup: FormGroup;
