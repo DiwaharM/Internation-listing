@@ -34,6 +34,7 @@ import {
   MatTabsModule,
   MatSliderModule
 } from '@angular/material';
+
 import { RegistrationUserComponent } from './registration-user/registration-user.component';
 import { RegistrationBusinessUserComponent } from './registration-business-user/registration-business-user.component';
 import { LoginBusinessUserComponent } from './login-business-user/login-business-user.component';

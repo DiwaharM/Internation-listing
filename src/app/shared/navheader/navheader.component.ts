@@ -10,6 +10,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./navheader.component.css']
 })
 export class NavheaderComponent implements OnInit {
+
+public logoStyle = {
+  width: '100px',
+  height: '70px',
+  margin: '5px',
+  'padding-left': '30px',
+};
+
   headers: Header;
   dropShow = false;
   busUserID: string;

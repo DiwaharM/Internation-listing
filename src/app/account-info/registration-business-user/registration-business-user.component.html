@@ -4,7 +4,13 @@
  <mat-horizontal-stepper linear #stepper>
    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
      <form [formGroup]="firstFormGroup">
-       <ng-template matStepLabel>Fill the Basic Details</ng-template>
+       <ng-template matStepLabel>
+         <b>
+          <i class="fa fa-asterisk" aria-hidden="true"></i>
+        Fill the Basic Details
+      </b>
+      </ng-template>
+       <mat-card class="card controlAll" >
        <div class="row">
          <div class="col-md-6">
            <mat-form-field>
@@ -44,47 +50,44 @@
          <div class="col-md-6">
            <mat-form-field>
              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" min="8" required>
-             <!--  <mat-error  *ngIf= "firstFormGroup.controls[confirmPassword].errorMessage">
-                  Password not same
-                </mat-error> -->
            </mat-form-field>
          </div>
-         <!--   <div class="col-md-12">
-         
-          <input   type="checkbox" formControlName="confirmPassword" >Agree
-    </div> -->
        </div>
+       </mat-card>
        <div>
-         <button class="btn btn-dark" matStepperNext>Next</button>
+         <button mat-stroked-button [ngStyle]='buttonStyle'  matStepperNext><b>Next</b></button>
        </div>
      </form>
    </mat-step>
    <mat-step [stepControl]="secondFormGroup">
      <form [formGroup]="secondFormGroup">
-       <ng-template matStepLabel>Select Payment Details</ng-template>
-
+       <ng-template matStepLabel>
+         <i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i>
+         Select Payment Details
+        </ng-template>
        <mat-radio-group aria-label="Select an option" (change)="selectValue($event)">
          <div class="row">
            <div class="col-md-3">
-             <div class="card bg-light mb-3" style="max-width: 18rem;">
-               <div class="card-header" align="center">
-                 <mat-radio-button value="1 Month"> 1 Month </mat-radio-button>
+             <div class="card bg-light mb-3 coVer" style="max-width: 18rem;">
+               <div class="card-header headerClass">
+                 <mat-radio-button color="primary" value="1 Month">1 Month</mat-radio-button>
                </div>
                <div class="card-body">
-                 <h1 class="card-title" align="center" style=font-size:70px>&#8377;500</h1>
-                 <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the
-                   card's content.</p>
+                 <h1 class="card-title titleClass">&#8377;500</h1>
+                 <p class="card-text textClass">Some quick example text to build on the card title and make up the bulk of the
+                   card's content.
+                  </p>
                </div>
              </div>
            </div>
            <div class="col-md-3">
-             <div class="card bg-light mb-3" style="max-width: 18rem;">
-               <div class="card-header" align="center">
-                 <mat-radio-button value="3 Month"> 3 Month</mat-radio-button>
+             <div class="card bg-light mb-3 coVer">
+               <div class="card-header">
+                 <mat-radio-button color="primary" value="3 Month">3 Month</mat-radio-button>
                </div>
                <div class="card-body">
-                 <h1 class="card-title" align="center" style=font-size:70px>&#8377;1.5K</h1>
-                 <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the
+                 <h1 class="card-title titleClass">&#8377;1.5K</h1>
+                 <p class="card-text textClass"> Some quick example text to build on the card title and make up the bulk of the
                    card's content.</p>
                </div>
              </div>
@@ -92,35 +95,38 @@
 
            <div class="col-md-3">
 
-             <div class="card bg-light mb-3" style="max-width: 18rem;">
-               <div class="card-header" align="center">
-                 <mat-radio-button value="6 Month"> 6 Month </mat-radio-button>
+             <div class="card bg-light mb-3 coVer">
+               <div class="card-header headerClass">
+                 <mat-radio-button color="primary" value="6 Month"> 6 Month </mat-radio-button>
                </div>
                <div class="card-body">
-                 <h1 class="card-title" align="center" style=font-size:70px>&#8377;3K</h1>
-                 <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the
+                 <h1 class="card-title titleClass">&#8377;3K</h1>
+                 <p class="card-text textClass"> Some quick example text to build on the card title and make up the bulk of the
                    card's content.</p>
                </div>
              </div>
            </div>
            <div class="col-md-3">
-             <div class="card bg-light mb-3" style="max-width: 18rem;">
-               <div class="card-header" align="center">
-                 <mat-radio-button value="12 Month"> 12 Month </mat-radio-button>
+             <div class="card bg-light mb-3 coVer">
+               <div class="card-header">
+                 <mat-radio-button color="primary" value="12 Month"> 12 Month </mat-radio-button>
                </div>
                <div class="card-body">
-                 <h1 class="card-title" align="center" style=font-size:70px>&#8377;6K</h1>
-                 <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the
+                 <mat-card-title>
+                 <h1 class="card-title titleClass"> &#8377;6K </h1>
+                </mat-card-title>
+                 <p class="card-text textClass"> Some quick example text to build on the card title and make up the bulk of the
                    card's content.</p>
                </div>
              </div>
            </div>
          </div>
        </mat-radio-group>
-
        <div>
-         <button class="btn btn-dark mr-3" matStepperPrevious>Back</button>
-         <button class="btn btn-dark" (click)="submit()" matStepperNext>Submit</button>
+         <h1 style="text-align: center;">
+         <button mat-stroked-button matStepperPrevious [ngStyle]='buttonStyle'><b>Back</b></button>
+         <button mat-stroked-button  [ngStyle]='buttonStyle' (click)="submit()" matStepperNext><b>Submit</b>  </button>
+        </h1>
        </div>
      </form>
    </mat-step>

@@ -29,3 +29,39 @@
 .bottom {
   padding-bottom: 70px;
 }
+
+.controlAll{
+margin-bottom: 30px;
+border:  1px solid green;
+}
+.btn-success{
+  background-color: #878b8e;
+  border: #878b8e 2px solid;
+  width: 100%;
+  color: #000;
+
+}
+
+.card-body{
+  border: 0px solid gray !important;
+  border-radius: 30px;
+}
+.coVer{
+  border: 1px solid rgb(163, 163, 163) !important;
+  border-radius: 0px;
+  max-width: 18rem;
+  box-shadow: 5 20px 2px 0 #000000ab, 5 12px 22px 0 rgba(0, 0, 0, .19) !important;
+
+}
+
+.titleClass{
+  text-align: center;
+  font-family: 'Expert Sans'
+}
+.headerClass{
+  text-align: center;
+}
+.textClass{
+  font-family: 'Expert Sans';
+
+}

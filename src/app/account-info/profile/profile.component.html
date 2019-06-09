@@ -1,13 +1,10 @@
 <div class="row">
-  <!-- <div *ngIf="loginUser">Please Login</div> -->
   <div class="col-md-12 mt-5 py-5 border">
-    <!--  <h4 class="pb-4">Edit profile Details</h4> -->
     <div class="row">
       <div class="form-group col-md-2" *ngIf="showImage === false">
         <label> Current Logo</label>
         <div class="form-group col-md-12">
-          <img *ngFor="let url of headerModel" [src]="url.logImageName" style="width: 100px; height: 100px;" />
-          <!-- *ngFor="let url of headerModel" -->
+          <img *ngFor="let url of headerModel" [src]="url.logImageName" style="width: 100px; height: 100px;">
         </div>
       </div>
       <div class="col-md-2" *ngIf="showImage === false">

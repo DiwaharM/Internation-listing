@@ -88,24 +88,24 @@ vcenterHeader {
 }
 
 .gridRow {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(183, 238, 255, 0.377);
   margin: 12px 0px;
-  background-color: #fff;
-  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.384);
+  border-radius: 2px;
   font-size: .8rem !important;
 }
 
 .pageBoxLg {
-  border: 1px solid lightslategray;
+/*   border: 1px solid rgb(211, 211, 211); */
   margin: 20px 20px 20px 20px;
   padding: 20px;
   position: relative;
   background: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/*   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .pageBoxLg-label {
-  background: lightslategray;
+  background: rgb(143, 163, 255);
   margin: 0px 0px 0px 20px;
   font-size: 14px;
   padding: 2px 20px 2px 20px;
@@ -180,4 +180,20 @@ vcenterHeader {
 
 .checked {
   color: orange;
+}
+
+
+
+
+/* New Edition */
+
+.imgView{
+  width: 50px;
+  height: 50px;
+}
+.alignment{
+  text-align: center;
+}
+.paras{
+  text-align: center;
 }

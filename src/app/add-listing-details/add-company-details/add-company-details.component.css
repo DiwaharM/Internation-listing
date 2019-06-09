@@ -29,3 +29,35 @@
 .bottom {
   padding-bottom: 70px;
 }
+
+.card{
+  border-style: inset solid red;
+  margin-top: 30px;
+}
+
+.btn-success{
+  width: 100%;
+}
+
+.img-companyLogo{
+  width: 100px !important;
+
+}
+.textLogo{
+  font-family: 'Expert San';
+  letter-spacing: 0.5;
+  font-size: 20px;
+  margin: 20px;
+  color: rgb(53, 53, 53);
+  margin-bottom: 30px;
+}
+
+.coverWidth{
+  max-width: 100%;
+}
+.buttonClass{
+  width: 100%;
+  background: rgb(231, 231, 231);
+  border-radius: 0px;
+  border: 1px solid rgb(131, 131, 131);
+}

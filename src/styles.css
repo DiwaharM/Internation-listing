@@ -5,3 +5,12 @@
 @import "./assets/styles/commonStyle.css";
 @import "./assets/styles/angularStyle.css";
 @import "./assets/styles/bootstrapOverride.css";
+
+  @font-face {
+    font-family: 'Expert San';
+    src: url('./assets/Font/Font1/BebasKai.otf');
+  }
+  @font-face {
+    font-family: 'Expert Sans';
+    src: url('./assets/Font/Font2/GlacialIndifference-Regular.otf');
+  }
