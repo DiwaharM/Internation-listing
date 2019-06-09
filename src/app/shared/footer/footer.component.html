@@ -5,10 +5,29 @@
       <!-- Footer Links -->
       <div class="container-fluid text-center text-md-left">
         <!-- Grid row -->
-        <div class="row">
+        <div class="row"  *ngFor="let data of footerModel">
           <!-- Grid column -->
           <hr class="clearfix w-100 d-md-none pb-3">
           <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+              <div>
+                  <img [src]="data.logoImageName" style="width:180px" alt="Logo" class="img-fluid">
+                </div>
+                <div class="footers-info mt-3">
+                  <p>{{data.address}}</p>
+                  <ul class="list-unstyled">
+                    <li><a href="maintenance.html"><span><i class="fa fa-phone"
+                            aria-hidden="true"></i></span>{{data.contactNo}}</a></li>
+                    <li><a href="contact.html"><span><i class="fa fa-phone"
+                            aria-hidden="true"></i></span>{{data.alternativeContactNo}}</a></li>
+                    <li><a href="about.html"><span><i class="fa fa-envelope" aria-hidden="true"></i></span>{{data.mailId}}</a>
+                    </li>
+                  </ul>
+                </div>
+          </div>
+
+
+
           <div class="col-md-3 mb-md-0 mb-3">
             <!-- Links -->
             <h5 class="text-uppercase">Information</h5>
@@ -44,16 +63,16 @@
             <h5 class="text-uppercase">Mobile & Social </h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#">
+                <a [attr.href]="data?.facebookLink">
                   <i class="fa fa-facebook-square fa-lg " aria-hidden="true"></i>
                 </a>
-                <a href="#">
+                <a [attr.href]="data?.twitterLink">
                   <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
                 </a>
-                <a href="#">
+                <a [attr.href]="data?.googlePlusLink">
                     <i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i>
                 </a>
-                <a href="#">
+                <a [attr.href]="data?.instagramLink">
                     <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
                 </a>
               </li>

@@ -3,6 +3,7 @@ import { AppSetting } from '../config/appSetting';
 import { Header } from './navheader/header.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Footer } from './footer/footer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,10 @@ export class SharedService {
   }
   getLogin() {
     return sessionStorage.getItem('businessLogIn');
+  }
+  getFooter(): Observable<any> {
+    const sharedUrl = 'getfooter';
+    const url: string = this.serviceUrl + sharedUrl;
+    return this.http.get<Footer>(url);
   }
 }

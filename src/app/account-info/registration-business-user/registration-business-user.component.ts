@@ -92,7 +92,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
   getPaymentPackage() {
     this.accountService.getAllPaymentPackage().subscribe(data => {
       this.paymentModel = data;
-      console.log(data);
+      /* console.log(data); */
     }, error => {
       console.log(error);
     });
