@@ -30,6 +30,7 @@ export class ViewSearchListingComponent implements OnInit {
   getSearch() {
     this.listingService.getSearch(this.temp).subscribe(data => {
       this.listingModel = data;
+      console.log(data);
       this.listingModel = new MatTableDataSource<any>(data);
       this.listingModel.paginator = this.paginator;
       this.array =  this.listingModel;

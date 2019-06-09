@@ -16,9 +16,8 @@ export class PromotionComponent implements OnInit {
     this.getPromotion();
   }
   getPromotion() {
-    this.homeService.getPromotion().subscribe(data => {
+    this.homeService.getLisingWithGradeWise().subscribe(data => {
       this.promotionsModel = data;
-      console.log(data);
     }, error => {
       console.log(error);
     });
