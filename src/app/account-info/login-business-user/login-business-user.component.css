@@ -75,7 +75,11 @@
    border: 0.5px solid rgba(0, 0, 0, 0.986);
    border-radius: 30px;
    background: rgba(1, 85, 5, 0.349);
+   -webkit-animation-delay: 1s;
+   -moz-animation-delay: 1s;
+   animation-delay: 3s;
 }
+
 
 .displayNone
  {
@@ -91,4 +95,13 @@
 
 .blOg{
   font-family: 'Expert San' !important;
+}
+
+
+.gridRow{
+  margin-top: 30px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 10px;
 }

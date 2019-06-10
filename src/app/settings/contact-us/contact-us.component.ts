@@ -11,6 +11,18 @@ import { ContactUs } from './contact-us.model';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+
+  public buttonStyle = {
+    border: 'rgb(143, 143, 143) 1px solid',
+    'border-radius': '0px',
+    width: '50%',
+    height: 'auto',
+    color: 'white',
+    'box-shadow': ' 0 1px 28px 0 #00000063, 0 1px 2px 0 rgba(0, 0, 0, .19)',
+   'background-color': '#018DFF'
+
+  };
+
   contactUsModel: any;
   constructor(private settingService: SettingsService) { }
 

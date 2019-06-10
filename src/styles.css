@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "./assets/styles/commonStyle.css";
+@import "./assets/styles/publicStyles.css";
 @import "./assets/styles/angularStyle.css";
 @import "./assets/styles/bootstrapOverride.css";
 
@@ -13,4 +13,9 @@
   @font-face {
     font-family: 'Expert Sans';
     src: url('./assets/Font/Font2/GlacialIndifference-Regular.otf');
+  }
+
+  @font-face {
+    font-family: 'Expert Sanss';
+    src: url('./assets/Font/font3/Poppins-Light.otf');
   }

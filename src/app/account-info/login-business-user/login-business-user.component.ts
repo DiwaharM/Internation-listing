@@ -9,6 +9,11 @@ import { AcountService } from '../acount.service';
   styleUrls: ['./login-business-user.component.css']
 })
 export class LoginBusinessUserComponent implements OnInit {
+  public loginLogo = [
+    {
+      images: '../../../assets/images/Logo/ISL LogoFinal.png'
+  }
+  ];
   LogInForm: FormGroup;
   loginValue: BusinessUserModel;
   loginFailed = false;

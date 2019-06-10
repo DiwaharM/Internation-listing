@@ -16,7 +16,7 @@ export class AdsComponent implements OnInit {
 
   getAllAds() {
     this.homeService.getAds().subscribe(data => {
-      /* console.log(data); */
+      console.log(data);
       this.adsModel = data;
     }, error => {
       console.log(error);

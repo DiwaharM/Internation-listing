@@ -1,26 +1,24 @@
-<form>
+<div>
   <div class="row">
     <div class="col-md-12 col-lg-12 col-xl-12 col-12 " *ngFor='let banner of banners; let i = index'>
-      <img [src]="banner.bannerImage" alt="custom_html_banner1" class="bannerImage" >
+      <img [src]="banner.bannerImage" alt="custom_html_banner1" class="img-banner">
       <div *ngFor='let logo of logoClass'>
-
       </div>
-      <h1 class="bannerName">#1 INDIAN WEBSITE FOR LISTING LOCAL BUSINESS</h1>
+      <h1 class="bannerContent">#1 INDIAN WEBSITE FOR LISTING LOCAL BUSINESS</h1>
       <div class="input-group cenTered">
-        <form class="search">
-          <input type="search" class="form-control" #search name="" placeholder="Search">
-          <button type="button" class="btn btn-info" (click)="submit(search.value)">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+        <form class="search bannerSearch">
+          <input type="text" class="form-control bannerFrm" #search name="" placeholder="Search" >
+          <a class="button btn-smbtn" (click)="submit(search.value)">
+            <i class="fa fa-search fa-1x" aria-hidden="true"></i>
+          </a>
         </form>
       </div>
-
     </div>
   </div>
-</form>
+</div>
 
 
-<div class="homeCategoriesBlock" style="width: 1350px;">
+<!-- <div class="homeCategoriesBlock" style="width: 1350px;">
   <div class="container">
     <div class="row">
       <ul class="list-unstyled" *ngFor="let data of icons">
@@ -38,4 +36,4 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->

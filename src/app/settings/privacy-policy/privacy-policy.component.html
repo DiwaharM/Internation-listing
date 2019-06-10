@@ -1,21 +1,14 @@
-<div class="poliCy">
+
+  <div class="container">
+      <h1 class="supportPolicy">PRIVACY POLICY</h1>
   <div class="row">
-    <div class="col-md-12">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12" *ngFor="let data of privayModel">
-            <h1 class="support">PRIVACY POLICY</h1>
-            <p class="stYle">{{data.policyHeading}} </p>
+    <div class="col-md-12 col-lg-12 col-xl-12 col-12" *ngFor="let data of privayModel">
+            <p class="policyTopic">{{data.policyHeading}} </p>
             <div *ngFor="let val of data.policies">
-              <h6 class="hsiX">{{val.policyQuestion}} </h6>
+              <h6 class="policyQuestion">{{val.policyQuestion}} </h6>
               <p class="priVacy">{{val.policyAnswers}} </p>
             </div>
             <br>
-          </div>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </div>

@@ -1,42 +1,68 @@
 <div class="container-fluid footer  footers pt-5">
   <div class="container">
-    <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
-      <!-- Footer Links -->
       <div class="container-fluid text-center text-md-left">
-        <!-- Grid row -->
-        <div class="row"  *ngFor="let data of footerModel">
-          <!-- Grid column -->
-          <hr class="clearfix w-100 d-md-none pb-3">
-          <!-- Grid column -->
+        <div class="row" *ngFor="let data of footerModel">
           <div class="col-md-3 mb-md-0 mb-3">
-              <div>
-                  <img [src]="data.logoImageName" style="width:180px" alt="Logo" class="img-fluid">
-                </div>
-                <div class="footers-info mt-3">
-                  <p>{{data.address}}</p>
-                  <ul class="list-unstyled">
-                    <li><a href="maintenance.html"><span><i class="fa fa-phone"
-                            aria-hidden="true"></i></span>{{data.contactNo}}</a></li>
-                    <li><a href="contact.html"><span><i class="fa fa-phone"
-                            aria-hidden="true"></i></span>{{data.alternativeContactNo}}</a></li>
-                    <li><a href="about.html"><span><i class="fa fa-envelope" aria-hidden="true"></i></span>{{data.mailId}}</a>
-                    </li>
-                  </ul>
-                </div>
+            <a  [routerLink]="['/home/home-page']">
+            <img [src]="data.logoImageName" alt="Logo" class="brandLogo">
+          </a>
+            <div class="footers-info mt-3">
+              <p class="addRess">{{data.address}}</p>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="maintenance.html">
+                    <span>
+                      <i class="fa fa-phone Icon" aria-hidden="true"></i>
+                    </span>
+                   <strong class="contaCt">{{data.contactNo}}</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="contact.html">
+                    <span>
+                      <i class="fa fa-phone Icon" aria-hidden="true"></i>
+                    </span>
+                   <strong class="contaCt">{{data.alternativeContactNo}}</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="about.html">
+                    <span>
+                      <i class="fa fa-envelope Icon" aria-hidden="true"></i>
+                    </span>
+                    <strong class="contaCt">{{data.mailId}}</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-
-
 
           <div class="col-md-3 mb-md-0 mb-3">
             <!-- Links -->
-            <h5 class="text-uppercase">Information</h5>
+            <h5 class="text-uppercase">
+              Information
+            </h5>
             <ul class="list-unstyled">
-              <li><a [routerLink]="['/setting/constact']" class="subText">Contact us</a></li>
-              <li><a [routerLink]="['/setting/faq']" class="subText">FAQ</a></li>
-              <li><a [routerLink]="['/setting/support']" class="subText">Support</a></li>
-              <li><a [routerLink]="['/setting/privacypolicy']" class="subText">Privacy Policy</a></li>
-              <li><a [routerLink]="['/setting/terms']" class="subText">Terms & Conditions</a></li>
+              <li>
+                <a [routerLink]="['/setting/constact']" class="subText">Contact us
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/setting/faq']" class="subText">FAQ
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/setting/support']" class="subText">Support
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/setting/privacypolicy']" class="subText">Privacy Policy</a>
+              </li>
+              <li>
+                <a [routerLink]="['/setting/terms']" class="subText">Terms & Conditions
+                </a>
+              </li>
             </ul>
           </div>
           <!-- Grid column -->
@@ -44,23 +70,19 @@
           <div class="col-md-3 mb-md-0 mb-3">
             <h5 class="text-uppercase">Business </h5>
             <ul class="list-unstyled">
-              <li><a [routerLink]="['/account/reg-business']" class="subText">Add your Business</a></li>
-              <li><a [routerLink]="['/account/login-business']" class="subText">Business user login</a></li>
+              <li>
+                <a [routerLink]="['/account/reg-business']" class="subText">
+                  Add your Business
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/account/login-business']" class="subText">
+                Business user login
+              </a>
+            </li>
             </ul>
-          </div>
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Quick Link </h5>
-            <ul class="list-unstyled">
-              <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Subscribe</a></li>
-              <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Search business</a></li>
-       
 
-              <!-- <li><a [routerLink]="['/account/login-business']">Business user login</a></li> -->
-            </ul>
-          </div>
-          <div class="col-md-3 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Mobile & Social </h5>
+            <h5 class="text-uppercase">Social Medias</h5>
             <ul class="list-unstyled">
               <li>
                 <a [attr.href]="data?.facebookLink">
@@ -70,13 +92,22 @@
                   <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
                 </a>
                 <a [attr.href]="data?.googlePlusLink">
-                    <i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i>
+                  <i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i>
                 </a>
                 <a [attr.href]="data?.instagramLink">
-                    <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+                  <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
                 </a>
               </li>
-              
+
+            </ul>
+          </div>
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+            <h5 class="text-uppercase">Quick Link </h5>
+            <ul class="list-unstyled">
+              <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Subscribe</a></li>
+              <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Search business</a></li>
+              <!-- <li><a [routerLink]="['/account/login-business']">Business user login</a></li> -->
             </ul>
           </div>
         </div>
@@ -85,14 +116,17 @@
     <!-- Footer -->
   </div>
 </div>
+
+
+
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark">
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-      <a href="#" class="fiNal"> @ISL All rights reserved.</a>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="#" class="fiNal"> @ISL All rights reserved.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
