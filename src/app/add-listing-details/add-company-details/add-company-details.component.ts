@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { AddListingService } from '../add-listing.service';
 import { BusinessUserModel } from '../../account-info/registration-business-user/business-user.model';
+
 @Component({
   selector: 'app-add-company-details',
   templateUrl: './add-company-details.component.html',
