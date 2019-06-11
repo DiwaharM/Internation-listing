@@ -9,6 +9,7 @@ import { SharedService } from '../shared.service';
 export class FooterComponent implements OnInit {
   footerModel: any;
 
+  footerValue: any;
   constructor(private subScribeUserService: SubscribeUserService, private sharedService: SharedService) { }
 
   ngOnInit() {
