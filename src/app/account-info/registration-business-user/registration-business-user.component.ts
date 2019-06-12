@@ -97,8 +97,8 @@ export class RegistrationBusinessUserComponent implements OnInit {
   }
   initPay(orderId) {
     const options = {
-       key: 'rzp_test_IVmiDNcNn8ejem',
-       amount: '3000',
+       key: 'rzp_live_8qoHdemEkXVG4k',
+       amount: '100',
        order_id: orderId,
        name: 'International Standard Listing',
          handler: this.paymentResponseHander.bind(this)
