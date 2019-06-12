@@ -43,6 +43,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CompanyImagesComponent } from './company-images/company-images.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import {WindowRefService} from './registration-business-user/window-ref.service';
 
 
 @NgModule({
@@ -83,7 +84,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [AcountService],
+  providers: [AcountService, WindowRefService],
   entryComponents: []
 })
 export class AccountModule { }

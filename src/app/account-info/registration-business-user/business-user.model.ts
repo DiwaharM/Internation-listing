@@ -23,4 +23,5 @@ export class BusinessUserModel {
     companyImageName: string;
     customerLogs: [CustomerLog];
     checkID: string;
+    razorpayOrderId: string;
 }

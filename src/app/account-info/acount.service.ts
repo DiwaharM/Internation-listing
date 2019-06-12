@@ -3,6 +3,7 @@ import { AppSetting } from '../config/appSetting';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BusinessUserModel } from './registration-business-user/business-user.model';
+import {PaymentDetail} from './registration-business-user/paymentDetail.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -53,5 +54,18 @@ export class AcountService {
     const accUrl = 'getallpaymentpackage';
     const url: string = this.serviceUrl + accUrl ;
     return this.http.get<BusinessUserModel>(url);
+  }
+  getClientToken(): Observable<any> {
+    const accUrl = 'clienttoken';
+    const url: string = this.serviceUrl + accUrl ;
+    return this.http.get<BusinessUserModel>(url);
+  }
+
+  // add razorpay response
+
+  addRazorpayResponse(data, id): Observable<any> {
+    const accUrl = 'addrazorpay/';
+    const url: string = this.serviceUrl + accUrl + id;
+    return this.http.put<PaymentDetail>(url, data);
   }
 }
