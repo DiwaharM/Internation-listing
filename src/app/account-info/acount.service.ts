@@ -68,4 +68,25 @@ export class AcountService {
     const url: string = this.serviceUrl + accUrl + id;
     return this.http.put<PaymentDetail>(url, data);
   }
+
+  getCategory(): Observable<any> {
+    const listUrl = 'getallcategory';
+    const url: string = this.serviceUrl + listUrl;
+    return this.http.get<BusinessUserModel>(url);
+  }
+  getSubCategory(data): Observable<any> {
+    const listUrl = 'getselectedsubcategory';
+    const url: string = this.serviceUrl + listUrl;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
+  updateCompanyDetails(data, id): Observable<any> {
+    const listUrl = 'storecompanydetails/';
+    const url: string = this.serviceUrl + listUrl + id;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
+  deleteCompanyImage(data, id): Observable<any> {
+    const listUrl = 'deletecompanyimgae/';
+    const url: string = this.serviceUrl + listUrl + id;
+    return this.http.post<BusinessUserModel>(url, data);
+  }
 }

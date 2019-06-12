@@ -23,6 +23,10 @@ export class CompanyImagesComponent implements OnInit {
   editshow = false;
   showImage = false;
   profileValue: any;
+  Category;
+  firstValue: BusinessUserModel;
+  subCategory;
+  secondValue: BusinessUserModel;
   /*   assetListingService: any; */
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
@@ -32,15 +36,16 @@ export class CompanyImagesComponent implements OnInit {
     this.createForm();
     this.getUserId();
     this.getProjile();
+    this.getAllCategory();
   }
   createForm() {
     this.profileForm = this.fb.group({
-      listingCompany: ['', Validators.required],
+      listingCompanyName: ['', Validators.required],
       listingCountry: ['', Validators.required],
       categoryName: [''],
       subCategoryName: [''],
       weblink: [''],
-      listingEmailid: [''],
+      listingEmailId: [''],
       listingMobileNumber: ['']
     });
   }
@@ -89,9 +94,58 @@ export class CompanyImagesComponent implements OnInit {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
       this.profileValue = data[0];
-      /* console.log(this.headerModel); */
+      console.log(data);
     }, error => {
       console.log(error);
     });
   }
+  getAllCategory() {
+    this.accountService.getCategory().subscribe(data => {
+      this.Category = data;
+       /* console.log(data); */
+    }, error => {
+      console.log(error);
+    });
+  }
+  changed(e) {
+    this.firstValue = new BusinessUserModel();
+    this.firstValue.category = e.value;
+    this.accountService.getSubCategory(this.firstValue).subscribe(data => {
+     /*  console.log(data); */
+      this.subCategory = data[0].mainCategory;
+    }, error => {
+      console.log(error);
+    });
+  }
+  onSubmit(profileForm: FormGroup, row) {
+    this.secondValue = new BusinessUserModel();
+    this.secondValue.listingCompanyName = row.listingCompanyName;
+    this.secondValue.listingCountry = row.listingCountry;
+    this.secondValue.listingEmailId = row.listingEmailId;
+    this.secondValue.listingMobileNumber = row.listingMobileNumber;
+    this.secondValue.categoryName = row.categoryName.categoryName;
+    this.secondValue.subCategoryName = row.subCategoryName.mainCategoryName;
+    this.secondValue.category = row.categoryName._id;
+    this.secondValue.subCategory = row.subCategoryName._id;
+    this.secondValue.weblink = row.weblink;
+    this.accountService.updateCompanyDetails(this.secondValue, row._id).subscribe(data => {
+       this.secondValue = data;
+       this.editshow = false;
+       this.getProjile();
+    }, error => {
+      console.log(error);
+    });
+    this.redirect();
+
+  }
+  deleteCompanyImage(url, e) {
+    const temp = url.split('/');
+    const first = new BusinessUserModel();
+    first.companyImageName = temp[7];
+    this.accountService.deleteCompanyImage(first, e).subscribe(data => {
+      this.getProjile();
+    }, error => {
+      console.log(error);
+    });
+}
 }
