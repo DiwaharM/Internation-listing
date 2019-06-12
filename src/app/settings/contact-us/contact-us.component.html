@@ -1,69 +1,78 @@
+<form [formGroup]="ContactForm">
 <div class="container">
+    
     <h1 class="Inform">Contact Inform</h1>
   <div class="row">
     <div class="col-md-12 col-lg-12 col-xl-12 col-12" *ngFor="let data of contactUsModel">
-           <span class="totaLic"> call us : </span>
+           <!-- <span class="totaLic"> call us : </span>
             <span class="informList">
-                +{{data.phoneNumber}}
-           </span>
+                +{{data.contactNo}}
+           </span> -->
            <div>
               <span class="totaLic"> Email Us : </span>
         <span class="informList">
             {{data.emailId}}
           </span>
         </div>
-        <span class="totaLic"> Location :</span> 
+        <!-- <span class="totaLic"> Location :</span> 
           <span class="informList">
             {{data.address}}
-          </span>
+          </span> -->
   
     <div>
         <br>
+
+        
         <div class="row">
           <div class="col-md-6">
             
-              <form class="example-form">
+              <div class="example-form">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="First Name">
+                    <input matInput formControlName="firstName" placeholder="First Name">
                   </mat-form-field>
-                </form>
+                </div>
            
             <br>
            
-            <form class="example-form">
+            <div class="example-form">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Ph No" >
+                  <input matInput formControlName="mobileNumber" placeholder="Ph No" >
                 </mat-form-field>
-              </form>
+              </div>
 
-              <form class="example-form">
+              <div class="example-form">
                   <mat-form-field class="example-full-width">
-                    <textarea matInput placeholder="Leave a comment"></textarea>
+                    <textarea matInput formControlName="description" placeholder="Leave a comment"></textarea>
                   </mat-form-field>
-                </form>
+                </div>
 
           </div>
           <div class="col-md-6">
            
-              <form class="example-form">
+              <div class="example-form">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Last Name">
+                    <input matInput formControlName="lastName" placeholder="Last Name">
                   </mat-form-field>
-                </form>
+                </div>
             
             <br>
         
-                <form class="example-form">
+                <div class="example-form">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Email" >
+                      <input matInput formControlName="emailId" placeholder="Email" >
                     </mat-form-field>
-                  </form>
+                  </div>
                  <div class="Vbtn">
-                  <button mat-stroked-button [ngStyle]='buttonStyle'><b>Submit</b></button>
+                  <button mat-stroked-button (click)="submit(ContactForm)" [ngStyle]='buttonStyle'><b>Submit</b></button>
                 </div>
         </div>
       </div>
+    
+
     </div>
   </div>
+
 </div>
+</div>
+</form>
 

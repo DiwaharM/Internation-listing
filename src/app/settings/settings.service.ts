@@ -30,9 +30,14 @@ export class SettingsService {
     return this.http.get<Support>(url);
   }
   getContact(): Observable<any> {
-    const sharedUrl = 'getcontact';
+    const sharedUrl = 'getfooter';
     const url: string = this.serviceUrl + sharedUrl;
     return this.http.get<ContactUs>(url);
+  }
+  createContactUs(data): Observable<any> {
+    const sharedUrl = 'createcontactus';
+    const url: string = this.serviceUrl + sharedUrl;
+    return this.http.post<ContactUs>(url, data);
   }
   getFaq(): Observable<any> {
     const sharedUrl = 'getfaq';
