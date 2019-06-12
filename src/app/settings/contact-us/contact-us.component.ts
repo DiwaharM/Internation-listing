@@ -22,16 +22,41 @@ export class ContactUsComponent implements OnInit {
    'background-color': '#018DFF'
 
   };
-
+  ContactForm: FormGroup;
   contactUsModel: any;
-  constructor(private settingService: SettingsService) { }
+  holder: ContactUs;
+  constructor(private settingService: SettingsService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.createForm();
     this.getContactUs();
   }
   getContactUs() {
-    this.settingService.getContact().subscribe(data => {
+    this.settingService.getSupport().subscribe(data => {
       this.contactUsModel = data;
+    /*   console.log(data); */
+    }, error => {
+      console.log(error);
+    });
+  }
+  createForm() {
+    this.ContactForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      emailId: [''],
+      mobileNumber: [''],
+      description: ['']
+    });
+  }
+  submit(ContactForm: FormGroup) {
+    this.holder = new ContactUs();
+    this.holder.description = ContactForm.controls.description.value;
+    this.holder.emailId = ContactForm.controls.emailId.value;
+    this.holder.firstName = ContactForm.controls.firstName.value;
+    this.holder.lastName = ContactForm.controls.lastName.value;
+    this.holder.mobileNumber = ContactForm.controls.mobileNumber.value;
+    this.settingService.createContactUs(this.holder).subscribe(data => {
+      this.holder = data;
     }, error => {
       console.log(error);
     });

@@ -1,5 +1,7 @@
 export class ContactUs {
-    phoneNumber: string;
+    mobileNumber: string;
     emailId: string;
-    address: string;
+    description: string;
+    firstName: string;
+    lastName: string;
 }

@@ -73,6 +73,7 @@ export class CompanyImagesComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    this.getProjile();
     this.redirect();
   }
   redirect() {
