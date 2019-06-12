@@ -8,6 +8,9 @@ import { MustMatch } from './must-match.validator';
 import { PasswordValidation } from './password.validator';
 import { AcountService } from '../acount.service';
 import { PackDetailModel } from './package-detail.model';
+import {WindowRefService} from './window-ref.service';
+import {PaymentDetail} from './paymentDetail.model';
+
 @Component({
   selector: 'app-registration-business-user',
   templateUrl: './registration-business-user.component.html',
@@ -35,10 +38,11 @@ export class RegistrationBusinessUserComponent implements OnInit {
   SelectedValue: any;
   regModel: any;
   paymentModel: any;
+  paymentDetailModel: PaymentDetail;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-              public dialog: MatDialog, private accountService: AcountService) { }
+              public dialog: MatDialog, private accountService: AcountService,  private winRef: WindowRefService) { }
 
-
+              rzp1: any;
   ngOnInit() {
     this.createForm();
     this.getPaymentPackage();
@@ -83,12 +87,42 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.checkID = this.SelectedValue._id;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
+      console.log(data, 'data');
+      this.initPay(data.razorpayOrderId);
       sessionStorage.setItem('usingID', data._id);
-      this.router.navigate(['add-listing/addcompanydetail']);
     }, error => {
       console.log(error);
     });
+
   }
+  initPay(orderId) {
+    const options = {
+       key: 'rzp_test_IVmiDNcNn8ejem',
+       amount: '3000',
+       order_id: orderId,
+       name: 'International Standard Listing',
+         handler: this.paymentResponseHander.bind(this)
+      };
+    this.rzp1 = new this.winRef.nativeWindow.Razorpay(options);
+    this.rzp1.open();
+    }
+    paymentResponseHander(response) {
+      console.log(response);
+     this.razorPayDetails(response);
+     /* this.router.navigate(['add-listing/addcompanydetail']); */
+    }
+    razorPayDetails(response) {
+      const USERID = sessionStorage.getItem('usingID');
+      this.paymentDetailModel = new PaymentDetail();
+      this.paymentDetailModel.paymentId = response.razorpay_payment_id;
+      this.paymentDetailModel.razorpayOrderId = response.razorpay_order_id;
+      this.paymentDetailModel.razorpaySignature = response.razorpay_signature;
+      this.accountService.addRazorpayResponse(this.paymentDetailModel, USERID).subscribe(data => {
+       console.log(data);
+     }, err => {
+       console.log(err);
+     });
+    }
   getPaymentPackage() {
     this.accountService.getAllPaymentPackage().subscribe(data => {
       this.paymentModel = data;
