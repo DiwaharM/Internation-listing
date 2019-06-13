@@ -18,6 +18,7 @@ public logoStyle = {
   'padding-left': '30px',
 };
 
+navbarShow = false;
   headers: Header;
   dropShow = false;
   busUserID: string;
@@ -34,6 +35,9 @@ public logoStyle = {
           console.log(res);
         }
       });
+  }
+  toggleNavbar() {
+    this.navbarShow = !this.navbarShow;
   }
 
   dropDownShow() {

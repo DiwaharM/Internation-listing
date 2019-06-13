@@ -1,4 +1,4 @@
-<h1 class="our-h1">
+<!-- <h1 class="our-h1">
   <h3 class=catTopic>Category</h3>
 </h1>
 <div class="container">
@@ -11,5 +11,21 @@
         </a>
       </div>
     </app-carousel-item>
+  </div>
+</div> -->
+
+<div class="container">
+    <h3 class=catTopic>Category</h3>
+  <div class="row">
+    <div appCarouselItem class="col-md-2 col-lg-2 col-xl-2 col-4 gridCoverss" *ngFor="let category of categoryModel">
+      <a (click)="getCategory(category)">
+        <img [src]="category.categoryImageName" class="img-category">
+        <span>
+          <p class="categoryName">
+       {{category.categoryName}}
+      </p>
+      </span>
+      </a>
+    </div>
   </div>
 </div>

@@ -25,7 +25,9 @@ export class ContactUsComponent implements OnInit {
   ContactForm: FormGroup;
   contactUsModel: any;
   holder: ContactUs;
-  constructor(private settingService: SettingsService, private fb: FormBuilder) { }
+  message: string;
+  action: string;
+  constructor(private settingService: SettingsService, private fb: FormBuilder, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.createForm();
@@ -49,6 +51,7 @@ export class ContactUsComponent implements OnInit {
     });
   }
   submit(ContactForm: FormGroup) {
+    this.message = 'Send Successfully';
     this.holder = new ContactUs();
     this.holder.description = ContactForm.controls.description.value;
     this.holder.emailId = ContactForm.controls.emailId.value;
@@ -57,6 +60,11 @@ export class ContactUsComponent implements OnInit {
     this.holder.mobileNumber = ContactForm.controls.mobileNumber.value;
     this.settingService.createContactUs(this.holder).subscribe(data => {
       this.holder = data;
+      this.snackBar.open(this.message, this.action, {
+        duration: 3000,
+      });
+
+      this.ContactForm.reset();
     }, error => {
       console.log(error);
     });

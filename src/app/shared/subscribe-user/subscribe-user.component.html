@@ -9,7 +9,7 @@
 
         <div *ngIf="!data">
           <mat-form-field class="full-width">
-            <input matInput formControlName="mobileNumber" placeholder="Mobile Number" minlength="10" required>
+            <input matInput formControlName="mobileNumber" placeholder="Mobile Number"  required>
             <mat-error *ngIf="customerDetailsForm.controls['mobileNumber'].errors?.required">
               Enter Mobile Number
               <strong>required</strong>
