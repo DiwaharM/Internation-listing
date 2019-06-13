@@ -87,8 +87,9 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.checkID = this.SelectedValue._id;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
-      console.log(data, 'data');
-  /*     this.initPay(data.razorpayOrderId); */
+    /*   console.log(data, 'data'); */
+    /*   this.initPay(data.razorpayOrderId); */
+    this.router.navigate(['add-listing/addcompanydetail']);
       sessionStorage.setItem('usingID', data._id);
     }, error => {
       console.log(error);
@@ -109,7 +110,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
     paymentResponseHander(response) {
       console.log(response);
      this.razorPayDetails(response);
-     /* this.router.navigate(['add-listing/addcompanydetail']); */
+     this.router.navigate(['add-listing/addcompanydetail']);
     }
     razorPayDetails(response) {
       const USERID = sessionStorage.getItem('usingID');

@@ -3,6 +3,7 @@
   <div class="col-md-12 mt-5 py-5 border">
     <!--  <h4 class="pb-4">Edit profile Details</h4> -->
     <form>
+      <div *ngIf="this.showPackage === true">
       <div class="form-row" *ngFor="let data of packageModel">
         <div class="col-md-4  col-6">
           <div class="form-group">
@@ -44,9 +45,11 @@
             : <label class="itemLable">{{data.closingDate | date}}</label>
           </div>
         </div>
-<hr>
       </div>
-
+    </div>
+<div *ngIf="this.showPackage === false">
+  <button>Renew Package</button>
+</div>
       <div class="form-row">
 
 
