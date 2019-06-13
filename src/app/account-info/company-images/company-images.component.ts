@@ -94,7 +94,6 @@ export class CompanyImagesComponent implements OnInit {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
       this.profileValue = data[0];
-      /* console.log(data); */
     }, error => {
       console.log(error);
     });
@@ -102,7 +101,6 @@ export class CompanyImagesComponent implements OnInit {
   getAllCategory() {
     this.accountService.getCategory().subscribe(data => {
       this.Category = data;
-       /* console.log(data); */
     }, error => {
       console.log(error);
     });
@@ -111,7 +109,6 @@ export class CompanyImagesComponent implements OnInit {
     this.firstValue = new BusinessUserModel();
     this.firstValue.category = e.value;
     this.accountService.getSubCategory(this.firstValue).subscribe(data => {
-     /*  console.log(data); */
       this.subCategory = data[0].mainCategory;
     }, error => {
       console.log(error);
@@ -123,15 +120,11 @@ export class CompanyImagesComponent implements OnInit {
     this.secondValue.listingCountry = row.listingCountry;
     this.secondValue.listingEmailId = row.listingEmailId;
     this.secondValue.listingMobileNumber = row.listingMobileNumber;
-    this.secondValue.categoryName = row.categoryName.categoryName;
-    this.secondValue.subCategoryName = row.subCategoryName.mainCategoryName;
-    this.secondValue.category = row.categoryName._id;
-    this.secondValue.subCategory = row.subCategoryName._id;
     this.secondValue.weblink = row.weblink;
     this.accountService.updateCompanyDetails(this.secondValue, row._id).subscribe(data => {
-       this.secondValue = data;
-       this.editshow = false;
-       this.getProjile();
+      this.secondValue = data;
+      this.editshow = false;
+      this.getProjile();
     }, error => {
       console.log(error);
     });
@@ -147,5 +140,5 @@ export class CompanyImagesComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-}
+  }
 }

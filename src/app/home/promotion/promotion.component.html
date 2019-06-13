@@ -6,13 +6,13 @@
     <div class="row">
         <app-carousel-item>
        <div appCarouselItem class="col-md-3 col-3 gridCoverss" *ngFor="let data of promotionsModel">
-        <div class="promoImg" >
+        <a (click)=getData(data)><div class="promoImg" >
           <div class="card">
             <img [src]="data.logImageName" class="img-flu">
           </div>
         </div>
         <h5 class="companyName"> {{data.companyName}}</h5>
-        <h6 class="country"> {{data.country}} </h6>
+        <h6 class="country"> {{data.country}} </h6></a>
       </div>
     </app-carousel-item>
     </div>

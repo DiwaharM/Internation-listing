@@ -5,13 +5,13 @@
         <strong style="margin: 20px;">Current Logo</strong>
         <div class="form-group col-md-12">
           <mat-card class="card" style="width: 133px">
-          <img *ngFor="let url of headerModel" [src]="url.logImageName" class="brandLogo">
-        </mat-card>
+            <img *ngFor="let url of headerModel" [src]="url.logImageName" class="brandLogo">
+          </mat-card>
         </div>
       </div>
       <div class="col-md-2" *ngIf="showImage === false">
-        <button mat-raised-button  (click)="imageShow()" class="buttonClr">
-        Edit Logo
+        <button mat-raised-button (click)="imageShow()" class="buttonClr">
+          Edit Logo
         </button>
       </div>
       <div class="col-md-6" *ngIf="showImage === true">
@@ -19,13 +19,11 @@
           <strong>Prime Image</strong>
           <input type="file" (change)="handleFileInput1($event.target.files)" name="file">
         </div>
-
         <div class="col-md-8 " *ngFor="let url of urls">
           <mat-card class="cradsTin">
             <img class="img-fluid" [src]="url" />
           </mat-card>
         </div>
-        
         <div class="cradsTinss">
           <button mat-raised-button (click)="updateLogo(headerModel)" class="buttonuD">Update</button>
           <button mat-raised-button (click)="cancelImage()" class="buttonuD">Cancel</button>
@@ -35,7 +33,8 @@
     <div *ngIf="editshow === false">
       <div class="form-row gridFrm" *ngFor="let data of profileModel">
         <div class="col-md-12">
-          <button mat-raised-button (click)="getShowEdit()" class="buttonClr" style="margin-bottom: 20px;">Edit Below</button>
+          <button mat-raised-button (click)="getShowEdit()" class="buttonClr" style="margin-bottom: 20px;">Edit
+            Below</button>
         </div>
         <div class="col-md-4  col-6">
           <div class="form-group">
@@ -99,21 +98,13 @@
         </div>
       </div>
     </div>
-
-
-
     <form [formGroup]="profileForm" novalidate (ngSubmit)="!profileForm.invalid && onSubmit(profileForm, profileValue)"
       *ngIf="editshow ===true">
       <div class="form-row">
-
-
-
-
         <div class="form-group col-md-6">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="First Name" maxlength="20" [ngModel]="profileValue.firstName"
               formControlName="firstName" required>
-
             <mat-error *ngIf="profileForm.controls['firstName'].errors?.required">
               firstName is
               <strong>required</strong>
@@ -124,7 +115,6 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Last Name" maxlength="20" [ngModel]="profileValue.lastName"
               formControlName="lastName" required>
-
             <mat-error *ngIf="profileForm.controls['lastName'].errors?.required">
               lastName is
               <strong>required</strong>
@@ -137,14 +127,12 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Company Name" formControlName="companyName"
               [ngModel]="this.profileValue.companyName" [required]="false">
-
           </mat-form-field>
         </div>
         <div class="form-group col-md-6">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Country" maxlength="10" formControlName="country"
               [ngModel]="this.profileValue.country" required>
-
             <mat-error *ngIf="profileForm.controls['country'].errors?.required">
               Country is
               <strong>required</strong>
@@ -156,7 +144,6 @@
         <div class="form-group col-md-6">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="E=Mail ID" [ngModel]="profileValue.emailId" formControlName="emailId" required>
-
             <mat-error *ngIf="profileForm.controls['emailId'].errors?.required">
               EailId
               <strong>required</strong>
@@ -165,12 +152,10 @@
         </div>
         <!--    </div> -->
         <!-- <div class="form-row"> -->
-
         <div class="form-group col-md-6">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="mobileNumber" [ngModel]="profileValue.mobileNumber" maxlength="10"
               formControlName="mobileNumber" required>
-
             <mat-error *ngIf="profileForm.controls['mobileNumber'].errors?.required">
               Mobile Number is
               <strong>required</strong>
@@ -179,14 +164,12 @@
         </div>
       </div>
       <div class="form-row">
-
-
         <div class="col-md-12">
           <p class="float-right">
-            <button mat-raised-button  type="submit" class="buttonuD">Update</button>
+            <button mat-raised-button type="submit" class="buttonuD">Update</button>
           </p>
-            <p>
-            <button mat-raised-button  class="buttonuD" (click)="cancel()" type="submit">Cancel</button>
+          <p>
+            <button mat-raised-button class="buttonuD" (click)="cancel()" type="submit">Cancel</button>
           </p>
         </div>
       </div>

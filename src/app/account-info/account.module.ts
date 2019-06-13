@@ -43,12 +43,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { CompanyImagesComponent } from './company-images/company-images.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
-import {WindowRefService} from './registration-business-user/window-ref.service';
+import { WindowRefService } from './registration-business-user/window-ref.service';
 
 
 @NgModule({
   declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent,
-                 AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent, PasswordChangeComponent],
+    AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent, PasswordChangeComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

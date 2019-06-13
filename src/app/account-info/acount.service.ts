@@ -80,7 +80,7 @@ export class AcountService {
     return this.http.post<BusinessUserModel>(url, data);
   }
   updateCompanyDetails(data, id): Observable<any> {
-    const listUrl = 'storecompanydetails/';
+    const listUrl = 'updatecompanydetails/';
     const url: string = this.serviceUrl + listUrl + id;
     return this.http.post<BusinessUserModel>(url, data);
   }

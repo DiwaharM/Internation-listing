@@ -3,12 +3,12 @@
     <label>Company Images</label>
     <div class="form-group col-md-12" *ngFor="let data of headerModel">
       <div *ngFor="let url of data.companyImageName">
-      <img  [src]="url" style="width: 100px; height: 100px;" />
-       <button mat-icon-button mat-sm-button color="primary" matTooltip="Delete"
-            (click)="deleteCompanyImage(url, data._id)">
-            <mat-icon> clear </mat-icon>
-          </button>
-        </div>
+        <img [src]="url" style="width: 100px; height: 100px;" />
+        <button mat-icon-button mat-sm-button color="primary" matTooltip="Delete"
+          (click)="deleteCompanyImage(url, data._id)">
+          <mat-icon> clear </mat-icon>
+        </button>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-4 pb-2" *ngFor="let url of urls">
         <mat-card class="card">
-          <img class="logoZ" [src]="url"  />
+          <img class="logoZ" [src]="url" />
         </mat-card>
       </div>
     </div>
@@ -28,7 +28,7 @@
       </p>
     </div>
   </div>
-  <div class="row " >
+  <div class="row ">
     <div *ngIf="editshow === false">
       <div class="form-row" *ngFor="let data of headerModel">
         <div class="col-md-12">
@@ -108,38 +108,34 @@
       </div>
     </div>
 
-    <form [formGroup]="profileForm"     *ngIf="editshow ===true">
-    <div class="form-row">
+    <form [formGroup]="profileForm" *ngIf="editshow ===true">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Company Name" maxlength="20" [(ngModel)]="profileValue.listingCompanyName"
+              formControlName="listingCompanyName" required>
 
+            <mat-error *ngIf="profileForm.controls['listingCompanyName'].errors?.required">
+              listingCompany is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Listing Country" maxlength="20" [(ngModel)]="profileValue.listingCountry"
+              formControlName="listingCountry" required>
 
-
-
-      <div class="form-group col-md-6">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Company Name" maxlength="20" [(ngModel)]="profileValue.listingCompanyName"
-            formControlName="listingCompanyName" required>
-
-          <mat-error *ngIf="profileForm.controls['listingCompanyName'].errors?.required">
-            listingCompany is
-            <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+            <mat-error *ngIf="profileForm.controls['listingCountry'].errors?.required">
+              listingCountry is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="form-group col-md-6">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Listing Country" maxlength="20" [(ngModel)]="profileValue.listingCountry"
-            formControlName="listingCountry" required>
-
-          <mat-error *ngIf="profileForm.controls['listingCountry'].errors?.required">
-            listingCountry is
-            <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-          <mat-form-field>
+      <!--  <div class="form-row">
+      <div class="form-group col-md-6"> -->
+      <!-- <mat-form-field>
               <mat-select placeholder="Select the Category" [(ngModel)]="profileValue.categoryName" 
                (ngModelChange)="profileValue.categoryName=$event" 
                (selectionChange)="changed($event)"
@@ -148,10 +144,14 @@
                   {{data.categoryName}}
                 </mat-option>
               </mat-select>
+            </mat-form-field> -->
+      <!--     <mat-form-field class="example-full-width">
+              <input matInput placeholder="Category" [readonly]=true maxlength="20" [(ngModel)]="profileValue.categoryName"
+                formControlName="categoryName" >
             </mat-form-field>
       </div>
-      <div class="form-group col-md-6">
-          <mat-form-field>
+      <div class="form-group col-md-6"> -->
+      <!--  <mat-form-field>
               <mat-select placeholder="Select the subCategory" 
               [(ngModel)]="profileValue.subCategoryName" 
                (ngModelChange)="profileValue.subCategoryName=$event" formControlName="subCategoryName">
@@ -159,55 +159,59 @@
                   {{data.mainCategoryName}}
                 </mat-option>
               </mat-select>
-            </mat-form-field>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="E=Mail ID" [(ngModel)]="profileValue.listingEmailId" formControlName="listingEmailId" required>
+            </mat-form-field> -->
 
-          <mat-error *ngIf="profileForm.controls['listingEmailId'].errors?.required">
-            EailId
-            <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+      <!--  <mat-form-field class="example-full-width">
+        <input matInput placeholder="Sub-Category" maxlength="20" [readonly]=true [(ngModel)]="profileValue.subCategoryName"
+          formControlName="subCategoryName" >
+      </mat-form-field>
       </div>
-      <div class="form-group col-md-6">
+      
+    </div> -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="E=Mail ID" [(ngModel)]="profileValue.listingEmailId"
+              formControlName="listingEmailId" required>
+
+            <mat-error *ngIf="profileForm.controls['listingEmailId'].errors?.required">
+              EailId
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="WebLink" [(ngModel)]="profileValue.weblink" formControlName="weblink" required>
-  
+
             <mat-error *ngIf="profileForm.controls['weblink'].errors?.required">
               weblink
               <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
-      <!--    </div> -->
-      <!-- <div class="form-row"> -->
-
-      <div class="form-group col-md-6">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="mobileNumber" [(ngModel)]="profileValue.listingMobileNumber" maxlength="10"
-            formControlName="listingMobileNumber" required>
-
-          <mat-error *ngIf="profileForm.controls['listingMobileNumber'].errors?.required">
-            Mobile Number is
-            <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+        <!--    </div> -->
+        <!-- <div class="form-row"> -->
+        <div class="form-group col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="mobileNumber" [(ngModel)]="profileValue.listingMobileNumber" maxlength="10"
+              formControlName="listingMobileNumber" required>
+            <mat-error *ngIf="profileForm.controls['listingMobileNumber'].errors?.required">
+              Mobile Number is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
-    <div class="form-row">
-
-
-      <div class="col-md-12">
-        <p class="float-right">
-          <button mat-raised-button   class="buttonuD" type="submit" (click)="onSubmit(profileForm, profileValue)" >Update</button>
-          <button mat-raised-button  (click)="cancel()"  class="buttonuD" type="submit">Cancel</button>
-        </p>
+      <div class="form-row">
+        <div class="col-md-12">
+          <p class="float-right">
+            <button mat-raised-button class="buttonuD" type="submit"
+              (click)="onSubmit(profileForm, profileValue)">Update</button>
+            <button mat-raised-button (click)="cancel()" class="buttonuD" type="submit">Cancel</button>
+          </p>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
   </div>
 </div>
