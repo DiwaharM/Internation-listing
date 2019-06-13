@@ -88,7 +88,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
       console.log(data, 'data');
-      this.initPay(data.razorpayOrderId);
+  /*     this.initPay(data.razorpayOrderId); */
       sessionStorage.setItem('usingID', data._id);
     }, error => {
       console.log(error);

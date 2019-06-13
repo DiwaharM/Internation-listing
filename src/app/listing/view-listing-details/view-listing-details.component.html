@@ -10,13 +10,12 @@
     <div class="col-md-6 mt-5  border ">
       <div class="col-md-12 column" *ngFor="let url of data.companyImageName">
         <img [src]="url" alt="..." class="img-thumbnail" style="width: 200px; height: auto;">
-
       </div>
     </div>
     <div class="col-md-1"></div>
     <div class="vl"></div>
     <div class="col-md">
-      <div class="card text-white bg-dark mb-3" style="max-width: 10rem;" align="center" *ngIf ="showcounting === true">
+      <div class="card text-white bg-dark mb-3" style="max-width: 10rem;" align="center" *ngIf="showcounting === true">
         <div class="card-header">Number of Visitors</div>
         <div class="card-body">
           <h5 class="card-title">{{this.counting}}</h5>

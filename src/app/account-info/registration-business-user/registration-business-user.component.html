@@ -3,56 +3,56 @@
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>
         <b>
-         <i class="fa fa-asterisk" aria-hidden="true"></i>
-       Fill the Basic Details
-     </b>
-     </ng-template>
-      <mat-card class="card controlAll" >
-      <div class="row">
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="FirstName" formControlName="firstName" required>
-          </mat-form-field>
+          <i class="fa fa-asterisk" aria-hidden="true"></i>
+          Fill the Basic Details
+        </b>
+      </ng-template>
+      <mat-card class="card controlAll">
+        <div class="row carDRF">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="FirstName" formControlName="firstName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="LastName" formControlName="lastName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="CompanyName" formControlName="companyName" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Country" formControlName="country" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="EmailId" formControlName="emailId" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Mobile Number" formControlName="mobileNumber" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" min="8" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" min="8" required>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="LastName" formControlName="lastName" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="CompanyName" formControlName="companyName" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="Country" formControlName="country" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="EmailId" formControlName="emailId" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="Mobile Number" formControlName="mobileNumber" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="Password" formControlName="password" min="8" required>
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field>
-            <input matInput placeholder="Confirm Password" formControlName="confirmPassword" min="8" required>
-          </mat-form-field>
-        </div>
-      </div>
       </mat-card>
       <div>
-        <button mat-stroked-button [ngStyle]='buttonStyle'  matStepperNext><b>Next</b></button>
+        <button mat-stroked-button [ngStyle]='buttonStyle' matStepperNext><b>Next</b></button>
       </div>
     </form>
   </mat-step>
@@ -61,11 +61,11 @@
       <ng-template matStepLabel>
         <i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i>
         Select Payment Details
-       </ng-template>
+      </ng-template>
       <mat-radio-group aria-label="Select an option" (change)="selectValue($event)">
-        <div class="row" >
+        <div class="row">
           <div class="col-md-2"></div>
-          <div class="col-md-3" *ngFor ="let data of paymentModel">
+          <div class="col-md-3" *ngFor="let data of paymentModel">
             <div class="card bg-light mb-3 coVer" style="max-width: 18rem;">
               <div class="card-header headerClass">
                 <mat-radio-button color="primary" [value]="data">{{data.duration}} Days</mat-radio-button>
@@ -73,18 +73,20 @@
               <div class="card-body">
                 <h1 class="card-title titleClass">&#36; {{data.amount}}</h1>
                 <p class="card-text textClass">{{data.description}}
-                 </p>
+                </p>
               </div>
             </div>
           </div>
-          <div class="col-md-1"><div id="paypal-button"></div></div>
+          <div class="col-md-1">
+            <div id="paypal-button"></div>
+          </div>
         </div>
       </mat-radio-group>
       <div>
         <h1 style="text-align: center;">
-        <button mat-stroked-button matStepperPrevious [ngStyle]='buttonStyle'><b>Back</b></button>
-        <button mat-stroked-button  [ngStyle]='buttonStyle' (click)="submit()" matStepperNext><b>Submit</b>  </button>
-       </h1>
+          <button mat-stroked-button matStepperPrevious [ngStyle]='buttonStyle'><b>Back</b></button>
+          <button mat-stroked-button [ngStyle]='buttonStyle' (click)="submit()" matStepperNext><b>Submit</b> </button>
+        </h1>
       </div>
     </form>
   </mat-step>
