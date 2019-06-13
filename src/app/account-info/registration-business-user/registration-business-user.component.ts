@@ -89,6 +89,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
       this.regModel = data;
       console.log(data, 'data');
   /*     this.initPay(data.razorpayOrderId); */
+  this.router.navigate(['add-listing/addcompanydetail']);
       sessionStorage.setItem('usingID', data._id);
     }, error => {
       console.log(error);

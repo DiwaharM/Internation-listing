@@ -1,53 +1,76 @@
-<div class="container-fluid" *ngFor="let data of listingModel">
-  <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1">
-  <div class="text-block">
-    <h3>{{data.companyName}}</h3>
-    <p>{{data.emailId}}</p>
-    <p>{{data.mobileNumber}}</p>
-
-  </div>
+<div class="container" *ngFor="let data of listingModel">
   <div class="row">
-    <div class="col-md-6 mt-5  border ">
-      <div class="col-md-12 column" *ngFor="let url of data.companyImageName">
-        <img [src]="url" alt="..." class="img-thumbnail" style="width: 200px; height: auto;">
+    <div class="col-md-12 col-lg-12 col-xl-12 col-12 GridOnzz">
+      <mat-card class="viewOnz">
+        <img class="viewOnes" [src]="data.logImageName" alt="custom_html_banner1">
+        <div class="text-block">
+          <h3 class="nameCny">{{data.companyName}}</h3>
+          <p class="cnyMail">{{data.emailId}}</p>
+          <p class="cnyMail">{{data.mobileNumber}}</p>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-xl-4 col-12" *ngFor="let url of data.companyImageName" >
+      <div class="marSpace">
+        <img [src]="url" alt="..." class="imglgsz">
       </div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="vl"></div>
-    <div class="col-md">
-      <div class="card text-white bg-dark mb-3" style="max-width: 10rem;" align="center" *ngIf="showcounting === true">
-        <div class="card-header">Number of Visitors</div>
-        <div class="card-body">
-          <h5 class="card-title">{{this.counting}}</h5>
-          <p class="card-text"><a (click)="getFullDetail()"> detail </a> </p>
+
+    <div class="col-md-8" style="background: rgb(255, 255, 255);">
+      <div class="row">
+        <div class="col-md-6">
+            <mat-card class="card text-white bg-darks " *ngIf="showcounting === true">
+                <div class="card-header" class="Whole">Number of Visitors</div>
+                <mat-card-content>
+                  <mat-card-title>
+                    {{this.counting}}
+                  </mat-card-title>
+                  <p class="card-text"><a (click)="getFullDetail()" class="Whole"> detail </a> </p>
+                </mat-card-content>
+              </mat-card>
+        </div>
+        <div class="col-md-6">
+            <ul style="list-style: none;">
+                <h5 class="cnyWhole">{{data.companyName}}</h5><br>
+                <li>
+                  <p class="Whole">
+                    <i class="fa fa-arrow-right arrowOne" aria-hidden="true"></i>
+                    {{data.mobileNumber}}
+                  </p>
+                </li>
+                <li>
+                  <p class="Whole">
+                    <i class="fa fa-arrow-right arrowOne" aria-hidden="true"></i>
+                    {{data.emailId}}
+                  </p>
+                </li>
+                <li>
+                  <p class="Whole">
+                    <i class="fa fa-arrow-right arrowOne" aria-hidden="true"></i>{{data.country}}
+                  </p>
+                </li>
+              </ul>
         </div>
       </div>
-      <ul>
-
-        <h5>{{data.companyName}}</h5><br>
-        <li>
-          <p>{{data.mobileNumber}}</p>
-        </li>
-        <li>
-          <p>{{data.emailId}}</p>
-        </li>
-        <li>
-          <p>{{data.country}}</p>
-        </li>
-
-      </ul>
     </div>
   </div>
-  <br><br>
+
+
   <div class="row">
     <div class="col-md-7">
-      <label>All Reviews</label>
+      <label class="onsDay">
+        All Reviews
+        <i class="fa fa-commenting" aria-hidden="true"></i>
+      </label>
       <hr>
       <div class="col-md-12" *ngFor="let data of reviewModel">
         <div class="name-date">
-          {{data.userName}}, {{data.date}}
-        </div>
-        <div class="title">
+         {{data.userName}},
+         {{data.date}}
+
           <b>{{data.reviewTitle}}</b>
         </div>
         <div class="desc">
@@ -57,33 +80,27 @@
       </div>
     </div>
     <div class="col-md-5">
-      <h4>Post a review</h4>
-      <br>
-      <input type="text" placeholder="Title" #title style="width: 100%; background-color:  rgb(235, 235, 228);">
+      <h4 class="postRw">Post a review</h4>
+      <input type="text" placeholder="Title" #title>
       <br><br>
-      <textarea name="" id="" cols="100" placeholder="Review" #desc rows="10"
-        style="background-color:  rgb(235, 235, 228)"></textarea>
-      <button class="btn btn-success" (click)="postReview(title.value, desc.value)">Post</button>
+      <textarea name="" id="" cols="100" placeholder="Review" #desc rows="10" class="ClassZ"></textarea>
+      <button style="background: green; color: white;" mat-stroked-button  (click)="postReview(title.value, desc.value)"><b>Post</b></button>
+      
     </div>
   </div>
-  <br><br>
-  <hr>
   <div class="row">
     <div class="col-md-12">
       <div>
-        <h3>Similar Company</h3>
-        <br>
+        <h3 class="onsDay">Similar Company</h3>
         <div class="row">
           <div class="col-md-2" *ngFor="let data of company">
-            <a (click)="getSelectedCompany(data)"> <img [src]="data.logImageName" alt="custom_html_banner1"
-                style="width: 200px; height: 200px;">
-              {{data.companyName}}</a>
+            <a (click)="getSelectedCompany(data)">
+              <img [src]="data.logImageName" alt="custom_html_banner1" class="fzzZ">
+             <h3 class="cnyWhole">{{data.companyName}}</h3>
+            </a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
-
-
 </div>

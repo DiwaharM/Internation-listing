@@ -12,20 +12,26 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class NavheaderComponent implements OnInit {
 
 public logoStyle = {
-  width: '100px',
-  height: '70px',
-  margin: '5px',
-  'padding-left': '30px',
+  'max-width': '70px',
+  'max-height': '70px',
+  margin: '0px',
+  'padding-left': '0px',
 };
 
   headers: Header;
   dropShow = false;
+  navbarShow = false;
   busUserID: string;
   constructor(private subScribeUserService: SubscribeUserService, public sharedService: SharedService,
               private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getHeader();
+  }
+
+  toggleNavbar() {
+    this.navbarShow = !this.navbarShow;
+    /* this.dropdownShow = !this.dropdownShow; */
   }
   getSubscrbe() {
     this.subScribeUserService.openCustomer()
@@ -35,6 +41,9 @@ public logoStyle = {
         }
       });
   }
+
+
+
 
   dropDownShow() {
     this.dropShow = !this.dropShow;

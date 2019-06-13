@@ -1,20 +1,28 @@
-<div class="promotion-One">
-  <div class="container">
-    <div class="nameCoverag">
-      <h3 class="catTopic">Featured businesses</h3>
-    </div>
-    <div class="row">
-        <app-carousel-item>
-       <div appCarouselItem class="col-md-3 col-3 gridCoverss" *ngFor="let data of promotionsModel">
-        <div class="promoImg" >
-          <div class="card">
-            <img [src]="data.logImageName" class="img-flu">
-          </div>
-        </div>
+<div class="container">
+  <h3 class="catTopic">
+    Featured businesses
+  </h3>
+  <div class="row">
+    <app-carousel-item>
+      <div appCarouselItem class="col-md-3 col-lg-3 col-xl-3 col-3 " >
+        <img [src]="data.logImageName" class="img-fluid">
         <h5 class="companyName"> {{data.companyName}}</h5>
         <h6 class="country"> {{data.country}} </h6>
       </div>
     </app-carousel-item>
-    </div>
   </div>
-</div> 
+</div>
+
+
+<!-- <h3>
+  Featured businesses
+</h3>
+<div class="row">
+  <app-carousel-item>
+    <div class="col-md-3 col-lg-3 col-xl-3 col-3" *ngFor="let data of promotionsModel">
+      <img [src]="data.logImageName" class="img-fluid">
+      <h5> {{data.companyName}}</h5>
+      <h6> {{data.country}} </h6>
+    </div>
+  </app-carousel-item>
+</div> -->

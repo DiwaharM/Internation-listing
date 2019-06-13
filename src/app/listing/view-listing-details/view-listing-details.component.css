@@ -186,20 +186,6 @@
   transform: translate(-50%, -50%);
 }
 
-.text-block {
-  position: absolute;
-  top: 430px;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  left: 290px;
-  background-color: black;
-  color: white;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  transform: translate(-50%, -50%);
-}
 
 .mySlides {
   opacity: 0.7;
@@ -219,6 +205,8 @@
 .name-date {
   text-align: right;
   color: brown;
+  font-family: 'Expert Sanss' !important;
+letter-spacing: 1px;
 }
 
 .title {
@@ -227,4 +215,18 @@
 
 .desc {
   color: steelblue;
+}
+
+.gridLgs {
+  border: 2px solid rgb(196, 196, 196);
+  box-shadow: 0 1px 28px 0 #00000033, 0 0px 2px 0 rgba(0, 0, 0, .19);
+  border-radius: 8px;
+  margin-left: 25px !important;
+  margin: 1px !important;
+}
+
+
+.arrowOne{
+  margin: 10px;
+  color: green;
 }

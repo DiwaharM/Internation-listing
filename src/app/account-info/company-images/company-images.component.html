@@ -1,4 +1,4 @@
-<div>
+
   <div>
     <label>Company Images</label>
     <div class="form-group col-md-12" *ngFor="let data of headerModel">
@@ -11,6 +11,7 @@
         </div>
     </div>
   </div>
+  
   <div class="row">
     <label>
       <input type="file" (change)="handleFileInput($event.target.files)" multiple>
@@ -18,7 +19,7 @@
     <div class="row">
       <div class="col-md-4 pb-2" *ngFor="let url of urls">
         <mat-card class="card">
-          <img class="logoZ" [src]="url"  />
+          <img class="logoZs" [src]="url"/>
         </mat-card>
       </div>
     </div>
@@ -108,12 +109,8 @@
       </div>
     </div>
 
-    <form [formGroup]="profileForm"     *ngIf="editshow ===true">
+    <form [formGroup]="profileForm" *ngIf="editshow ===true">
     <div class="form-row">
-
-
-
-
       <div class="form-group col-md-6">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Company Name" maxlength="20" [(ngModel)]="profileValue.listingCompanyName"
@@ -199,8 +196,6 @@
       </div>
     </div>
     <div class="form-row">
-
-
       <div class="col-md-12">
         <p class="float-right">
           <button mat-raised-button   class="buttonuD" type="submit" (click)="onSubmit(profileForm, profileValue)" >Update</button>
@@ -210,4 +205,3 @@
     </div>
   </form>
   </div>
-</div>
