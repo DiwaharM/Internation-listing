@@ -1,6 +1,5 @@
 <div class="container-fluid footer  footers pt-5">
-  <div class="container">
-    <footer class="page-footer font-small blue pt-4">
+      <footer class="page-footer font-small blue pt-4">
       <div class="container-fluid text-center text-md-left">
         <div class="row" *ngFor="let data of footerModel">
           <div class="col-md-3 mb-md-0 mb-3">
@@ -8,24 +7,24 @@
             <img [src]="data.logoImageName" alt="Logo" class="brandLogo">
           </a>
             <div class="footers-info mt-3">
-              <p class="addRess">{{data.address}}</p>
+             <!--  <p class="addRess">{{data.address}}</p> -->
               <ul class="list-unstyled">
-                <li>
+                <!-- <li>
                   <a href="maintenance.html">
                     <span>
                       <i class="fa fa-phone Icon" aria-hidden="true"></i>
                     </span>
                    <strong class="contaCt">{{data.contactNo}}</strong>
                   </a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                   <a href="contact.html">
                     <span>
                       <i class="fa fa-phone Icon" aria-hidden="true"></i>
                     </span>
                    <strong class="contaCt">{{data.alternativeContactNo}}</strong>
                   </a>
-                </li>
+                </li> -->
                 <li>
                   <a href="about.html">
                     <span>
@@ -52,10 +51,10 @@
                 <a [routerLink]="['/setting/faq']" class="subText">FAQ
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a [routerLink]="['/setting/support']" class="subText">Support
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a [routerLink]="['/setting/privacypolicy']" class="subText">Privacy Policy</a>
               </li>
@@ -67,7 +66,7 @@
           </div>
           <!-- Grid column -->
           <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
+          <div class="col-md-2 mb-md-0 mb-2">
             <h5 class="text-uppercase">Business </h5>
             <ul class="list-unstyled">
               <li>
@@ -81,41 +80,42 @@
               </a>
             </li>
             </ul>
-
-            <h5 class="text-uppercase">Social Medias</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a [attr.href]="data?.facebookLink">
-                  <i class="fa fa-facebook-square fa-lg " aria-hidden="true"></i>
-                </a>
-                <a [attr.href]="data?.twitterLink">
-                  <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
-                </a>
-                <a [attr.href]="data?.googlePlusLink">
-                  <i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i>
-                </a>
-                <a [attr.href]="data?.instagramLink">
-                  <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-                </a>
-              </li>
-
-            </ul>
           </div>
           <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
+          <div class="col-md-2 mb-md-0 mb-2">
             <h5 class="text-uppercase">Quick Link </h5>
             <ul class="list-unstyled">
               <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Subscribe</a></li>
-              <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Search business</a></li>
+              <!-- <li><a (click)="getSubscrbe()" class="subText" style="color: rgb(194, 194, 194)">Search business</a></li> -->
               <!-- <li><a [routerLink]="['/account/login-business']">Business user login</a></li> -->
             </ul>
           </div>
+          <div class="col-md-2 mb-md-0 mb-2">
+              <h5 class="text-uppercase">Social Medias</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a [attr.href]="data?.facebookLink">
+                    <i class="fa fa-facebook-square fa-lg " aria-hidden="true"></i>
+                  </a>
+                  <a [attr.href]="data?.twitterLink">
+                    <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
+                  </a>
+                  <a [attr.href]="data?.googlePlusLink">
+                    <i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i>
+                  </a>
+                  <a [attr.href]="data?.instagramLink">
+                    <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+                  </a>
+                </li>
+  
+              </ul>
+            </div>
         </div>
       </div>
     </footer>
     <!-- Footer -->
   </div>
-</div>
+
 
 
 

@@ -1,33 +1,33 @@
 <form>
   <div class="pageBoxLg">
     <div class="container-fluid">
-
-      <div>
-
+      <div> 
         <div class="row gridRow" *ngFor="let data of listingModel">
-          <div class="col-md-4">
-            <img class="mySlides" [src]="data.logImageName" alt="custom_html_banner1" style="width:120px">
+          <div class="col-md-3">
+            <img class="imgView" [src]="data.logImageName" alt="custom_html_banner1" style="width:120px">
           </div>
-          <div class="col-md-4">
-
+          <div class="col-md-3">
             <div class="row">
               <div class=" vcenter form-group">
-                <h4> {{data.companyName}} </h4>
-            
-                <h6>{{data.categoryName}}, {{data.subCategoryName}} </h6>
+                <h4 class="alignment"> {{data.companyName}} </h4>
+                <h6 class="paras">{{data.categoryName}},
+                   {{data.subCategoryName}} ,      
+                   {{data.country}}</h6>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
+            <div style="margin-top: 20px;">
             <button class="btn btn-success" (click)="details(data)">Full Details</button>
           </div>
-
+          </div>
+          <div class="col-md-3">
+              <div class="claxz">
+             <p>{{data.emailId}}</p> 
+             <a [attr.href]="data?.weblink">{{data.weblink}}</a>
+              </div>
+            </div>
         </div>
-
-
-
-
-
       </div>
     </div>
     <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[50, 100, 150]" [showFirstLastButtons]="true"

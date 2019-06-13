@@ -68,7 +68,7 @@
           <div class="col-md-3" *ngFor="let data of paymentModel">
             <div class="card bg-light mb-3 coVer" style="max-width: 18rem;">
               <div class="card-header headerClass">
-                <mat-radio-button color="primary" [value]="data">{{data.duration}} Days</mat-radio-button>
+                <mat-radio-button color="primary" [value]="data">{{data.month}}</mat-radio-button>
               </div>
               <div class="card-body">
                 <h1 class="card-title titleClass">&#36; {{data.amount}}</h1>

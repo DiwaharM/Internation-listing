@@ -1,13 +1,13 @@
-<div class="container">
-  <h3 class="catTopic">
-    Featured businesses
-  </h3>
-  <div class="row">
-    <app-carousel-item>
-      <div appCarouselItem class="col-md-3 col-lg-3 col-xl-3 col-3 " >
-        <img [src]="data.logImageName" class="img-fluid">
+
+  <div class="container">
+      <h3 class="catTopic">Featured businesses</h3>
+    <div class="row">
+        <app-carousel-item>
+       <div appCarouselItem class="col-md-3 col-3 gridCoverss" *ngFor="let data of promotionsModel">
+        <a (click)=getData(data)>
+            <img [src]="data.logImageName" class="img-promo">
         <h5 class="companyName"> {{data.companyName}}</h5>
-        <h6 class="country"> {{data.country}} </h6>
+        <h6 class="companyName"> {{data.country}} </h6></a>
       </div>
     </app-carousel-item>
   </div>

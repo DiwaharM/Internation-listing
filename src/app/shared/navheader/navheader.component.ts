@@ -18,6 +18,7 @@ public logoStyle = {
   'padding-left': '0px',
 };
 
+/* navbarShow = false; */
   headers: Header;
   dropShow = false;
   navbarShow = false;
@@ -41,6 +42,9 @@ public logoStyle = {
         }
       });
   }
+  /* toggleNavbar() {
+    this.navbarShow = !this.navbarShow;
+  } */
 
 
 

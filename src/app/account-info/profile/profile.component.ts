@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   showImage = false;
   fileLength: any;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-              public dialog: MatDialog, private accountService: AcountService) { }
+    public dialog: MatDialog, private accountService: AcountService) { }
 
   ngOnInit() {
     this.createForm();

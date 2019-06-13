@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CompanyImagesComponent } from './company-images/company-images.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { RenewPackageComponent } from './renew-package/renew-package.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,11 @@ const routes: Routes = [
     {
       path: 'packageDetail',
       component: PackageDetailComponent
-    }]
+    },
+  {
+    path: 'renewPackage',
+    component: RenewPackageComponent
+  }]
   }
 ];
 

@@ -1,26 +1,30 @@
 <form>
-  <div class="pageBoxLg">
+  <div class="pageBoxLg" style="background: rgb(255, 254, 237);">
     <div class="container-fluid">
       <div class="row gridRow" *ngFor="let data of listingModel">
-        <div class="col-md-4 ">
+        <div class="col-md-3 col-lg-3 col-xl-3 col-3 ">
           <img class="imgView" [src]="data.logImageName" alt="custom_html_banner1">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-lg-3 col-xl-3 col-3" >
               <h4 class="alignment"> 
                 {{data.companyName}}
                </h4>
               <h6 class="paras">
                 {{data.categoryName}}, 
-                {{data.subCategoryName}}
+                {{data.subCategoryName}},
+                {{data.country}}
               </h6>
         </div>
-        <div class="col-md-4">
-          <h1 style="text-align: center;">
+        <div class="col-md-3 col-lg-3 col-xl-3 col-3">
+          <h1 style="margin-top: 40px;">
           <button class="btn btn-success" (click)="details(data)">Full Details</button>
         </h1>
+        </div >
+        <div class="col-md-3 col-lg-3 col-xl-3 col-3">
+         <p class="listingZ" >{{data.emailId}}</p>
+         <p class="listingZ"><a [attr.href]="data?.weblink">{{data.weblink}}</a></p>
         </div>
       </div>
-
     </div>
     <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[50, 100, 150]" [showFirstLastButtons]="true"
       [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">

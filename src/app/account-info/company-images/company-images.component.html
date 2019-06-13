@@ -1,115 +1,129 @@
-
-  <div>
-    <label>Company Images</label>
-    <div class="form-group col-md-12" *ngFor="let data of headerModel">
-      <div *ngFor="let url of data.companyImageName">
-      <img  [src]="url" style="width: 100px; height: 100px;" />
-       <button mat-icon-button mat-sm-button color="primary" matTooltip="Delete"
-            (click)="deleteCompanyImage(url, data._id)">
-            <mat-icon> clear </mat-icon>
-          </button>
-        </div>
-    </div>
-  </div>
-  
-  <div class="row">
-    <label>
-      <input type="file" (change)="handleFileInput($event.target.files)" multiple>
-    </label>
+<div>
+  <label>Company Details</label>
+  <div class="form-group col-md-12" *ngFor="let data of headerModel">
     <div class="row">
-      <div class="col-md-4 pb-2" *ngFor="let url of urls">
-        <mat-card class="card">
-          <img class="logoZs" [src]="url"/>
-        </mat-card>
-      </div>
+      <div class="col-md-2" *ngFor="let url of data.companyImageName">
+        <img [src]="url" style="width: 100px; height: 100px;" />
+        <div>
+        <button mat-icon-button mat-sm-button color="primary" matTooltip="Delete"
+        (click)="deleteCompanyImage(url, data._id)">
+        <i class="fa fa-times" aria-hidden="true"></i> 
+      </button>
     </div>
-    <div class="col-md-1">
-      <p class="float-right">
-        <button mat-raised-button class="buttonuD" (click)="uploadImages()" type="submit">Update</button>
-      </p>
+      </div>
+      
     </div>
   </div>
-  <div class="row " >
-    <div *ngIf="editshow === false">
-      <div class="form-row" *ngFor="let data of headerModel">
-        <div class="col-md-12">
-          <button mat-raised-button (click)="getShowEdit()" class="buttonuD">Edit</button>
-        </div>
-        <div class="col-md-4  col-6">
+</div>
 
-          <div class="form-group">
-            <label class="divLable">Company Name</label>
-          </div>
+<div class="row">
+  <label>
+    <input type="file" (change)="handleFileInput($event.target.files)" multiple>
+  </label>
+  <div class="row">
+    <div class="col-md-4 pb-2" *ngFor="let url of urls">
+      <mat-card class="card">
+        <img class="logoZs" [src]="url" />
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <p class="float-right">
+      <button mat-raised-button class="buttonuD" (click)="uploadImages()" type="submit">Update</button>
+    </p>
+  </div>
+</div>
+<div class="row ">
+  <div *ngIf="editshow === false">
+    <div class="form-row" *ngFor="let data of headerModel">
+      <div class="col-md-12">
+        <button mat-raised-button (click)="getShowEdit()" class="buttonuD">Edit</button>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Company Name</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.listingCompanyName}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.listingCompanyName}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Country</label>
-          </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Country</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.listingCountry}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.listingCountry}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Category</label>
-          </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">State</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.categoryName}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.listingState}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Sub Category</label>
-          </div>
+      </div>
+
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Category</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.subCategoryName}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.categoryName}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Web Link</label>
-          </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Sub Category</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.weblink}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.subCategoryName}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Mobile Number</label>
-          </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Web Link</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.listingMobileNumber}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.weblink}}</label>
         </div>
-        <div class="col-md-4  col-6">
-          <div class="form-group">
-            <label class="divLable">Email-ID</label>
-          </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Mobile Number</label>
         </div>
-        <div class="col-md-8  col-6">
-          <div class="form-group">
-            : <label class="itemLable">{{data.listingEmailId}}</label>
-          </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.listingMobileNumber}}</label>
+        </div>
+      </div>
+      <div class="col-md-4  col-6">
+        <div class="form-group">
+          <label class="divLable">Email-ID</label>
+        </div>
+      </div>
+      <div class="col-md-8  col-6">
+        <div class="form-group">
+          : <label class="itemLable">{{data.listingEmailId}}</label>
         </div>
       </div>
     </div>
+  </div>
 
-    <form [formGroup]="profileForm" *ngIf="editshow ===true">
+  <form [formGroup]="profileForm" *ngIf="editshow ===true">
     <div class="form-row">
       <div class="form-group col-md-6">
         <mat-form-field class="example-full-width">
@@ -136,33 +150,49 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
+        <div *ngIf="this.showCategory === true">
           <mat-form-field>
-              <mat-select placeholder="Select the Category" [(ngModel)]="profileValue.categoryName" 
-               (ngModelChange)="profileValue.categoryName=$event" 
-               (selectionChange)="changed($event)"
-                formControlName="categoryName">
-                <mat-option *ngFor="let data of Category" [value]="data">
-                  {{data.categoryName}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <mat-select placeholder="Select the Category" [(ngModel)]="profileValue.categoryName"
+              (ngModelChange)="profileValue.categoryName=$event" (selectionChange)="changed($event)"
+              formControlName="categoryName">
+              <mat-option *ngFor="let data of Category" [value]="data">
+                {{data.categoryName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div *ngIf="this.showCategory === false">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Category" [readonly]=true maxlength="20"
+              [(ngModel)]="profileValue.categoryName" formControlName="categoryName">
+          </mat-form-field>
+        </div>
       </div>
       <div class="form-group col-md-6">
+        <div *ngIf="this.showCategory === true">
           <mat-form-field>
-              <mat-select placeholder="Select the subCategory" 
-              [(ngModel)]="profileValue.subCategoryName" 
-               (ngModelChange)="profileValue.subCategoryName=$event" formControlName="subCategoryName">
-                <mat-option *ngFor="let data of subCategory" [value]="data">
-                  {{data.mainCategoryName}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+            <mat-select placeholder="Select the subCategory" [(ngModel)]="profileValue.subCategoryName"
+              (ngModelChange)="profileValue.subCategoryName=$event" formControlName="subCategoryName">
+              <mat-option *ngFor="let data of subCategory" [value]="data">
+                {{data.mainCategoryName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div *ngIf="this.showCategory === false">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Sub-Category" maxlength="20" [readonly]=true
+              [(ngModel)]="profileValue.subCategoryName" formControlName="subCategoryName">
+          </mat-form-field>
+        </div>
       </div>
+
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="E=Mail ID" [(ngModel)]="profileValue.listingEmailId" formControlName="listingEmailId" required>
+          <input matInput placeholder="E=Mail ID" [(ngModel)]="profileValue.listingEmailId"
+            formControlName="listingEmailId" required>
 
           <mat-error *ngIf="profileForm.controls['listingEmailId'].errors?.required">
             EailId
@@ -171,25 +201,31 @@
         </mat-form-field>
       </div>
       <div class="form-group col-md-6">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="WebLink" [(ngModel)]="profileValue.weblink" formControlName="weblink" required>
-  
-            <mat-error *ngIf="profileForm.controls['weblink'].errors?.required">
-              weblink
-              <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="WebLink" [(ngModel)]="profileValue.weblink" formControlName="weblink" required>
+
+          <mat-error *ngIf="profileForm.controls['weblink'].errors?.required">
+            weblink
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
       <!--    </div> -->
       <!-- <div class="form-row"> -->
-
       <div class="form-group col-md-6">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="mobileNumber" [(ngModel)]="profileValue.listingMobileNumber" maxlength="10"
             formControlName="listingMobileNumber" required>
-
           <mat-error *ngIf="profileForm.controls['listingMobileNumber'].errors?.required">
             Mobile Number is
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="State" [(ngModel)]="profileValue.listingState" maxlength="10"
+            formControlName="listingState" required>
+          <mat-error *ngIf="profileForm.controls['listingState'].errors?.required">
+            State is
             <strong>required</strong>
           </mat-error>
         </mat-form-field>
@@ -198,10 +234,11 @@
     <div class="form-row">
       <div class="col-md-12">
         <p class="float-right">
-          <button mat-raised-button   class="buttonuD" type="submit" (click)="onSubmit(profileForm, profileValue)" >Update</button>
-          <button mat-raised-button  (click)="cancel()"  class="buttonuD" type="submit">Cancel</button>
+          <button mat-raised-button class="buttonuD" type="submit"
+            (click)="onSubmit(profileForm, profileValue)">Update</button>
+          <button mat-raised-button (click)="cancel()" class="buttonuD" type="submit">Cancel</button>
         </p>
       </div>
     </div>
   </form>
-  </div>
+</div>

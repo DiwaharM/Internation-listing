@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  holder: any;
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.checkExpirtDate();
   }
 
+  checkExpirtDate() {
+    this.homeService.getCheckExpiryDate().subscribe(data => {
+      this.holder = data;
+    }, error => {
+      console.log(error);
+    });
+  }
 }

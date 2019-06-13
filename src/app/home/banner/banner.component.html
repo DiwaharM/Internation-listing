@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div class="row">
     <div class="col-md-12 col-lg-12 col-xl-12 col-12 gridProbs" *ngFor='let banner of banners; let i = index'>
       <img [src]="banner.bannerImage" alt="custom_html_banner1" class="img-banner">
@@ -15,25 +15,22 @@
       </div>
     </div>
   </div>
-</div>
-
-
-<!-- <div class="homeCategoriesBlock" style="width: 1350px;">
-  <div class="container">
+</div> -->
+<div>
     <div class="row">
-      <ul class="list-unstyled" *ngFor="let data of icons">
-        <li>
-          <img [src]='data.iconList' class="img-responsive">
-          <p [ngStyle]='oneStyle'>{{data.name1}}</p>
-        </li>
-        <p [ngStyle]='twoStyle'> {{data.name2}}</p>
-        <p [ngStyle]='threeStyle'> {{data.name3}}</p>
-        <p [ngStyle]='threeStyle'>{{data.name4}}</p>
-        <p [ngStyle]='threeStyle'> {{data.name5}}</p>
-        <p [ngStyle]='threeStyle'> {{data.name6}}</p>
-        <p [ngStyle]='threeStyle'> {{data.name7}}</p>
-        <p [ngStyle]='threeStyle'> {{data.name8}}</p>
-      </ul>
+      <div class="col-md-12 col-lg-12 col-xl-12 col-12 " *ngFor='let banner of banners; let i = index'>
+        <img [src]="banner.bannerImage" alt="custom_html_banner1" class="img-banner">
+        <div *ngFor='let logo of logoClass'>
+        </div>
+        <h1 class="bannerContent">#1 INDIAN WEBSITE FOR LISTING LOCAL BUSINESS</h1>
+        <div class="input-group cenTered">
+          <form class="search bannerSearch">
+            <input type="text" class="form-control bannerFrm" #search name="" placeholder="Search local business" >
+            <a class="button btn-smbtn" (click)="submit(search.value)">
+              <i class="fa fa-search fa-1x" aria-hidden="true"></i>
+            </a>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-</div> -->

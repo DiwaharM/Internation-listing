@@ -15,8 +15,9 @@ import { BusinessUserImage } from '../registration-business-user/businessDetail.
 export class PackageDetailComponent implements OnInit {
   userID: string;
   packageModel: string;
+  showPackage: boolean;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-              public dialog: MatDialog, private accountService: AcountService) { }
+    public dialog: MatDialog, private accountService: AcountService) { }
 
   ngOnInit() {
     this.getUserID();
@@ -24,8 +25,12 @@ export class PackageDetailComponent implements OnInit {
   }
   getPackage() {
     this.accountService.getPackage(this.userID).subscribe(data => {
-      /* console.log(data); */
-      this.packageModel = data;
+      if (data.length === 0) {
+        this.showPackage = false;
+      } else {
+        this.packageModel = data;
+        this.showPackage = true;
+      }
     }, error => {
       console.log(error);
     });

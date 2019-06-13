@@ -1,4 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg bg-dark border-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-light">
   <div class="logo-img" *ngFor='let header of headers'>
     <a class="navbar-brand d-sm-block d-md-block d-xs-black" [routerLink]="['/home/home-page']">
       <img [src]="header.logoImageName" [ngStyle]="logoStyle">
@@ -56,23 +56,23 @@
       <img [src]="header.logoImageName" [ngStyle]="logoStyle">
     </a>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleNavbar()"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" (mouseover)="toggleNavbar()"
     data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
     aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navbarShow}">
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navbarShow}">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link"> <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-  </div>
+  </div> -->
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" 
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" 
   [ngClass]="{'show': navbarShow}">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav navbar-right" >
       <li class="nav-item active" *ngIf="this.sharedService?.getLogin() !== 'true'">
         <div (click)="getSubscrbe()">
           <a class="nav-link navText">
@@ -92,14 +92,15 @@
           <h6 class="nav-link hnMenus">MyAccount</h6>
         </a>
       </li>
-      <li class="nav-item dropdown" *ngIf="this.sharedService?.getLogin() === 'true'">
+      <li class="nav-item dropdown " *ngIf="this.sharedService?.getLogin() === 'true'">
         <a class="nav-link dropdown-toggle textMenu" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" (click)="dropDownShow()" aria-expanded="false">
           MyAccount
         </a>
-        <div class="dropdown-menu " [ngClass]="{show: dropShow}" aria-labelledby="navbarDropdown">
+        <div  (click)="dropShow = !dropShow" class="dropdown-menu dropdown-menu-right" 
+        [ngClass]="{show: dropShow }" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/account/profile']">Profile</a>
-          <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', busUserID]">Listing Details</a>
+          <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', this.sharedService?.getUserId()]">Listing Details</a>
           <a class="dropdown-item" [routerLink]="['/account/changepasswrod']">Change Password</a>
           <a class="dropdown-item" (click)="logOut()">LogOut</a>
         </div>
@@ -107,3 +108,64 @@
     </ul>
   </div>
 </nav>
+ 
+
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <div class="logo-img" *ngFor='let header of headers'>
+      <a class="navbar-brand d-sm-block d-md-block d-xs-black" [routerLink]="['/home/home-page']">
+        <img [src]="header.logoImageName" [ngStyle]="logoStyle">
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleNavbar()"
+      data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': navbarShow}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link"> <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" 
+    [ngClass]="{'show': navbarShow}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active" *ngIf="this.sharedService?.getLogin() !== 'true'">
+          <div (click)="getSubscrbe()">
+            <a class="nav-link navText">
+              <h6 class="nav-link hnMenus">Subscribe</h6>
+            </a></div>
+        </li>
+        <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
+          <a class="nav-link navText" [routerLink]="['/account/reg-business']">
+            <h6 class="nav-link hnMenus">
+              Add Business
+  
+            </h6>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="this.sharedService?.getLogin() !== 'true'">
+          <a class="nav-link navText" [routerLink]="['/account/login-business']">
+            <h6 class="nav-link hnMenus">MyAccount</h6>
+          </a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="this.sharedService?.getLogin() === 'true'">
+          <a class="nav-link dropdown-toggle textMenu" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" (click)="dropDownShow()" aria-expanded="false">
+            MyAccount
+          </a>
+          <div class="dropdown-menu " [ngClass]="{show: dropShow}" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/account/profile']">Profile</a>
+            <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', this.sharedService?.getUserId()]">Listing Details</a>
+            <a class="dropdown-item" [routerLink]="['/account/changepasswrod']">Change Password</a>
+            <a class="dropdown-item" (click)="logOut()">LogOut</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ -->

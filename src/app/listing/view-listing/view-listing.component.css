@@ -90,7 +90,7 @@ vcenterHeader {
 .gridRow {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(183, 238, 255, 0.377);
   margin: 12px 0px;
-  background-color: rgba(0, 0, 0, 0.384);
+  background-color: rgba(159, 245, 192, 0.384);
   border-radius: 2px;
   font-size: .8rem !important;
 }
@@ -102,6 +102,7 @@ vcenterHeader {
   position: relative;
   background: #fff;
 /*   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+border-radius: 20px;
 }
 
 .pageBoxLg-label {
@@ -138,7 +139,7 @@ vcenterHeader {
   }
 
   .pageBoxLg {
-    border: 1px solid lightslategray;
+    border: 1px solid rgb(0, 57, 114);
     margin: 20px 20px 20px 20px;
     padding: 20px;
     position: relative;
@@ -147,7 +148,7 @@ vcenterHeader {
   }
 
   .pageBoxLg-label {
-    background: lightslategray;
+    background: rgb(230, 230, 230);
     margin: 0px 0px 0px 20px;
     font-size: 14px;
     padding: 2px 20px 2px 20px;
@@ -173,7 +174,7 @@ vcenterHeader {
   }
 
   .gridLabel {
-    color: lightslategray;
+    color: rgb(211, 211, 211);
     font-size: 8pt;
   }
 }
@@ -188,12 +189,28 @@ vcenterHeader {
 /* New Edition */
 
 .imgView{
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 100px;
+  margin: 15px;
 }
 .alignment{
   text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-family: 'Expert Sanss' !important;
+  margin-top: 40px;
+
 }
 .paras{
   text-align: center;
+  font-family: 'Expert Sanss' !important;
+
+}
+
+.listingZ{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-family: 'Expert Sanss' !important;
 }

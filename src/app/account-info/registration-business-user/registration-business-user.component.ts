@@ -8,8 +8,8 @@ import { MustMatch } from './must-match.validator';
 import { PasswordValidation } from './password.validator';
 import { AcountService } from '../acount.service';
 import { PackDetailModel } from './package-detail.model';
-import {WindowRefService} from './window-ref.service';
-import {PaymentDetail} from './paymentDetail.model';
+import { WindowRefService } from './window-ref.service';
+import { PaymentDetail } from './paymentDetail.model';
 
 @Component({
   selector: 'app-registration-business-user',
@@ -40,9 +40,9 @@ export class RegistrationBusinessUserComponent implements OnInit {
   paymentModel: any;
   paymentDetailModel: PaymentDetail;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-              public dialog: MatDialog, private accountService: AcountService,  private winRef: WindowRefService) { }
+    public dialog: MatDialog, private accountService: AcountService, private winRef: WindowRefService) { }
 
-              rzp1: any;
+  rzp1: any;
   ngOnInit() {
     this.createForm();
     this.getPaymentPackage();
@@ -87,10 +87,14 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.checkID = this.SelectedValue._id;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
-      console.log(data, 'data');
-  /*     this.initPay(data.razorpayOrderId); */
-  this.router.navigate(['add-listing/addcompanydetail']);
-      sessionStorage.setItem('usingID', data._id);
+      /*   console.log(data, 'data'); */
+      /* this.initPay(data.razorpayOrderId); */
+      this.router.navigate(['add-listing/addcompanydetail']);
+      sessionStorage.removeItem('subID');
+      sessionStorage.removeItem('subscribe');
+      sessionStorage.setItem('businessLogIn', 'true');
+      sessionStorage.setItem('userID', data._id);
+
     }, error => {
       console.log(error);
     });
@@ -98,36 +102,36 @@ export class RegistrationBusinessUserComponent implements OnInit {
   }
   initPay(orderId) {
     const options = {
-       key: 'rzp_live_8qoHdemEkXVG4k',
-       amount: '100',
-       order_id: orderId,
-       name: 'International Standard Listing',
-         handler: this.paymentResponseHander.bind(this)
-      };
+      key: 'rzp_live_8qoHdemEkXVG4k',
+      amount: '100',
+      order_id: orderId,
+      name: 'International Standard Listing',
+      handler: this.paymentResponseHander.bind(this)
+    };
     this.rzp1 = new this.winRef.nativeWindow.Razorpay(options);
     this.rzp1.open();
-    }
-    paymentResponseHander(response) {
-      console.log(response);
-     this.razorPayDetails(response);
-     /* this.router.navigate(['add-listing/addcompanydetail']); */
-    }
-    razorPayDetails(response) {
-      const USERID = sessionStorage.getItem('usingID');
-      this.paymentDetailModel = new PaymentDetail();
-      this.paymentDetailModel.paymentId = response.razorpay_payment_id;
-      this.paymentDetailModel.razorpayOrderId = response.razorpay_order_id;
-      this.paymentDetailModel.razorpaySignature = response.razorpay_signature;
-      this.accountService.addRazorpayResponse(this.paymentDetailModel, USERID).subscribe(data => {
-       console.log(data);
-     }, err => {
-       console.log(err);
-     });
-    }
+  }
+  paymentResponseHander(response) {
+    console.log(response);
+    this.razorPayDetails(response);
+    this.router.navigate(['add-listing/addcompanydetail']);
+  }
+  razorPayDetails(response) {
+    const USERID = sessionStorage.getItem('usingID');
+    this.paymentDetailModel = new PaymentDetail();
+    this.paymentDetailModel.paymentId = response.razorpay_payment_id;
+    this.paymentDetailModel.razorpayOrderId = response.razorpay_order_id;
+    this.paymentDetailModel.razorpaySignature = response.razorpay_signature;
+    this.accountService.addRazorpayResponse(this.paymentDetailModel, USERID).subscribe(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    });
+  }
   getPaymentPackage() {
     this.accountService.getAllPaymentPackage().subscribe(data => {
       this.paymentModel = data;
-      /* console.log(data); */
+      console.log(data);
     }, error => {
       console.log(error);
     });

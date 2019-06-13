@@ -28,6 +28,7 @@ export class ViewListingDetailsComponent implements OnInit {
   temp2: BusinessUserModel;
   counting: any;
   showcounting = false;
+  idValue: any;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private listingService: ListingService, private fb: FormBuilder) {
@@ -39,24 +40,29 @@ export class ViewListingDetailsComponent implements OnInit {
   ngOnInit() {
     /*    this.getUserName(); */
     this.getSelectedListing();
-    this.getUserDetail();
+    /* this.getUserDetail(); */
     /*  this.getAllReview(); */
   }
   getSelectedListing() {
     this.listingService.getSelectedListing(this.id).subscribe(data => {
       this.similarID = data[0].category;
       this.listingModel = data;
+      this.idValue = data[0];
       this.getSimilarCompany(this.similarID);
       this.getAllReview();
       this.getUserName();
       this.getCustomerLog();
-      /*  console.log(this.listingModel); */
+      this.getUserDetail();
+       /* console.log(this.listingModel); */
     }, err => {
       console.log(err);
     });
   }
   getUserDetail() {
-    if (sessionStorage.getItem('businessLogIn')) {
+    this.userID = sessionStorage.getItem('userID');
+    console.log(this.userID);
+    console.log(this.idValue);
+    if (sessionStorage.getItem('businessLogIn') && this.userID === this.idValue._id) {
       this.showcounting = true;
     } else {
       this.showcounting = false;
@@ -120,7 +126,7 @@ export class ViewListingDetailsComponent implements OnInit {
       this.userID = sessionStorage.getItem('subID');
     }
     if (this.userID === this.listingModel[0]._id) {
-      console.log('exist');
+   /*    console.log('exist'); */
       this.getVisitorCounting();
     } else {
       this.customerID = new CustomerLog();
@@ -141,7 +147,7 @@ export class ViewListingDetailsComponent implements OnInit {
     this.temp1.date = new Date().toISOString().slice(0, 10);
     this.listingService.getVistiorCount(this.temp1, this.listingModel[0]._id).subscribe(data => {
       this.counting = data;
-      console.log(data);
+     /*  console.log(data); */
     }, error => {
       console.log(error);
     });

@@ -33,4 +33,9 @@ export class HomeService {
     const url: string = this.serviceUrl + listUrl;
     return this.http.get<Ads>(url);
   }
+  getCheckExpiryDate(): Observable<any> {
+    const listUrl = 'checkExpirt';
+    const url: string = this.serviceUrl + listUrl;
+    return this.http.get<any>(url);
+  }
 }
