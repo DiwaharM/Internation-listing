@@ -9,7 +9,7 @@ export class AccountDetailsComponent implements OnInit {
 
   constructor() { }
   profiledetails = [{ name: 'Profile', link: '/account/profile' },
-  { name: 'Company Images', link: '/account/companyimage' },
+  { name: 'Company Details', link: '/account/companyimage' },
   { name: 'Package Details', link: '/account/packageDetail' }
   ];
   ngOnInit() {

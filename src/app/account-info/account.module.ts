@@ -49,7 +49,8 @@ import { RenewPackageComponent } from './renew-package/renew-package.component';
 
 @NgModule({
   declarations: [RegistrationUserComponent, RegistrationBusinessUserComponent, LoginBusinessUserComponent,
-    AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent, PasswordChangeComponent, RenewPackageComponent],
+                 AccountDetailsComponent, ProfileComponent, CompanyImagesComponent, PackageDetailComponent,
+                 PasswordChangeComponent, RenewPackageComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

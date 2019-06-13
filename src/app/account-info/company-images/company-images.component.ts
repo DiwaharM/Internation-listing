@@ -27,6 +27,7 @@ export class CompanyImagesComponent implements OnInit {
   firstValue: BusinessUserModel;
   subCategory;
   secondValue: BusinessUserModel;
+  showCategory: boolean;
   /*   assetListingService: any; */
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
@@ -94,6 +95,11 @@ export class CompanyImagesComponent implements OnInit {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
       this.profileValue = data[0];
+      if (this.profileValue.categoryName === undefined || this.profileValue.categoryName === null) {
+        this.showCategory = true;
+      } else {
+        this.showCategory = false;
+      }
     }, error => {
       console.log(error);
     });
@@ -120,6 +126,8 @@ export class CompanyImagesComponent implements OnInit {
     this.secondValue.listingCountry = row.listingCountry;
     this.secondValue.listingEmailId = row.listingEmailId;
     this.secondValue.listingMobileNumber = row.listingMobileNumber;
+    this.secondValue.companyName = row.companyName;
+    this.secondValue.subCategoryName = row.subCategoryName;
     this.secondValue.weblink = row.weblink;
     this.accountService.updateCompanyDetails(this.secondValue, row._id).subscribe(data => {
       this.secondValue = data;
