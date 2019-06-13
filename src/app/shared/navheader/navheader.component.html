@@ -148,7 +148,7 @@
           </a>
           <div class="dropdown-menu " [ngClass]="{show: dropShow}" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/account/profile']">Profile</a>
-            <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', busUserID]">Listing Details</a>
+            <a class="dropdown-item" [routerLink]="['/listing/viewlistingdetail/', this.sharedService?.getUserId()]">Listing Details</a>
             <a class="dropdown-item" [routerLink]="['/account/changepasswrod']">Change Password</a>
             <a class="dropdown-item" (click)="logOut()">LogOut</a>
           </div>

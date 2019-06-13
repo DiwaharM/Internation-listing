@@ -43,6 +43,7 @@ export class CompanyImagesComponent implements OnInit {
     this.profileForm = this.fb.group({
       listingCompanyName: ['', Validators.required],
       listingCountry: ['', Validators.required],
+      listingState: [''],
       categoryName: [''],
       subCategoryName: [''],
       weblink: [''],
@@ -80,6 +81,7 @@ export class CompanyImagesComponent implements OnInit {
       console.log(error);
     });
     this.getProjile();
+    this.profileForm.reset();
     this.redirect();
   }
   redirect() {
@@ -107,6 +109,7 @@ export class CompanyImagesComponent implements OnInit {
   getAllCategory() {
     this.accountService.getCategory().subscribe(data => {
       this.Category = data;
+      console.log(data);
     }, error => {
       console.log(error);
     });
@@ -122,12 +125,23 @@ export class CompanyImagesComponent implements OnInit {
   }
   onSubmit(profileForm: FormGroup, row) {
     this.secondValue = new BusinessUserModel();
+    console.log(row);
     this.secondValue.listingCompanyName = row.listingCompanyName;
     this.secondValue.listingCountry = row.listingCountry;
     this.secondValue.listingEmailId = row.listingEmailId;
+    if (this.showCategory === true) {
+      this.secondValue.categoryName = row.categoryName.categoryName;
+      this.secondValue.subCategoryName = row.subCategoryName.mainCategoryName;
+      this.secondValue.category = row.categoryName._id;
+      this.secondValue.subCategory = row.subCategoryName._id;
+    } else {
+      this.secondValue.categoryName = row.categoryName;
+      this.secondValue.subCategoryName = row.subCategoryName;
+      this.secondValue.category = this.profileValue.category;
+      this.secondValue.subCategory = this.profileValue.subCategory;
+    }
+    this.secondValue.listingState = row.listingState;
     this.secondValue.listingMobileNumber = row.listingMobileNumber;
-    this.secondValue.companyName = row.companyName;
-    this.secondValue.subCategoryName = row.subCategoryName;
     this.secondValue.weblink = row.weblink;
     this.accountService.updateCompanyDetails(this.secondValue, row._id).subscribe(data => {
       this.secondValue = data;

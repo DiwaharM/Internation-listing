@@ -26,6 +26,9 @@ export class SharedService {
   getLogin() {
     return sessionStorage.getItem('businessLogIn');
   }
+  getUserId() {
+    return sessionStorage.getItem('userID');
+  }
   getFooter(): Observable<any> {
     const sharedUrl = 'getfooter';
     const url: string = this.serviceUrl + sharedUrl;

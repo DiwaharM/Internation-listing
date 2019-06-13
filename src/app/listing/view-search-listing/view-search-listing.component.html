@@ -14,12 +14,14 @@
               <div class=" vcenter form-group">
                 <h4> {{data.companyName}} </h4>
             
-                <h6>{{data.categoryName}}, {{data.subCategoryName}} </h6>
+                <h6>{{data.categoryName}}, {{data.subCategoryName}} ,      {{data.country}}</h6>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <button class="btn btn-success" (click)="details(data)">Full Details</button>
+            {{data.emailId}}
+            {{data.weblink}}
           </div>
 
         </div>

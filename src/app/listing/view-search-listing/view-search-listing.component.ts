@@ -53,4 +53,12 @@ export class ViewSearchListingComponent implements OnInit {
     const part = this.array.slice(start, end);
     this.listingModel = part;
   }
+  details(data) {
+    if (sessionStorage.getItem('businessLogIn') || sessionStorage.getItem('subscribe')) {
+      this.router.navigate(['listing/viewlistingdetail/', data._id]);
+    } else {
+      this.snackBar.open('Please subscribe', 'OK', { duration: 1000, panelClass: ['blue-snackbar'] });
+
+    }
+  }
 }

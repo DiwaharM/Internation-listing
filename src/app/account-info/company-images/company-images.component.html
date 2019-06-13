@@ -35,7 +35,6 @@
           <button mat-raised-button (click)="getShowEdit()" class="buttonuD">Edit</button>
         </div>
         <div class="col-md-4  col-6">
-
           <div class="form-group">
             <label class="divLable">Company Name</label>
           </div>
@@ -55,6 +54,17 @@
             : <label class="itemLable">{{data.listingCountry}}</label>
           </div>
         </div>
+        <div class="col-md-4  col-6">
+            <div class="form-group">
+              <label class="divLable">State</label>
+            </div>
+          </div>
+          <div class="col-md-8  col-6">
+            <div class="form-group">
+              : <label class="itemLable">{{data.listingState}}</label>
+            </div>
+          </div>
+        
         <div class="col-md-4  col-6">
           <div class="form-group">
             <label class="divLable">Category</label>
@@ -208,6 +218,14 @@
               <strong>required</strong>
             </mat-error>
           </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="State" [(ngModel)]="profileValue.listingState" maxlength="10"
+                formControlName="listingState" required>
+              <mat-error *ngIf="profileForm.controls['listingState'].errors?.required">
+                State is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
         </div>
       </div>
       <div class="form-row">

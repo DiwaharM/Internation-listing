@@ -6,6 +6,7 @@ export class BusinessUserModel {
     lastName: string;
     companyName: string;
     country: string;
+    listingState: string;
     emailId: string;
     mobileNumber: string;
     password: string;

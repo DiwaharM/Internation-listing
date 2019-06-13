@@ -43,6 +43,7 @@ export class AddCompanyDetailsComponent implements OnInit {
     this.firstFormGroup = this.fb.group({
       companyName: ['', Validators.required],
       country: [''],
+      state: [''],
       emailId: [''],
       mobileNumber: [''],
       websitelink: [''],
@@ -80,6 +81,7 @@ export class AddCompanyDetailsComponent implements OnInit {
     this.companyDetail = new BusinessUserModel();
     this.companyDetail.listingCompanyName = this.firstFormGroup.controls.companyName.value;
     this.companyDetail.listingCountry = this.firstFormGroup.controls.country.value;
+    this.companyDetail.listingState = this.firstFormGroup.controls.state.value;
     this.companyDetail.listingEmailId = this.firstFormGroup.controls.emailId.value;
     this.companyDetail.listingMobileNumber = this.firstFormGroup.controls.mobileNumber.value;
     this.companyDetail.weblink = this.firstFormGroup.controls.websitelink.value;
@@ -106,7 +108,7 @@ export class AddCompanyDetailsComponent implements OnInit {
     this.firstValue = new BusinessUserModel();
     this.firstValue.category = e.value;
     this.addListService.getSubCategory(this.firstValue).subscribe(data => {
-      console.log(data);
+      /* console.log(data); */
       this.subCategory = data[0].mainCategory;
     }, error => {
       console.log(error);

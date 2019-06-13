@@ -11,12 +11,16 @@
                </h4>
               <h6 class="paras">
                 {{data.categoryName}}, 
-                {{data.subCategoryName}}
+                {{data.subCategoryName}},
+                {{data.country}}
+
               </h6>
         </div>
         <div class="col-md-4">
           <h1 style="text-align: center;">
           <button class="btn btn-success" (click)="details(data)">Full Details</button>
+          {{data.emailId}}
+          {{data.weblink}}
         </h1>
         </div>
       </div>
