@@ -94,7 +94,7 @@ export class CompanyImagesComponent implements OnInit {
     this.accountService.getProfil(this.userId).subscribe(data => {
       this.headerModel = data;
       this.profileValue = data[0];
-      console.log(data);
+      /* console.log(data); */
     }, error => {
       console.log(error);
     });
