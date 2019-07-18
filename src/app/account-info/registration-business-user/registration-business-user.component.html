@@ -11,42 +11,42 @@
         <div class="row carDRF">
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="FirstName" formControlName="firstName" required>
+              <input matInput placeholder="FirstName" formControlName="firstName" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="LastName" formControlName="lastName" required>
+              <input matInput placeholder="LastName" formControlName="lastName" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="CompanyName" formControlName="companyName" required>
+              <input matInput placeholder="CompanyName" formControlName="companyName" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="Country" formControlName="country" required>
+              <input matInput placeholder="Country" formControlName="country" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="EmailId" formControlName="emailId" required>
+              <input matInput placeholder="EmailId" formControlName="emailId" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="Mobile Number" formControlName="mobileNumber" required>
+              <input matInput placeholder="Mobile Number" formControlName="mobileNumber" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" min="8" required>
+              <input matInput placeholder="Password" formControlName="password" min="8" >
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field>
-              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" min="8" required>
+              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" min="8" >
             </mat-form-field>
           </div>
         </div>
@@ -56,8 +56,57 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
+
+  <mat-step [stepControl]="secondFormGroup" >
     <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>
+        <b>
+          <i class="fa fa-asterisk" aria-hidden="true"></i>
+          Address Details
+        </b>
+      </ng-template>
+      <mat-card class="card controlAll">
+        <div class="row carDRF">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Address Line1" formControlName="addressLine1" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Address Line2" formControlName="addressLine2" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Land Mark" formControlName="landMark" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="City" formControlName="city" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="State" formControlName="state" >
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput placeholder="Pincode" formControlName="pincode" >
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+      <div>
+        <button mat-stroked-button [ngStyle]='buttonStyle' matStepperNext><b>Next</b></button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>
         <i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i>
         Select Payment Details

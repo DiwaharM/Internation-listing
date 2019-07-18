@@ -10,6 +10,12 @@ export class BusinessUserModel {
     emailId: string;
     mobileNumber: string;
     password: string;
+    addressLine1: string;
+    addressLine2: string;
+    landMark: string;
+    city: string;
+    state: string;
+    pincode: string;
     listingCompanyName: string;
     listingCountry: string;
     listingEmailId: string;

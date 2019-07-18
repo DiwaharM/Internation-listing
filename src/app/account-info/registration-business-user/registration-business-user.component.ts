@@ -33,6 +33,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   message;
   action;
   SelectedValue: any;
@@ -49,19 +50,26 @@ export class RegistrationBusinessUserComponent implements OnInit {
   }
   createForm() {
     this.firstFormGroup = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: [''],
+      lastName: [''],
       companyName: [''],
       country: [''],
       emailId: [''],
       mobileNumber: [''],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      password: [''],
+      confirmPassword: ['']
     }, {
-        /* validator: PasswordValidation.MatchPassword */
         validator: MustMatch('password', 'confirmPassword')
       });
     this.secondFormGroup = this.fb.group({
+      addressLine1: [''],
+      addressLine2: [''],
+      landMark: [''],
+      city: [''],
+      state: [''],
+      pincode: ['']
+    });
+    this.thirdFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required]
     });
   }
@@ -85,6 +93,12 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.mobileNumber = this.firstFormGroup.controls.mobileNumber.value;
     this.regModel.password = this.firstFormGroup.controls.password.value;
     this.regModel.checkID = this.SelectedValue._id;
+    this.regModel.addressLine1 = this.secondFormGroup.controls.addressLine1.value;
+    this.regModel.addressLine2 = this.secondFormGroup.controls.addressLine2.value;
+    this.regModel.landMark = this.secondFormGroup.controls.landMark.value;
+    this.regModel.city = this.secondFormGroup.controls.city.value;
+    this.regModel.state = this.secondFormGroup.controls.state.value;
+    this.regModel.pincode = this.secondFormGroup.controls.pincode.value;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
       /*   console.log(data, 'data'); */
