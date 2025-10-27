@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AddCompanyDetailsComponent } from './add-company-details/add-company-details.component';
 import { BusinessUserListingComponent } from './business-user-listing/business-user-listing.component';
+import { AuthGuard } from '../shared/auth.guard';
 
 const routes: Routes = [
   {
     path: 'addcompanydetail',
-    component: AddCompanyDetailsComponent
+    component: AddCompanyDetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'viewlisting',
-    component: BusinessUserListingComponent
+    component: BusinessUserListingComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

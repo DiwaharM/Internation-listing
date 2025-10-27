@@ -4,7 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 import { BusinessUserModel } from '../registration-business-user/business-user.model';
-import { AcountService } from '../acount.service';
+import { AccountService } from '../account.service';
 import { BusinessUserImage } from '../registration-business-user/businessDetail.model';
 
 @Component({
@@ -17,7 +17,7 @@ export class PackageDetailComponent implements OnInit {
   packageModel: string;
   showPackage: boolean;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-    public dialog: MatDialog, private accountService: AcountService) { }
+    public dialog: MatDialog, private accountService: AccountService) { }
 
   ngOnInit() {
     this.getUserID();

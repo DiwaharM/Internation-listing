@@ -40,7 +40,7 @@ export class ListingService {
     return this.http.get<any>(url);
   }
   getSimilarCompany(id): Observable<any> {
-    const sharedUrl = 'getsimilarcomany/';
+    const sharedUrl = 'getsimilarcompany/';
     const url: string = this.serviceUrl + sharedUrl + id;
     return this.http.get<any>(url);
   }

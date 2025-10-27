@@ -6,10 +6,11 @@ import { MatSnackBar } from '@angular/material';
 import { BusinessUserModel } from '../registration-business-user/business-user.model';
 import { MustMatch } from './must-match.validator';
 import { PasswordValidation } from './password.validator';
-import { AcountService } from '../acount.service';
+import { AccountService } from '../account.service';
 import { PackDetailModel } from './package-detail.model';
 import { WindowRefService } from './window-ref.service';
 import { PaymentDetail } from './paymentDetail.model';
+import { AppSetting } from '../../config/appSetting';
 
 @Component({
   selector: 'app-registration-business-user',
@@ -17,19 +18,6 @@ import { PaymentDetail } from './paymentDetail.model';
   styleUrls: ['./registration-business-user.component.css']
 })
 export class RegistrationBusinessUserComponent implements OnInit {
-  public buttonStyle =
-    {
-      margin: '8px',
-      width: '50%',
-      border: '1px solid rgb(3, 70, 15)',
-      'border-radius': '1px',
-      'background-color': 'rgba(1, 85, 5, 0.349)',
-      color: 'rgb(3, 70, 15)',
-      'font-family': 'Expert san',
-      'font-size': '20px',
-      'text-transform': 'uppercase',
-      'letter-spacing': '0.8px'
-    };
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -41,7 +29,7 @@ export class RegistrationBusinessUserComponent implements OnInit {
   paymentModel: any;
   paymentDetailModel: PaymentDetail;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-    public dialog: MatDialog, private accountService: AcountService, private winRef: WindowRefService) { }
+    public dialog: MatDialog, private accountService: AccountService, private winRef: WindowRefService) { }
 
   rzp1: any;
   ngOnInit() {
@@ -81,7 +69,6 @@ export class RegistrationBusinessUserComponent implements OnInit {
 
   selectValue(e) {
     this.SelectedValue = e.value;
-    console.log(this.SelectedValue);
   }
   submit() {
     this.regModel = new BusinessUserModel();
@@ -101,7 +88,6 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.regModel.pincode = this.secondFormGroup.controls.pincode.value;
     this.accountService.createBussUser(this.regModel).subscribe(data => {
       this.regModel = data;
-      /*   console.log(data, 'data'); */
       /* this.initPay(data.razorpayOrderId); */
       this.router.navigate(['add-listing/addcompanydetail']);
       sessionStorage.removeItem('subID');
@@ -110,13 +96,13 @@ export class RegistrationBusinessUserComponent implements OnInit {
       sessionStorage.setItem('userID', data._id);
 
     }, error => {
-      console.log(error);
+      // Error handling - could show user notification here
     });
 
   }
   initPay(orderId) {
     const options = {
-      key: 'rzp_live_8qoHdemEkXVG4k',
+      key: AppSetting.razorpayKey,
       amount: '100',
       order_id: orderId,
       name: 'International Standard Listing',
@@ -126,7 +112,6 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.rzp1.open();
   }
   paymentResponseHander(response) {
-    console.log(response);
     this.razorPayDetails(response);
     this.router.navigate(['add-listing/addcompanydetail']);
   }
@@ -136,19 +121,24 @@ export class RegistrationBusinessUserComponent implements OnInit {
     this.paymentDetailModel.paymentId = response.razorpay_payment_id;
     this.paymentDetailModel.razorpayOrderId = response.razorpay_order_id;
     this.paymentDetailModel.razorpaySignature = response.razorpay_signature;
-    this.accountService.addRazorpayResponse(this.paymentDetailModel, USERID).subscribe(data => {
-      console.log(data);
-    }, err => {
-      console.log(err);
-    });
+    this.accountService.addRazorpayResponse(this.paymentDetailModel, USERID).subscribe(
+      data => {
+        // Payment response recorded successfully
+      },
+      err => {
+        // Error handling for payment response
+      }
+    );
   }
   getPaymentPackage() {
-    this.accountService.getAllPaymentPackage().subscribe(data => {
-      this.paymentModel = data;
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
+    this.accountService.getAllPaymentPackage().subscribe(
+      data => {
+        this.paymentModel = data;
+      },
+      error => {
+        // Error handling for payment packages
+      }
+    );
   }
 }
 

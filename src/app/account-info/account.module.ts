@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountRoutingModule } from './account-routing.module';
-import { AcountService } from './acount.service';
+import { AccountService } from './account.service';
 import {
   MatSidenavModule,
   MatListModule,
@@ -86,7 +86,7 @@ import { RenewPackageComponent } from './renew-package/renew-package.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [AcountService, WindowRefService],
+  providers: [AccountService, WindowRefService],
   entryComponents: []
 })
 export class AccountModule { }

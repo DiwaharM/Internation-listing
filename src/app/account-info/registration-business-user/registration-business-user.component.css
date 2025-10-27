@@ -65,3 +65,16 @@ border:  1px solid green;
   font-family: 'Expert Sans';
 
 }
+
+.custom-button-style {
+  margin: 8px;
+  width: 50%;
+  border: 1px solid rgb(3, 70, 15);
+  border-radius: 1px;
+  background-color: rgba(1, 85, 5, 0.349);
+  color: rgb(3, 70, 15);
+  font-family: 'Expert san';
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}

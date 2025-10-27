@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BusinessUserModel } from '../registration-business-user/business-user.model';
-import { AcountService } from '../acount.service';
+import { AccountService } from '../account.service';
 @Component({
   selector: 'app-login-business-user',
   templateUrl: './login-business-user.component.html',
@@ -18,7 +18,7 @@ export class LoginBusinessUserComponent implements OnInit {
   loginValue: BusinessUserModel;
   loginFailed = false;
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder,
-              private acountService: AcountService) { }
+              private acountService: AccountService) { }
 
   ngOnInit() {
     this.createForm();

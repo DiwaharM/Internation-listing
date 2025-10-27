@@ -10,6 +10,7 @@ import { CompanyImagesComponent } from './company-images/company-images.componen
 import { PackageDetailComponent } from './package-detail/package-detail.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { RenewPackageComponent } from './renew-package/renew-package.component';
+import { AuthGuard } from '../shared/auth.guard';
 
 
 const routes: Routes = [
@@ -19,11 +20,16 @@ const routes: Routes = [
   },
   {
     path: 'changepasswrod',
-    component: PasswordChangeComponent
+    component: PasswordChangeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reg-business',
     component: RegistrationBusinessUserComponent
+  },
+  {
+    path: 'login',
+    component: LoginBusinessUserComponent
   },
   {
     path: 'login-business',
@@ -32,6 +38,7 @@ const routes: Routes = [
   {
     path: '',
     component: AccountDetailsComponent,
+    canActivate: [AuthGuard],
     children: [{
       path: 'profile',
       component: ProfileComponent

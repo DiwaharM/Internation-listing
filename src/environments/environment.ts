@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  razorpayKey: 'YOUR_RAZORPAY_KEY_HERE' // TODO: Set this in your deployment environment
 };
 
 /*

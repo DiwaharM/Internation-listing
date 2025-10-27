@@ -7,7 +7,7 @@ import {PaymentDetail} from './registration-business-user/paymentDetail.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AcountService {
+export class AccountService {
   serviceUrl: string = AppSetting.serviceUrl;
   constructor(private http: HttpClient) { }
   createBussUser(data): Observable<any> {
@@ -85,7 +85,7 @@ export class AcountService {
     return this.http.post<BusinessUserModel>(url, data);
   }
   deleteCompanyImage(data, id): Observable<any> {
-    const listUrl = 'deletecompanyimgae/';
+    const listUrl = 'deletecompanyimage/';
     const url: string = this.serviceUrl + listUrl + id;
     return this.http.post<BusinessUserModel>(url, data);
   }
